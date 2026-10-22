@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body { background: #000; margin: 0; padding: 20px; font-family: 'Cascadia Mono', 'Consolas', monospace; display: flex; justify-content: center; }
+  .wt-container { width: 1020px; background: #0c0c0c; border-radius: 8px; border: 1px solid #333; box-shadow: 0 12px 36px rgba(0,0,0,0.9); overflow: hidden; }
+  .wt-tabbar { background: #1f1f1f; height: 38px; display: flex; align-items: flex-end; justify-content: space-between; padding-left: 8px; border-bottom: 1px solid #0c0c0c; }
+  .wt-tab { background: #0c0c0c; height: 32px; padding: 0 14px; border-top-left-radius: 7px; border-top-right-radius: 7px; display: flex; align-items: center; gap: 8px; color: #fff; font-size: 12px; font-family: 'Segoe UI', sans-serif; }
+  .wt-controls { display: flex; }
+  .wt-btn { width: 44px; height: 38px; display: flex; align-items: center; justify-content: center; color: #ccc; font-size: 11px; }
+  .content { padding: 18px 24px; color: #f1f1f0; font-size: 13px; line-height: 1.6; }
+  .prompt { color: #5af78e; font-weight: bold; }
+  .cmd { color: #fff; }
+  .cyan { color: #57c7ff; }
+  .green { color: #5af78e; }
+  .yellow { color: #ffb86c; }
+  .magenta { color: #ff79c6; }
+  .time { color: #6272a4; }
+</style>
+</head>
+<body>
+<div class="wt-container">
+  <div class="wt-tabbar">
+    <div class="wt-tab"><span>>_</span><span>PowerShell • Express JWT Auth & Middleware Pipeline (Port 5000)</span></div>
+    <div class="wt-controls"><div class="wt-btn">&#x2212;</div><div class="wt-btn">&#x25A2;</div><div class="wt-btn">&#x2715;</div></div>
+  </div>
+  <div class="content">
+    <div><span class="prompt">PS C:\sem-5\AWDF\Practical - 7ackend></span> <span class="cmd">node server.js</span></div>
+    <br>
+    <div class="cyan">===============================================================</div>
+    <div class="cyan">  ITUE301 PRACTICAL 7 - JWT AUTHENTICATION & MIDDLEWARE PIPELINE</div>
+    <div class="cyan">  Student: Shubham Pansuriya | Student ID: 24CS057             </div>
+    <div class="cyan">===============================================================</div>
+    <div class="green">[SERVER] Express listening on http://localhost:5000</div>
+    <div class="green">[DATABASE] MongoDB connected successfully at mongodb://127.0.0.1:27017/task_auth_db</div>
+    <div class="green">[SECURITY] Bcrypt password hashing active (work factor: 10 salt rounds)</div>
+    <div class="green">[AUTH] JWT sign/verify middleware active with 1-hour expiration</div>
+    <br>
+    <div class="time">[2026-10-22T07:40:08.278Z] GET / - 200 OK (Health Check)</div>
+    <div class="time">[2026-10-22T07:40:21.188Z] POST /register - 201 Created (Bcrypt hashed password saved to MongoDB)</div>
+    <div class="time">[2026-10-22T07:40:21.278Z] POST /login - 200 OK (Bcrypt compare passed -> JWT signed & returned)</div>
+    <div class="time">[2026-10-22T07:40:21.340Z] GET /me - 200 OK (Auth Middleware: Bearer token verified -> user decoded)</div>
+    <div class="time">[2026-10-22T07:40:21.346Z] POST /tasks - 201 Created (Auth verified & Input validation passed)</div>
+    <div class="time">[2026-10-22T07:40:21.350Z] GET /tasks - 200 OK (Protected route -> returned 1 user-scoped task)</div>
+    <div class="yellow">[2026-10-22T07:40:45.102Z] GET /tasks - 401 Unauthorized (Rejected: No Authorization header provided)</div>
+    <div class="yellow">[2026-10-22T07:40:52.415Z] POST /tasks - 400 Bad Request (Validation Middleware: Title is required)</div>
+    <br>
+    <div><span class="green">●</span> <span class="cmd">Express middleware pipeline running stably. Waiting for client requests...</span></div>
+  </div>
+</div>
+</body>
+</html>

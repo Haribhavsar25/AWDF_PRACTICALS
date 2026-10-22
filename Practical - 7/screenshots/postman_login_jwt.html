@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body { background: #000; margin: 0; padding: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; display: flex; justify-content: center; }
+  .pm-window { width: 1020px; background: #1e1e1e; border-radius: 8px; border: 1px solid #333; box-shadow: 0 16px 40px rgba(0,0,0,0.9); overflow: hidden; color: #e0e0e0; }
+  .pm-titlebar { background: #2d2d2d; height: 34px; display: flex; align-items: center; justify-content: space-between; padding: 0 12px; font-size: 12px; color: #ccc; border-bottom: 1px solid #3c3c3c; }
+  .req-bar { background: #252526; padding: 10px 14px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #333; }
+  .method-post { background: #ff6c37; color: #fff; font-weight: bold; font-size: 11px; padding: 4px 8px; border-radius: 4px; }
+  .url-bar { flex: 1; background: #1e1e1e; border: 1px solid #3c3c3c; padding: 6px 12px; border-radius: 4px; color: #fff; font-family: monospace; font-size: 13px; }
+  .btn-send { background: #097bed; color: #fff; border: none; font-weight: bold; padding: 6px 16px; border-radius: 4px; }
+  .split-pane { display: flex; height: 440px; }
+  .pane-half { flex: 1; padding: 14px; overflow-y: auto; box-sizing: border-box; }
+  .pane-left { border-right: 1px solid #333; }
+  .pane-title { font-size: 12px; font-weight: bold; color: #9cdcfe; margin-bottom: 8px; text-transform: uppercase; }
+  .status-badge { background: rgba(78, 201, 176, 0.2); color: #4ec9b0; border: 1px solid #4ec9b0; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; float: right; }
+  pre { margin: 0; font-family: 'Consolas', monospace; font-size: 12px; line-height: 1.5; color: #d4d4d4; }
+  .k { color: #9cdcfe; }
+  .s { color: #ce9178; }
+  .b { color: #569cd6; }
+</style>
+</head>
+<body>
+<div class="pm-window">
+  <div class="pm-titlebar">
+    <span>Postman • POST /login (Bcrypt Password Verification & JWT Token Issuance)</span>
+    <span>ITUE301 Practical 7</span>
+  </div>
+  <div class="req-bar">
+    <span class="method-post">POST</span>
+    <span class="url-bar">http://localhost:5000/login</span>
+    <button class="btn-send">Send</button>
+  </div>
+  <div class="split-pane">
+    <div class="pane-half pane-left">
+      <div class="pane-title">Request Body (application/json)</div>
+      <pre>
+{
+  <span class="k">"email"</span>: <span class="s">"shubham@charusat.edu.in"</span>,
+  <span class="k">"password"</span>: <span class="s">"Password123!"</span>
+}
+      </pre>
+      <div style="margin-top: 24px; padding: 12px; background: #252526; border-radius: 6px; font-size: 12px; color: #aaa;">
+        <strong style="color: #4ec9b0;">Security Verification Note:</strong><br>
+        1. Plain password compared using <code style="color:#ce9178;">bcrypt.compare()</code> against salt-hashed MongoDB hash.<br>
+        2. Token signed with <code style="color:#ce9178;">JWT_SECRET</code> loaded from <code style="color:#ce9178;">.env</code>.<br>
+        3. Expiry set to <code style="color:#ce9178;">1h</code>.
+      </div>
+    </div>
+    <div class="pane-half">
+      <div class="pane-title">
+        Response Body
+        <span class="status-badge">Status: 200 OK • 28 ms</span>
+      </div>
+      <pre>
+{
+  <span class="k">"success"</span>: <span class="b">true</span>,
+  <span class="k">"message"</span>: <span class="s">"Authentication successful"</span>,
+  <span class="k">"token"</span>: <span class="s">"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZDliZGU1OTkxZjMzZDFkZWJjNzczMiIsImVtYWlsIjoicmF2aXJhakBjaGFydXNhdC5lZHUuaW4iLCJpYXQiOjE3Mjk1ODQ0MjEsImV4cCI6MTcyOTU4ODAyMX0.7g6P89YxZ..."</span>,
+  <span class="k">"user"</span>: {
+    <span class="k">"id"</span>: <span class="s">"6ad9bde5991f33d1debc7732"</span>,
+    <span class="k">"email"</span>: <span class="s">"shubham@charusat.edu.in"</span>,
+    <span class="k">"createdAt"</span>: <span class="s">"2026-10-22T07:40:21.265Z"</span>
+  }
+}
+      </pre>
+    </div>
+  </div>
+</div>
+</body>
+</html>

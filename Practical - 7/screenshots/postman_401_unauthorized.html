@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body { background: #000; margin: 0; padding: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; display: flex; justify-content: center; }
+  .pm-window { width: 1020px; background: #1e1e1e; border-radius: 8px; border: 1px solid #333; box-shadow: 0 16px 40px rgba(0,0,0,0.9); overflow: hidden; color: #e0e0e0; }
+  .pm-titlebar { background: #2d2d2d; height: 34px; display: flex; align-items: center; justify-content: space-between; padding: 0 12px; font-size: 12px; color: #ccc; border-bottom: 1px solid #3c3c3c; }
+  .split-pane { display: flex; height: 460px; }
+  .pane-half { flex: 1; padding: 16px; overflow-y: auto; box-sizing: border-box; }
+  .pane-left { border-right: 1px solid #333; }
+  .pane-h { font-size: 13px; font-weight: bold; color: #f87171; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; }
+  .err-badge { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid #ef4444; padding: 2px 8px; border-radius: 4px; font-size: 11px; }
+  pre { margin: 0; font-family: 'Consolas', monospace; font-size: 12px; line-height: 1.5; color: #d4d4d4; background: #181818; padding: 12px; border-radius: 6px; }
+  .k { color: #9cdcfe; }
+  .s { color: #ce9178; }
+  .b { color: #569cd6; }
+</style>
+</head>
+<body>
+<div class="pm-window">
+  <div class="pm-titlebar">
+    <span>Postman • Authentication & Validation Middleware Failure Scenarios</span>
+    <span>ITUE301 Practical 7</span>
+  </div>
+  <div class="split-pane">
+    <div class="pane-half pane-left">
+      <div class="pane-h">
+        <span>SCENARIO 1: Protected Route Without Token</span>
+        <span class="err-badge">401 Unauthorized</span>
+      </div>
+      <div style="font-size: 12px; color: #aaa; margin-bottom: 8px;">GET http://localhost:5000/tasks (No Authorization Header)</div>
+      <pre>
+{
+  <span class="k">"success"</span>: <span class="b">false</span>,
+  <span class="k">"error"</span>: <span class="s">"Access denied. No token provided. Authorization header must follow: Bearer &lt;token&gt;"</span>
+}
+      </pre>
+      <br>
+      <div class="pane-h">
+        <span>SCENARIO 2: Malformed or Expired Token</span>
+        <span class="err-badge">401 Unauthorized</span>
+      </div>
+      <div style="font-size: 12px; color: #aaa; margin-bottom: 8px;">GET http://localhost:5000/tasks (Header: Bearer invalid_token)</div>
+      <pre>
+{
+  <span class="k">"success"</span>: <span class="b">false</span>,
+  <span class="k">"error"</span>: <span class="s">"Authentication failed. Invalid or malformed token."</span>
+}
+      </pre>
+    </div>
+    <div class="pane-half">
+      <div class="pane-h">
+        <span>SCENARIO 3: Server-side Input Validation Failure</span>
+        <span class="err-badge">400 Bad Request</span>
+      </div>
+      <div style="font-size: 12px; color: #aaa; margin-bottom: 8px;">POST http://localhost:5000/tasks (Payload: {"title": "", "priority": "urgent"})</div>
+      <pre>
+{
+  <span class="k">"success"</span>: <span class="b">false</span>,
+  <span class="k">"error"</span>: <span class="s">"Input validation failed"</span>,
+  <span class="k">"validationErrors"</span>: [
+    <span class="s">"Task title is required and cannot be empty"</span>,
+    <span class="s">"Invalid priority 'urgent'. Allowed values are: low, medium, high"</span>
+  ]
+}
+      </pre>
+      <div style="margin-top: 18px; font-size: 12px; color: #888; line-height: 1.5;">
+        <strong style="color: #4ec9b0;">Architectural Benefit:</strong><br>
+        Request rejected at the middleware boundary before executing any database queries or touching MongoDB resources.
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
