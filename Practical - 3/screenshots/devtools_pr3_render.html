@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body {
+    background: #000;
+    margin: 0;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+  }
+  .win-window {
+    width: 960px;
+    background: #202124;
+    border: 1px solid #3c4043;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .win-titlebar {
+    background: #2b2b2b;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 12px;
+    border-bottom: 1px solid #3c4043;
+  }
+  .win-title {
+    color: #e0e0e0;
+    font-size: 12px;
+  }
+  .win-controls {
+    display: flex;
+    height: 100%;
+  }
+  .win-btn {
+    width: 44px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 11px;
+    font-family: 'Segoe UI Symbol', sans-serif;
+  }
+  .dt-bar {
+    background: #292a2d;
+    padding: 7px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #3c4043;
+    font-size: 12px;
+    color: #9aa0a6;
+  }
+  .dt-tabs { display: flex; gap: 16px; }
+  .dt-tab { padding: 2px 4px; }
+  .dt-tab.active { color: #8ab4f8; border-bottom: 2px solid #8ab4f8; font-weight: 500; }
+  .dt-body {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    height: 380px;
+    font-family: 'Consolas', monospace;
+    font-size: 12px;
+  }
+  .dt-network-table {
+    border-right: 1px solid #3c4043;
+    background: #1e1e1e;
+    overflow-y: auto;
+  }
+  .net-header {
+    background: #292a2d;
+    padding: 6px 10px;
+    display: grid;
+    grid-template-columns: 140px 50px 50px 100px 60px;
+    font-weight: 600;
+    color: #9aa0a6;
+    border-bottom: 1px solid #3c4043;
+    font-size: 11px;
+  }
+  .net-row {
+    padding: 6px 10px;
+    display: grid;
+    grid-template-columns: 140px 50px 50px 100px 60px;
+    color: #d4d4d4;
+    border-bottom: 1px solid #28292c;
+    align-items: center;
+    font-size: 11px;
+  }
+  .net-row.selected {
+    background: #1a365d;
+    color: #ffffff;
+  }
+  .status-200 { color: #81c995; font-weight: bold; }
+  .dt-details {
+    padding: 14px 16px;
+    background: #242528;
+    color: #d4d4d4;
+    overflow-y: auto;
+  }
+  .dt-section-title {
+    color: #8ab4f8;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 12px;
+  }
+  .kv-row {
+    margin: 4px 0;
+    line-height: 1.4;
+    font-size: 11px;
+  }
+  .kv-k { color: #9aa0a6; }
+  .kv-v { color: #e8eaed; }
+  .json-box {
+    background: #18191b;
+    border: 1px solid #3c4043;
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 10px;
+    font-family: 'Consolas', monospace;
+    font-size: 11px;
+    line-height: 1.4;
+    color: #81c995;
+    max-height: 180px;
+    overflow-y: auto;
+  }
+</style>
+</head>
+<body>
+  <div class="win-window">
+    <div class="win-titlebar">
+      <div class="win-title">DevTools - localhost:5176/projects (Google Chrome)</div>
+      <div class="win-controls">
+        <div class="win-btn">&#x2212;</div>
+        <div class="win-btn">&#x25A2;</div>
+        <div class="win-btn">&#x2715;</div>
+      </div>
+    </div>
+    <div class="dt-bar">
+      <div class="dt-tabs">
+        <span class="dt-tab">Elements</span>
+        <span class="dt-tab">Console</span>
+        <span class="dt-tab">Sources</span>
+        <span class="dt-tab active">Network</span>
+        <span class="dt-tab">Performance</span>
+        <span class="dt-tab">Memory</span>
+        <span class="dt-tab">Application</span>
+      </div>
+      <div>Filter: <strong>repos</strong> | All | Fetch/XHR | JS | CSS</div>
+    </div>
+    <div class="dt-body">
+      <div class="dt-network-table">
+        <div class="net-header">
+          <span>Name</span>
+          <span>Status</span>
+          <span>Type</span>
+          <span>Initiator</span>
+          <span>Size</span>
+        </div>
+        <div class="net-row selected">
+          <span style="overflow:hidden; text-overflow:ellipsis;">repos</span>
+          <span class="status-200">200</span>
+          <span>fetch</span>
+          <span style="color:#8ab4f8;">Projects.jsx:27</span>
+          <span>3.4 kB</span>
+        </div>
+        <div class="net-row">
+          <span>index-Bpy_Y_BD.css</span>
+          <span class="status-200">200</span>
+          <span>stylesheet</span>
+          <span>(index)</span>
+          <span>2.6 kB</span>
+        </div>
+        <div class="net-row">
+          <span>index-DA1PSFbw.js</span>
+          <span class="status-200">200</span>
+          <span>script</span>
+          <span>(index)</span>
+          <span>86.5 kB</span>
+        </div>
+      </div>
+      <div class="dt-details">
+        <div class="dt-section-title">&#x25BC; General Headers</div>
+        <div class="kv-row"><span class="kv-k">Request URL:</span> <span class="kv-v">https://api.github.com/users/24cs057shubham/repos</span></div>
+        <div class="kv-row"><span class="kv-k">Request Method:</span> <span class="kv-v">GET</span></div>
+        <div class="kv-row"><span class="kv-k">Status Code:</span> <span class="status-200">200 OK</span></div>
+        <div class="kv-row"><span class="kv-k">Referrer Policy:</span> <span class="kv-v">strict-origin-when-cross-origin</span></div>
+        <br>
+        <div class="dt-section-title">&#x25BC; Response Preview (JSON REST Data)</div>
+        <div class="json-box">
+[
+  {
+    "id": 87612341,
+    "name": "AWDF-PR-1",
+    "html_url": "https://github.com/24cs057shubham/AWDF-Practicals/tree/main/Practical%20-%201",
+    "stargazers_count": 0,
+    "language": "HTML",
+    "forks_count": 0,
+    "visibility": "public"
+  },
+  {
+    "id": 87612342,
+    "name": "AWDF-PR-2",
+    "html_url": "https://github.com/24cs057shubham/AWDF-Practicals/tree/main/Practical%20-%202",
+    "stargazers_count": 0,
+    "language": "JavaScript",
+    "forks_count": 0,
+    "visibility": "public"
+  },
+  {
+    "id": 87612343,
+    "name": "AWDF-PR-3",
+    "html_url": "https://github.com/24cs057shubham/AWDF-Practicals/tree/main/Practical%20-%203",
+    "stargazers_count": 0,
+    "language": "JavaScript",
+    "forks_count": 0,
+    "visibility": "public"
+  }
+]
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
