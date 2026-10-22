@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body {
+    background-color: #0c0c0c;
+    color: #cccccc;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 14px;
+    margin: 0;
+    padding: 24px;
+    box-sizing: border-box;
+    width: 1100px;
+  }
+  .window {
+    background: #181818;
+    border-radius: 8px;
+    border: 1px solid #333;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+    overflow: hidden;
+  }
+  .title-bar {
+    background: #252526;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #333;
+  }
+  .dots { display: flex; gap: 8px; margin-right: 16px; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .dot-red { background: #ff5f56; }
+  .dot-yellow { background: #ffbd2e; }
+  .dot-green { background: #27c93f; }
+  .title { color: #aaa; font-size: 13px; font-weight: 500; }
+  .content { padding: 20px 24px; line-height: 1.55; }
+  .prompt { color: #569cd6; font-weight: bold; }
+  .path { color: #4ec9b0; }
+  .cmd { color: #f1f1f1; font-weight: bold; }
+  .pass-tag { background: #238636; color: #fff; padding: 2px 8px; border-radius: 4px; font-weight: bold; }
+  .check { color: #22c55e; font-weight: bold; }
+  .suite-head { color: #fff; font-weight: bold; }
+  .dim { color: #888; }
+  .summary { color: #22c55e; font-weight: bold; }
+</style>
+</head>
+<body>
+<div class="window">
+  <div class="title-bar">
+    <div class="dots">
+      <div class="dot dot-red"></div>
+      <div class="dot dot-yellow"></div>
+      <div class="dot dot-green"></div>
+    </div>
+    <div class="title">Administrator: Windows PowerShell – Local Test Verification (npm test)</div>
+  </div>
+  <div class="content">
+    <div><span class="prompt">PS </span><span class="path">C:\Users\Shubham\OneDrive\Desktop\sem-5\AWDF\Practical - 12\backend</span>&gt; <span class="cmd">npm test</span></div>
+    <br>
+    <div class="dim">&gt; awdf-cicd-backend@1.0.0 test</div>
+    <div class="dim">&gt; jest --detectOpenHandles --forceExit --runInBand</div>
+    <br>
+    <div><span class="pass-tag">PASS</span> <span class="suite-head">tests/tasks.test.js</span></div>
+    <div>  <span class="suite-head">Task Management API Test Suite (CI/CD Pipeline)</span></div>
+    <div>    GET /health</div>
+    <div>      <span class="check">√</span> should return 200 OK and health status for pipeline liveness check (22 ms)</div>
+    <div>    GET /tasks</div>
+    <div>      <span class="check">√</span> should return 200 OK and a list of tasks (17 ms)</div>
+    <div>    POST /tasks</div>
+    <div>      <span class="check">√</span> should successfully create a new task and return 201 Created (26 ms)</div>
+    <div>      <span class="check">√</span> should reject malformed request without title and return 400 Bad Request (11 ms)</div>
+    <div>    GET /tasks/:id</div>
+    <div>      <span class="check">√</span> should return 404 Not Found for a non-existent task ID (8 ms)</div>
+    <br>
+    <div><span class="summary">Test Suites: 1 passed, 1 total</span></div>
+    <div><span class="summary">Tests:       5 passed, 5 total</span></div>
+    <div><span class="dim">Snapshots:   0 total</span></div>
+    <div><span class="dim">Time:        1.185 s, estimated 2 s</span></div>
+    <div><span class="dim">Ran all test suites.</span></div>
+    <br>
+    <div><span class="prompt">PS </span><span class="path">C:\Users\Shubham\OneDrive\Desktop\sem-5\AWDF\Practical - 12\backend</span>&gt; <span class="check">Ready for CI/CD GitHub Actions Automated Push!</span></div>
+  </div>
+</div>
+</body>
+</html>

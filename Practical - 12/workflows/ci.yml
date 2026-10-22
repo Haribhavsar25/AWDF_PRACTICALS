@@ -1,0 +1,64 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  # Job 1 (Supplementary Problem 1): Code Quality & Linting
+  lint:
+    name: Code Quality & Linting
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./backend
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+          cache-dependency-path: backend/package.json
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Verify Code Syntax and Formatting
+        run: node --check server.js
+
+  # Job 2: Build & Automated Testing Pipeline
+  build-and-test:
+    name: Build & Automated Tests
+    runs-on: ubuntu-latest
+    needs: lint
+    defaults:
+      run:
+        working-directory: ./backend
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+          cache-dependency-path: backend/package.json
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Automated Jest Test Suite
+        run: npm test
+        env:
+          NODE_ENV: test
+          PORT: 5001
+
+      - name: Verify Build Status
+        if: success()
+        run: echo "CI Pipeline Passed! All tests verified successfully."

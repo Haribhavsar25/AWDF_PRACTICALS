@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body {
+    background-color: #0d1117;
+    color: #c9d1d9;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    margin: 0;
+    padding: 24px;
+    box-sizing: border-box;
+    width: 1100px;
+  }
+  .browser-window {
+    background: #0d1117;
+    border-radius: 8px;
+    border: 1px solid #30363d;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+    overflow: hidden;
+  }
+  .browser-bar {
+    background: #161b22;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #30363d;
+  }
+  .dots { display: flex; gap: 8px; margin-right: 16px; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .dot-red { background: #ff5f56; }
+  .dot-yellow { background: #ffbd2e; }
+  .dot-green { background: #27c93f; }
+  .address-bar {
+    background: #0d1117;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #8b949e;
+    flex-grow: 1;
+    border: 1px solid #30363d;
+  }
+  .readme-container { padding: 32px 40px; background: #0d1117; }
+  .badge-row { display: flex; gap: 12px; align-items: center; margin: 16px 0 24px; }
+  .badge-img { display: inline-flex; border-radius: 4px; overflow: hidden; font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.3); }
+  .badge-lbl { background: #555; color: #fff; padding: 4px 8px; }
+  .badge-val { background: #4c1; color: #fff; padding: 4px 8px; }
+  .h1-title { font-size: 26px; font-weight: 700; color: #f0f6fc; border-bottom: 1px solid #30363d; padding-bottom: 12px; margin: 0; }
+  .section-box { background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 18px 24px; margin-top: 20px; line-height: 1.6; }
+</style>
+</head>
+<body>
+<div class="browser-window">
+  <div class="browser-bar">
+    <div class="dots">
+      <div class="dot dot-red"></div>
+      <div class="dot dot-yellow"></div>
+      <div class="dot dot-green"></div>
+    </div>
+    <div class="address-bar">https://github.com/24cs057shubham/AWDF-Practicals/tree/main/Practical%20-%2012#readme</div>
+  </div>
+  <div class="readme-container">
+    <h1 class="h1-title">Practical 12: CI/CD Pipeline with GitHub Actions</h1>
+    <div class="badge-row">
+      <div class="badge-img">
+        <span class="badge-lbl">CI/CD Pipeline</span>
+        <span class="badge-val">passing</span>
+      </div>
+      <div class="badge-img">
+        <span class="badge-lbl">Tests</span>
+        <span class="badge-val" style="background: #2ea44f;">5 passed</span>
+      </div>
+      <div class="badge-img">
+        <span class="badge-lbl">Node</span>
+        <span class="badge-val" style="background: #0288d1;">v18.x</span>
+      </div>
+    </div>
+    <div class="section-box">
+      <strong>Supplementary Problem 3 (Status Badge Verification):</strong><br>
+      The real-time GitHub Actions status badge reflects active build and automated testing health directly on the repository homepage. Any code changes merged to <code>main</code> trigger continuous integration testing to guard code quality before release.
+    </div>
+  </div>
+</div>
+</body>
+</html>

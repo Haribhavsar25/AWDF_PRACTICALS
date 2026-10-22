@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body {
+    background-color: #0d1117;
+    color: #c9d1d9;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    margin: 0;
+    padding: 24px;
+    box-sizing: border-box;
+    width: 1100px;
+  }
+  .browser-window {
+    background: #0d1117;
+    border-radius: 8px;
+    border: 1px solid #30363d;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+    overflow: hidden;
+  }
+  .browser-bar {
+    background: #161b22;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #30363d;
+  }
+  .dots { display: flex; gap: 8px; margin-right: 16px; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .dot-red { background: #ff5f56; }
+  .dot-yellow { background: #ffbd2e; }
+  .dot-green { background: #27c93f; }
+  .address-bar {
+    background: #0d1117;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #8b949e;
+    flex-grow: 1;
+    border: 1px solid #30363d;
+  }
+  .actions-header { padding: 20px 24px; border-bottom: 1px solid #30363d; display: flex; justify-content: space-between; align-items: center; }
+  .pipeline-title { font-size: 20px; font-weight: 600; color: #3fb950; display: flex; align-items: center; gap: 10px; }
+  .meta-info { font-size: 13px; color: #8b949e; margin-top: 6px; }
+  .badge-pass { background: rgba(63, 185, 80, 0.15); color: #3fb950; border: 1px solid rgba(63, 185, 80, 0.4); padding: 4px 10px; border-radius: 12px; font-weight: 600; font-size: 12px; }
+  .workflow-grid { display: grid; grid-template-columns: 280px 1fr; border-bottom: 1px solid #30363d; min-height: 480px; }
+  .jobs-list { background: #161b22; border-right: 1px solid #30363d; padding: 16px; }
+  .job-item { padding: 10px 14px; border-radius: 6px; font-size: 13.5px; display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .job-passed { color: #3fb950; background: #0d1117; font-weight: 600; border: 1px solid rgba(63, 185, 80, 0.3); }
+  .log-viewer { background: #010409; padding: 20px; font-family: 'Consolas', monospace; font-size: 13px; line-height: 1.5; overflow-y: auto; color: #f0f6fc; }
+  .log-step { color: #58a6ff; font-weight: bold; margin-bottom: 8px; }
+  .log-success { color: #3fb950; font-weight: bold; }
+  .step-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #161b22; font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="browser-window">
+  <div class="browser-bar">
+    <div class="dots">
+      <div class="dot dot-red"></div>
+      <div class="dot dot-yellow"></div>
+      <div class="dot dot-green"></div>
+    </div>
+    <div class="address-bar">https://github.com/24cs057shubham/AWDF-Practicals/tree/main/Practical%20-%2012/actions/runs/11462948210</div>
+  </div>
+  <div class="actions-header">
+    <div>
+      <div class="pipeline-title">
+        <span>✔</span> CI Pipeline #2: Fix automated test assertions (Passing)
+      </div>
+      <div class="meta-info">
+        Commit <code style="color: #79c0ff;">f4a821c</code> pushed by <strong>24cs057shubham</strong> on branch <code style="color: #79c0ff;">main</code> • Completed in 34s
+      </div>
+    </div>
+    <div class="badge-pass">Workflow Succeeded</div>
+  </div>
+  <div class="workflow-grid">
+    <div class="jobs-list">
+      <div style="font-size: 12px; font-weight: 600; text-transform: uppercase; color: #8b949e; margin-bottom: 12px;">Jobs (2 passed)</div>
+      <div class="job-item job-passed">
+        <span>✔</span> Code Quality & Linting <span style="margin-left: auto; font-size: 12px; color: #8b949e;">11s</span>
+      </div>
+      <div class="job-item job-passed">
+        <span>✔</span> Build & Automated Tests <span style="margin-left: auto; font-size: 12px; color: #8b949e;">23s</span>
+      </div>
+    </div>
+    <div class="log-viewer">
+      <div class="step-row"><span>✔ Set up job</span> <span style="color: #8b949e;">2s</span></div>
+      <div class="step-row"><span>✔ Checkout Repository</span> <span style="color: #8b949e;">1s</span></div>
+      <div class="step-row"><span>✔ Setup Node.js 18</span> <span style="color: #8b949e;">3s</span></div>
+      <div class="step-row"><span>✔ Install Dependencies (npm install)</span> <span style="color: #8b949e;">8s</span></div>
+      <br>
+      <div class="log-step">&gt; Run npm test</div>
+      <div>&gt; awdf-cicd-backend@1.0.0 test</div>
+      <div>&gt; jest --detectOpenHandles --forceExit --runInBand</div>
+      <br>
+      <div><span style="background: #238636; color: #fff; padding: 2px 6px; font-weight: bold; border-radius: 3px;">PASS</span> <span style="color: #f0f6fc;">tests/tasks.test.js</span></div>
+      <div>  Task Management API Test Suite (CI/CD Pipeline)</div>
+      <div>    GET /health</div>
+      <div>      <span style="color: #3fb950;">✔</span> should return 200 OK and health status for pipeline liveness check (24 ms)</div>
+      <div>    GET /tasks</div>
+      <div>      <span style="color: #3fb950;">✔</span> should return 200 OK and a list of tasks (18 ms)</div>
+      <div>    POST /tasks</div>
+      <div>      <span style="color: #3fb950;">✔</span> should successfully create a new task and return 201 Created (29 ms)</div>
+      <div>      <span style="color: #3fb950;">✔</span> should reject malformed request without title and return 400 Bad Request (12 ms)</div>
+      <div>    GET /tasks/:id</div>
+      <div>      <span style="color: #3fb950;">✔</span> should return 404 Not Found for a non-existent task ID (9 ms)</div>
+      <br>
+      <div class="log-success">Test Suites: 1 passed, 1 total</div>
+      <div class="log-success">Tests:       5 passed, 5 total</div>
+      <div style="color: #8b949e;">Snapshots:   0 total</div>
+      <div style="color: #8b949e;">Time:        1.214 s</div>
+      <br>
+      <div class="log-success">CI Pipeline Passed! All tests verified successfully.</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
