@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body {
+    background: #000;
+    margin: 0;
+    padding: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+  }
+  .pm-window {
+    width: 980px;
+    background: #1e1e1e;
+    border-radius: 8px;
+    border: 1px solid #333333;
+    box-shadow: 0 12px 36px rgba(0,0,0,0.9);
+    overflow: hidden;
+    color: #e0e0e0;
+  }
+  .pm-titlebar {
+    background: #252526;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    border-bottom: 1px solid #333333;
+    font-size: 12px;
+  }
+  .pm-controls { display: flex; }
+  .pm-btn { width: 38px; height: 34px; display: flex; align-items: center; justify-content: center; font-size: 11px; }
+  .pm-grid {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    height: 480px;
+  }
+  .pm-subpanel {
+    border-bottom: 1px solid #333333;
+    display: flex;
+    flex-direction: column;
+  }
+  .pm-subpanel:last-child { border-bottom: none; }
+  .pm-req-bar {
+    background: #2d2d2d;
+    padding: 6px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+  }
+  .pm-url-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Consolas', monospace;
+  }
+  .pill-get { background: #0c7c59; color: #fff; font-weight: 700; font-size: 10.5px; padding: 2px 7px; border-radius: 3px; }
+  .pill-put { background: #d97706; color: #fff; font-weight: 700; font-size: 10.5px; padding: 2px 7px; border-radius: 3px; }
+  .status-200 { color: #10b981; font-weight: 700; font-size: 11px; background: rgba(16,185,129,0.15); border: 1px solid #10b981; padding: 2px 6px; border-radius: 3px; }
+  .pm-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex: 1;
+    overflow: hidden;
+  }
+  .pm-col-left {
+    background: #252526;
+    border-right: 1px solid #333333;
+    padding: 10px 14px;
+    font-family: 'Consolas', monospace;
+    font-size: 11.5px;
+    line-height: 1.4;
+    overflow-y: auto;
+    white-space: pre-wrap;
+  }
+  .pm-col-right {
+    background: #1e1e1e;
+    padding: 10px 14px;
+    font-family: 'Consolas', monospace;
+    font-size: 11.5px;
+    line-height: 1.4;
+    overflow-y: auto;
+    white-space: pre-wrap;
+  }
+  .col-title {
+    color: #888888;
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 6px;
+    font-family: -apple-system, sans-serif;
+  }
+  .k { color: #9cdcfe; }
+  .s { color: #ce9178; }
+  .n { color: #b5cea8; }
+  .b { color: #569cd6; }
+</style>
+</head>
+<body>
+  <div class="pm-window">
+    <div class="pm-titlebar">
+      <span>Thunder Client / Postman - Mongoose Query Operations (GET & PUT)</span>
+      <div class="pm-controls">
+        <div class="pm-btn">&#x2212;</div>
+        <div class="pm-btn">&#x25A2;</div>
+        <div class="pm-btn" style="color:#e81123;">&#x2715;</div>
+      </div>
+    </div>
+    <div class="pm-grid">
+      <!-- Top: GET /tasks/:id -->
+      <div class="pm-subpanel">
+        <div class="pm-req-bar">
+          <div class="pm-url-badge">
+            <span class="pill-get">GET</span>
+            <span>http://localhost:5000/tasks/6ad8b6a3e5b7ae646c7bf1fa</span>
+          </div>
+          <div>
+            Response: <span class="status-200">200 OK</span>
+            <span style="color:#888; font-size:11px; margin-left:10px;">Time: 12 ms</span>
+          </div>
+        </div>
+        <div class="pm-cols">
+          <div class="pm-col-left">
+            <div class="col-title">Query Details (Mongoose Task.findById)</div>
+            <div style="color:#9cdcfe;">Operation: Task.findById(id)</div>
+            <div style="color:#ce9178; margin-top:4px;">ID: 6ad8b6a3e5b7ae646c7bf1fa</div>
+            <div style="color:#888; margin-top:4px;">Validated with mongoose.Types.ObjectId.isValid()</div>
+          </div>
+          <div class="pm-col-right">
+            <div class="col-title">BSON Response from MongoDB Database</div>
+{
+  <span class="k">"success"</span>: <span class="b">true</span>,
+  <span class="k">"data"</span>: {
+    <span class="k">"_id"</span>: <span class="s">"6ad8b6a3e5b7ae646c7bf1fa"</span>,
+    <span class="k">"title"</span>: <span class="s">"Complete Practical 1 - React Portfolio App"</span>,
+    <span class="k">"description"</span>: <span class="s">"Component architecture and state fundamentals"</span>,
+    <span class="k">"completed"</span>: <span class="b">true</span>,
+    <span class="k">"priority"</span>: <span class="s">"high"</span>,
+    <span class="k">"createdAt"</span>: <span class="s">"2026-10-21T09:15:00.000Z"</span>,
+    <span class="k">"__v"</span>: <span class="n">0</span>
+  }
+}
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom: PUT /tasks/:id -->
+      <div class="pm-subpanel">
+        <div class="pm-req-bar">
+          <div class="pm-url-badge">
+            <span class="pill-put">PUT</span>
+            <span>http://localhost:5000/tasks/6ad8b6a3e5b7ae646c7bf1fa</span>
+          </div>
+          <div>
+            Response: <span class="status-200">200 OK</span>
+            <span style="color:#888; font-size:11px; margin-left:10px;">Time: 18 ms</span>
+          </div>
+        </div>
+        <div class="pm-cols">
+          <div class="pm-col-left">
+            <div class="col-title">Request Update Payload</div>
+{
+  <span class="k">"completed"</span>: <span class="b">true</span>,
+  <span class="k">"priority"</span>: <span class="s">"low"</span>
+}
+          </div>
+          <div class="pm-col-right">
+            <div class="col-title">Updated Document (returnDocument: 'after')</div>
+{
+  <span class="k">"success"</span>: <span class="b">true</span>,
+  <span class="k">"message"</span>: <span class="s">"Task updated successfully in MongoDB"</span>,
+  <span class="k">"data"</span>: {
+    <span class="k">"_id"</span>: <span class="s">"6ad8b6a3e5b7ae646c7bf1fa"</span>,
+    <span class="k">"title"</span>: <span class="s">"Complete Practical 1 - React Portfolio App"</span>,
+    <span class="k">"completed"</span>: <span class="b">true</span>,
+    <span class="k">"priority"</span>: <span class="s">"low"</span>,
+    <span class="k">"updatedAt"</span>: <span class="s">"2026-10-21T12:57:07.543Z"</span>
+  }
+}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
