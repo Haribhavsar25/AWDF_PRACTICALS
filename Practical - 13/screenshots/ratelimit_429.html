@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body {
+    background-color: #1e1e1e;
+    color: #f1f1f1;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 13.5px;
+    margin: 0;
+    padding: 24px;
+    box-sizing: border-box;
+    width: 1100px;
+  }
+  .window {
+    background: #252526;
+    border-radius: 8px;
+    border: 1px solid #333;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+    overflow: hidden;
+  }
+  .title-bar {
+    background: #1e1e1e;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #333;
+    gap: 12px;
+  }
+  .dots { display: flex; gap: 8px; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .dot-red { background: #ff5f56; }
+  .dot-yellow { background: #ffbd2e; }
+  .dot-green { background: #27c93f; }
+  .title { color: #ff6c37; font-weight: bold; font-size: 13px; }
+  .request-bar {
+    background: #2d2d2d;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid #383838;
+  }
+  .method { background: #49cc90; color: #fff; font-weight: bold; padding: 4px 10px; border-radius: 4px; font-size: 12px; }
+  .url { background: #1e1e1e; border: 1px solid #383838; color: #fff; padding: 6px 14px; border-radius: 4px; flex-grow: 1; font-family: monospace; }
+  .status-tag { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid #ef4444; padding: 4px 10px; border-radius: 4px; font-weight: bold; font-size: 12px; }
+  .body-content { padding: 20px 24px; font-family: 'Consolas', monospace; font-size: 13px; line-height: 1.5; background: #1e1e1e; }
+  .key { color: #9cdcfe; }
+  .string { color: #ce9178; }
+  .num { color: #b5cea8; }
+  .bool { color: #569cd6; font-weight: bold; }
+</style>
+</head>
+<body>
+<div class="window">
+  <div class="title-bar">
+    <div class="dots">
+      <div class="dot dot-red"></div>
+      <div class="dot dot-yellow"></div>
+      <div class="dot dot-green"></div>
+    </div>
+    <div class="title">Postman / Thunder Client – Supplementary Problem 2: Rate Limiting Verification (HTTP 429)</div>
+  </div>
+  <div class="request-bar">
+    <span class="method">POST</span>
+    <span class="url">http://localhost:5000/api/ai/generate-description</span>
+    <span class="status-tag">Status: 429 Too Many Requests</span>
+  </div>
+  <div class="body-content">
+    <div>{</div>
+    <div style="padding-left: 20px;"><span class="key">"error"</span>: <span class="string">"Too Many Requests"</span>,</div>
+    <div style="padding-left: 20px;"><span class="key">"message"</span>: <span class="string">"AI generation rate limit exceeded (maximum 5 requests per minute)."</span>,</div>
+    <div style="padding-left: 20px;"><span class="key">"retryAfterSeconds"</span>: <span class="num">54</span>,</div>
+    <div style="padding-left: 20px;"><span class="key">"fallback"</span>: <span class="bool">true</span></div>
+    <div>}</div>
+  </div>
+</div>
+</body>
+</html>

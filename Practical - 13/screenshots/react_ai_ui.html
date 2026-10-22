@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body {
+    background-color: #0f172a;
+    color: #f8fafc;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 24px;
+    box-sizing: border-box;
+    width: 1100px;
+  }
+  .browser-window {
+    background: #1e293b;
+    border-radius: 10px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    overflow: hidden;
+    border: 1px solid #334155;
+  }
+  .browser-bar {
+    background: #0f172a;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #334155;
+    gap: 12px;
+  }
+  .dots { display: flex; gap: 6px; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .dot-red { background: #ef4444; }
+  .dot-yellow { background: #f59e0b; }
+  .dot-green { background: #10b981; }
+  .address-bar {
+    background: #1e293b;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #94a3b8;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #475569;
+  }
+  .content-area { padding: 32px; background: #0f172a; }
+  .header-box { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; border-bottom: 1px solid #334155; padding-bottom: 16px; }
+  .title-group h1 { margin: 0; font-size: 24px; font-weight: 700; color: #f8fafc; }
+  .title-group p { margin: 4px 0 0; font-size: 14px; color: #94a3b8; }
+  .env-badge { background: #6366f1; color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+  .form-card { background: #1e293b; border-radius: 10px; border: 1px solid #334155; padding: 24px; margin-bottom: 24px; }
+  .form-group { margin-bottom: 18px; }
+  .form-group label { display: block; font-size: 13px; font-weight: 600; color: #cbd5e1; margin-bottom: 8px; }
+  .input-row { display: flex; gap: 12px; }
+  .text-input { flex-grow: 1; background: #0f172a; border: 1px solid #475569; border-radius: 6px; padding: 10px 14px; color: #f8fafc; font-size: 14px; }
+  .btn-ai { background: linear-gradient(135deg, #6366f1, #a855f7); color: #fff; border: none; padding: 10px 18px; border-radius: 6px; font-size: 13.5px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3); }
+  .ai-result-box { background: rgba(99, 102, 241, 0.08); border: 1px solid #6366f1; border-radius: 8px; padding: 18px; margin-top: 14px; }
+  .ai-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+  .ai-tag { background: #4f46e5; color: #e0e7ff; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; text-transform: uppercase; }
+  .ai-desc { font-size: 14px; color: #e2e8f0; line-height: 1.5; margin-bottom: 12px; }
+  .ai-disclaimer { font-size: 12px; color: #94a3b8; display: flex; align-items: center; gap: 6px; border-top: 1px solid rgba(99, 102, 241, 0.2); padding-top: 10px; }
+  .meta-pills { display: flex; gap: 10px; margin-top: 12px; }
+  .pill { font-size: 12px; padding: 4px 10px; border-radius: 12px; font-weight: 600; }
+  .pill-high { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid #ef4444; }
+  .pill-time { background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid #38bdf8; }
+</style>
+</head>
+<body>
+<div class="browser-window">
+  <div class="browser-bar">
+    <div class="dots">
+      <div class="dot dot-red"></div>
+      <div class="dot dot-yellow"></div>
+      <div class="dot dot-green"></div>
+    </div>
+    <div class="address-bar">
+      <span>🔒</span> <span>http://localhost:5173/</span>
+    </div>
+  </div>
+  <div class="content-area">
+    <div class="header-box">
+      <div class="title-group">
+        <h1>Task Management System (AI-Enhanced)</h1>
+        <p>Full-Stack Application with Secure Server-Side OpenAI & Gemini Integration</p>
+      </div>
+      <div class="env-badge">
+        <span>✨</span> AI Assistant Active
+      </div>
+    </div>
+
+    <div class="form-card">
+      <div class="form-group">
+        <label>TASK TITLE</label>
+        <div class="input-row">
+          <input type="text" class="text-input" value="Audit container security and implement rate limiting middleware" readonly>
+          <button class="btn-ai">
+            <span>✨</span> Generate with AI
+          </button>
+        </div>
+      </div>
+
+      <div class="ai-result-box">
+        <div class="ai-meta">
+          <span class="ai-tag">✨ AI-Generated Suggestion</span>
+          <span style="font-size: 12px; color: #a5b4fc;">Model: OpenAI gpt-4o-mini • Latency: 184ms</span>
+        </div>
+        <div class="ai-desc">
+          "Perform a comprehensive static analysis and penetration test on Docker containers to identify exposed daemon ports, and enforce IP-based rate limiting on all public API endpoints to prevent DDoS and quota exhaustion."
+        </div>
+        <div class="meta-pills">
+          <span class="pill pill-high">Recommended Priority: High</span>
+          <span class="pill pill-time">Suggested Deadline: Within 24 hours</span>
+        </div>
+        <div class="ai-disclaimer">
+          <span>ℹ️</span> <strong>Disclaimer:</strong> This content was generated by AI. Please review, edit, and accept the suggestion before saving.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
