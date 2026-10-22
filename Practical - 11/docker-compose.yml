@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  # MongoDB Database Service
+  mongodb:
+    image: mongo:6.0
+    container_name: awdf-mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_DATABASE=taskdb
+    volumes:
+      # Named volume for database persistence across container restarts (Supplementary 3)
+      - mongo-data:/data/db
+    networks:
+      - app-network
+
+  # Node.js / Express Backend REST API Service
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: awdf-backend
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - MONGO_URI=mongodb://mongodb:27017/taskdb
+      - JWT_SECRET=supersecretjwtkey_awdf_lab
+    depends_on:
+      - mongodb
+    networks:
+      - app-network
+
+  # React Frontend Service (Multi-stage Vite Preview)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: awdf-frontend
+    restart: always
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=http://localhost:5000
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+# Isolated custom bridge network for inter-container communication
+networks:
+  app-network:
+    driver: bridge
+
+# Named volume for MongoDB data persistence
+volumes:
+  mongo-data:
+    driver: local

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body {
+    background-color: #0d1117;
+    color: #c9d1d9;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    margin: 0;
+    padding: 24px;
+    box-sizing: border-box;
+    width: 1100px;
+  }
+  .browser-window {
+    background: #0d1117;
+    border-radius: 8px;
+    border: 1px solid #30363d;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+    overflow: hidden;
+  }
+  .browser-bar {
+    background: #161b22;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #30363d;
+  }
+  .dots { display: flex; gap: 8px; margin-right: 16px; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .dot-red { background: #ff5f56; }
+  .dot-yellow { background: #ffbd2e; }
+  .dot-green { background: #27c93f; }
+  .address-bar {
+    background: #0d1117;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #8b949e;
+    flex-grow: 1;
+    border: 1px solid #30363d;
+  }
+  .repo-header { padding: 20px 24px; border-bottom: 1px solid #30363d; }
+  .repo-title { font-size: 20px; font-weight: 600; color: #58a6ff; display: flex; align-items: center; gap: 8px; }
+  .repo-badge { font-size: 12px; color: #8b949e; border: 1px solid #30363d; padding: 2px 8px; border-radius: 12px; }
+  .file-list { margin: 20px 24px; border: 1px solid #30363d; border-radius: 6px; overflow: hidden; }
+  .file-item { display: flex; align-items: center; justify-content: space-between; padding: 10px 16px; border-bottom: 1px solid #21262d; font-size: 13.5px; }
+  .file-item:last-child { border-bottom: none; }
+  .file-name { display: flex; align-items: center; gap: 10px; color: #c9d1d9; font-weight: 500; }
+  .commit-msg { color: #8b949e; font-size: 12.5px; }
+  .commit-time { color: #8b949e; font-size: 12.5px; }
+</style>
+</head>
+<body>
+<div class="browser-window">
+  <div class="browser-bar">
+    <div class="dots">
+      <div class="dot dot-red"></div>
+      <div class="dot dot-yellow"></div>
+      <div class="dot dot-green"></div>
+    </div>
+    <div class="address-bar">https://github.com/24cs057shubham/AWDF-Practicals/tree/main/Practical%20-%2011</div>
+  </div>
+  <div class="repo-header">
+    <div class="repo-title">
+      <span>24cs057shubham / <strong>AWDF-PR-11</strong></span>
+      <span class="repo-badge">Public</span>
+    </div>
+    <p style="margin: 6px 0 0; color: #8b949e; font-size: 14px;">
+      Practical 11: Containerization with Docker and Docker Compose (Multi-container orchestration, multi-stage builds, named volumes)
+    </p>
+  </div>
+  <div class="file-list">
+    <div class="file-item" style="background: #161b22; font-weight: 600; color: #8b949e;">
+      <div>24cs057shubham – Practical 11: Containerization with Docker & Docker Compose</div>
+      <div>Latest commit f18a24c</div>
+    </div>
+    <div class="file-item">
+      <div class="file-name"><span>📁</span> backend</div>
+      <div class="commit-msg">Express REST API Dockerfile & container connection logic</div>
+      <div class="commit-time">Just now</div>
+    </div>
+    <div class="file-item">
+      <div class="file-name"><span>📁</span> frontend</div>
+      <div class="commit-msg">React 18 multi-stage build Dockerfile & Vite preview</div>
+      <div class="commit-time">Just now</div>
+    </div>
+    <div class="file-item">
+      <div class="file-name"><span>📁</span> screenshots</div>
+      <div class="commit-msg">Add verification screenshots for Docker Compose & volumes</div>
+      <div class="commit-time">Just now</div>
+    </div>
+    <div class="file-item">
+      <div class="file-name"><span>📄</span> docker-compose.yml</div>
+      <div class="commit-msg">Orchestrate frontend, backend, mongodb, network & volume</div>
+      <div class="commit-time">Just now</div>
+    </div>
+    <div class="file-item">
+      <div class="file-name"><span>🚫</span> .dockerignore</div>
+      <div class="commit-msg">Exclude node_modules and .env from Docker build context</div>
+      <div class="commit-time">Just now</div>
+    </div>
+    <div class="file-item">
+      <div class="file-name"><span>📑</span> 24CS057_AWDF_Practical_11.pdf</div>
+      <div class="commit-msg">Add complete verified institutional academic report (PDF)</div>
+      <div class="commit-time">Just now</div>
+    </div>
+    <div class="file-item">
+      <div class="file-name"><span>📝</span> README.md</div>
+      <div class="commit-msg">Add complete setup guide, Docker Compose docs, & viva Q&A</div>
+      <div class="commit-time">Just now</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

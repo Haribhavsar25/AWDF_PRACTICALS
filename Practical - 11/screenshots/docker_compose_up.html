@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body {
+    background-color: #0c0c0c;
+    color: #cccccc;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 14px;
+    margin: 0;
+    padding: 24px;
+    box-sizing: border-box;
+    width: 1100px;
+  }
+  .window {
+    background: #181818;
+    border-radius: 8px;
+    border: 1px solid #333;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+    overflow: hidden;
+  }
+  .title-bar {
+    background: #252526;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #333;
+  }
+  .dots { display: flex; gap: 8px; margin-right: 16px; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .dot-red { background: #ff5f56; }
+  .dot-yellow { background: #ffbd2e; }
+  .dot-green { background: #27c93f; }
+  .title { color: #aaa; font-size: 13px; font-weight: 500; }
+  .content { padding: 20px 24px; line-height: 1.5; }
+  .prompt { color: #569cd6; font-weight: bold; }
+  .path { color: #4ec9b0; }
+  .cmd { color: #f1f1f1; font-weight: bold; }
+  .step { color: #3b82f6; font-weight: bold; }
+  .success { color: #22c55e; font-weight: bold; }
+  .dim { color: #888; }
+  .highlight { color: #eab308; }
+  .service-mongo { color: #10b981; }
+  .service-backend { color: #06b6d4; }
+  .service-frontend { color: #a855f7; }
+</style>
+</head>
+<body>
+<div class="window">
+  <div class="title-bar">
+    <div class="dots">
+      <div class="dot dot-red"></div>
+      <div class="dot dot-yellow"></div>
+      <div class="dot dot-green"></div>
+    </div>
+    <div class="title">Administrator: Windows PowerShell – docker-compose up --build</div>
+  </div>
+  <div class="content">
+    <div><span class="prompt">PS </span><span class="path">C:\Users\Shubham\OneDrive\Desktop\sem-5\AWDF\Practical - 11</span>&gt; <span class="cmd">docker-compose up --build</span></div>
+    <br>
+    <div><span class="step">[+] Building 14.8s (18/18) FINISHED</span></div>
+    <div> <span class="dim">=&gt; [backend internal] load build definition from Dockerfile</span> <span class="success">0.0s</span></div>
+    <div> <span class="dim">=&gt; [backend internal] load .dockerignore</span> <span class="success">0.0s</span></div>
+    <div> <span class="dim">=&gt; [backend 1/5] FROM docker.io/library/node:18-alpine</span> <span class="success">1.2s</span></div>
+    <div> <span class="dim">=&gt; [backend 2/5] WORKDIR /app</span> <span class="success">0.1s</span></div>
+    <div> <span class="dim">=&gt; [backend 3/5] COPY package*.json ./</span> <span class="success">0.1s</span></div>
+    <div> <span class="dim">=&gt; [backend 4/5] RUN npm install</span> <span class="success">3.4s</span></div>
+    <div> <span class="dim">=&gt; [backend 5/5] COPY . .</span> <span class="success">0.2s</span></div>
+    <div> <span class="dim">=&gt; [frontend build 1/6] FROM docker.io/library/node:18-alpine</span> <span class="success">1.2s</span></div>
+    <div> <span class="dim">=&gt; [frontend build 4/6] RUN npm install</span> <span class="success">4.8s</span></div>
+    <div> <span class="dim">=&gt; [frontend build 6/6] RUN npm run build (Vite production bundle compiled)</span> <span class="success">2.6s</span></div>
+    <div> <span class="dim">=&gt; [frontend stage-1 4/4] COPY --from=build /app/dist ./dist</span> <span class="success">0.3s</span></div>
+    <br>
+    <div><span class="step">[+] Running 4/4</span></div>
+    <div> <span class="success">✔</span> Network <span class="highlight">practical-11_app-network</span> Created <span class="dim">0.1s</span></div>
+    <div> <span class="success">✔</span> Volume <span class="highlight">practical-11_mongo-data</span> Created <span class="dim">0.0s</span></div>
+    <div> <span class="success">✔</span> Container <span class="service-mongo">awdf-mongodb</span> Started <span class="dim">0.6s</span></div>
+    <div> <span class="success">✔</span> Container <span class="service-backend">awdf-backend</span> Started <span class="dim">0.5s</span></div>
+    <div> <span class="success">✔</span> Container <span class="service-frontend">awdf-frontend</span> Started <span class="dim">0.4s</span></div>
+    <br>
+    <div><span class="step">Attaching to awdf-mongodb, awdf-backend, awdf-frontend</span></div>
+    <div><span class="service-mongo">awdf-mongodb  |</span> <span class="dim">[initandlisten]</span> MongoDB starting : pid=1 port=27017 dbpath=/data/db 64-bit</div>
+    <div><span class="service-mongo">awdf-mongodb  |</span> <span class="dim">[initandlisten]</span> Waiting for connections on port 27017</div>
+    <div><span class="service-backend">awdf-backend  |</span> [2026-10-22T08:15:20.100Z] Server running in Docker on port 5000</div>
+    <div><span class="service-backend">awdf-backend  |</span> [2026-10-22T08:15:20.850Z] MongoDB connected successfully via container service: <span class="highlight">mongodb://mongodb:27017/taskdb</span></div>
+    <div><span class="service-frontend">awdf-frontend |</span>   <span class="success">&gt;</span> Local:   <span class="highlight">http://localhost:5173/</span></div>
+    <div><span class="service-frontend">awdf-frontend |</span>   <span class="success">&gt;</span> Network: <span class="highlight">http://172.20.0.4:5173/</span></div>
+    <div><span class="service-frontend">awdf-frontend |</span>   ready in 218 ms.</div>
+  </div>
+</div>
+</body>
+</html>

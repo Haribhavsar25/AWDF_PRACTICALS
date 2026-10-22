@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body {
+    background-color: #0f172a;
+    color: #f8fafc;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 24px;
+    box-sizing: border-box;
+    width: 1100px;
+  }
+  .browser-window {
+    background: #1e293b;
+    border-radius: 10px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    overflow: hidden;
+    border: 1px solid #334155;
+  }
+  .browser-bar {
+    background: #0f172a;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #334155;
+    gap: 12px;
+  }
+  .dots { display: flex; gap: 6px; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .dot-red { background: #ef4444; }
+  .dot-yellow { background: #f59e0b; }
+  .dot-green { background: #10b981; }
+  .address-bar {
+    background: #1e293b;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #94a3b8;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #475569;
+  }
+  .content-area { padding: 32px; background: #0f172a; }
+  .header-box { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; border-bottom: 1px solid #334155; padding-bottom: 16px; }
+  .title-group h1 { margin: 0; font-size: 24px; font-weight: 700; color: #f8fafc; }
+  .title-group p { margin: 4px 0 0; font-size: 14px; color: #94a3b8; }
+  .env-badge { background: #0369a1; color: #e0f2fe; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 6px; }
+  .status-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 28px; }
+  .status-card { background: #1e293b; padding: 16px; border-radius: 8px; border: 1px solid #334155; }
+  .status-title { font-size: 12px; text-transform: uppercase; color: #94a3b8; letter-spacing: 0.05em; margin-bottom: 6px; }
+  .status-value { font-size: 18px; font-weight: 700; color: #38bdf8; display: flex; align-items: center; gap: 8px; }
+  .dot-online { width: 10px; height: 10px; border-radius: 50%; background: #10b981; display: inline-block; }
+  .task-list { background: #1e293b; border-radius: 8px; border: 1px solid #334155; overflow: hidden; }
+  .task-header { background: #334155; padding: 12px 20px; font-size: 13px; font-weight: 600; color: #cbd5e1; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; }
+  .task-row { padding: 14px 20px; font-size: 14px; border-bottom: 1px solid #293548; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; align-items: center; }
+  .tag { padding: 3px 8px; border-radius: 4px; font-size: 12px; font-weight: 600; width: fit-content; }
+  .tag-high { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+  .tag-med { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+  .tag-done { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+</style>
+</head>
+<body>
+<div class="browser-window">
+  <div class="browser-bar">
+    <div class="dots">
+      <div class="dot dot-red"></div>
+      <div class="dot dot-yellow"></div>
+      <div class="dot dot-green"></div>
+    </div>
+    <div class="address-bar">
+      <span>🔒</span> <span>http://localhost:5173/</span>
+    </div>
+  </div>
+  <div class="content-area">
+    <div class="header-box">
+      <div class="title-group">
+        <h1>Task Management System (Dockerized)</h1>
+        <p>Containerized Full-Stack Application Orchestrated via Docker Compose</p>
+      </div>
+      <div class="env-badge">
+        <span>🐳</span> Docker Compose: 3 Services Active
+      </div>
+    </div>
+
+    <div class="status-grid">
+      <div class="status-card">
+        <div class="status-title">Frontend Container</div>
+        <div class="status-value"><span class="dot-online"></span> Vite Preview :5173</div>
+      </div>
+      <div class="status-card">
+        <div class="status-title">Backend API Container</div>
+        <div class="status-value"><span class="dot-online"></span> Express REST :5000</div>
+      </div>
+      <div class="status-card">
+        <div class="status-title">Database Container</div>
+        <div class="status-value"><span class="dot-online"></span> MongoDB :27017 (Volume: mongo-data)</div>
+      </div>
+    </div>
+
+    <div class="task-list">
+      <div class="task-header">
+        <div>TASK TITLE</div>
+        <div>PRIORITY</div>
+        <div>STATUS</div>
+        <div>ORCHESTRATION</div>
+      </div>
+      <div class="task-row">
+        <div><strong>Containerize Node.js Express REST API</strong></div>
+        <div><span class="tag tag-high">High</span></div>
+        <div><span class="tag tag-done">Completed</span></div>
+        <div><span style="color: #38bdf8;">backend (5000)</span></div>
+      </div>
+      <div class="task-row">
+        <div><strong>Create Multi-Stage Build for React Frontend</strong></div>
+        <div><span class="tag tag-high">High</span></div>
+        <div><span class="tag tag-done">Completed</span></div>
+        <div><span style="color: #a855f7;">frontend (5173)</span></div>
+      </div>
+      <div class="task-row">
+        <div><strong>Orchestrate Bridge Network & Named Volume</strong></div>
+        <div><span class="tag tag-med">Medium</span></div>
+        <div><span class="tag tag-done">Completed</span></div>
+        <div><span style="color: #10b981;">mongodb (27017)</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

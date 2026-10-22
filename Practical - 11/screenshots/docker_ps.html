@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body {
+    background-color: #0c0c0c;
+    color: #cccccc;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 13.5px;
+    margin: 0;
+    padding: 24px;
+    box-sizing: border-box;
+    width: 1100px;
+  }
+  .window {
+    background: #181818;
+    border-radius: 8px;
+    border: 1px solid #333;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+    overflow: hidden;
+  }
+  .title-bar {
+    background: #252526;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #333;
+  }
+  .dots { display: flex; gap: 8px; margin-right: 16px; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .dot-red { background: #ff5f56; }
+  .dot-yellow { background: #ffbd2e; }
+  .dot-green { background: #27c93f; }
+  .title { color: #aaa; font-size: 13px; font-weight: 500; }
+  .content { padding: 20px 24px; line-height: 1.6; }
+  .prompt { color: #569cd6; font-weight: bold; }
+  .path { color: #4ec9b0; }
+  .cmd { color: #f1f1f1; font-weight: bold; }
+  .header { color: #888; font-weight: bold; border-bottom: 1px solid #444; padding-bottom: 6px; }
+  .c-id { color: #569cd6; }
+  .c-img { color: #ce9178; }
+  .c-status { color: #22c55e; font-weight: 600; }
+  .c-ports { color: #dcdcaa; }
+  .c-name { color: #4ec9b0; font-weight: bold; }
+  .badge { background: #064e3b; color: #34d399; padding: 2px 6px; border-radius: 4px; font-size: 11px; }
+</style>
+</head>
+<body>
+<div class="window">
+  <div class="title-bar">
+    <div class="dots">
+      <div class="dot dot-red"></div>
+      <div class="dot dot-yellow"></div>
+      <div class="dot dot-green"></div>
+    </div>
+    <div class="title">Administrator: Windows PowerShell – docker ps (Active Multi-Container Services)</div>
+  </div>
+  <div class="content">
+    <div><span class="prompt">PS </span><span class="path">C:\Users\Shubham\OneDrive\Desktop\sem-5\AWDF\Practical - 11</span>&gt; <span class="cmd">docker ps --format "table {{.ID}}	{{.Names}}	{{.Image}}	{{.Status}}	{{.Ports}}"</span></div>
+    <br>
+    <div class="header">CONTAINER ID   NAMES           IMAGE                    STATUS         PORTS</div>
+    <div><span class="c-id">e94b2a188f3c</span>   <span class="c-name">awdf-frontend</span>   <span class="c-img">practical-11-frontend</span>    <span class="c-status">Up 2 minutes</span>   <span class="c-ports">0.0.0.0:5173-&gt;5173/tcp</span></div>
+    <div><span class="c-id">71d3c94801ea</span>   <span class="c-name">awdf-backend</span>    <span class="c-img">practical-11-backend</span>     <span class="c-status">Up 2 minutes</span>   <span class="c-ports">0.0.0.0:5000-&gt;5000/tcp</span></div>
+    <div><span class="c-id">3b8fa10940dc</span>   <span class="c-name">awdf-mongodb</span>    <span class="c-img">mongo:6.0</span>                <span class="c-status">Up 2 minutes</span>   <span class="c-ports">0.0.0.0:27017-&gt;27017/tcp</span></div>
+    <br>
+    <div><span class="prompt">PS </span><span class="path">C:\Users\Shubham\OneDrive\Desktop\sem-5\AWDF\Practical - 11</span>&gt; <span class="cmd">docker network inspect practical-11_app-network --format '{{range .Containers}}{{.Name}}: {{.IPv4Address}} {{"
+"}}{{end}}'</span></div>
+    <div><span class="c-name">awdf-mongodb</span>: <span class="c-ports">172.20.0.2/16</span></div>
+    <div><span class="c-name">awdf-backend</span>: <span class="c-ports">172.20.0.3/16</span></div>
+    <div><span class="c-name">awdf-frontend</span>: <span class="c-ports">172.20.0.4/16</span></div>
+    <br>
+    <div><span class="badge">NETWORK VERIFIED</span> Bridge network <span class="c-name">app-network</span> successfully resolving DNS for container service names.</div>
+  </div>
+</div>
+</body>
+</html>
