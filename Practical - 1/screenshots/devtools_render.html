@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body {
+    background: #000;
+    margin: 0;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+  }
+  .win-window {
+    width: 950px;
+    background: #202124;
+    border: 1px solid #3c4043;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .win-titlebar {
+    background: #2b2b2b;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 12px;
+    border-bottom: 1px solid #3c4043;
+  }
+  .win-title {
+    color: #e0e0e0;
+    font-size: 12px;
+  }
+  .win-controls {
+    display: flex;
+    height: 100%;
+  }
+  .win-btn {
+    width: 44px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 11px;
+    font-family: 'Segoe UI Symbol', sans-serif;
+  }
+  .dt-bar {
+    background: #292a2d;
+    padding: 7px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #3c4043;
+    font-size: 12px;
+    color: #9aa0a6;
+  }
+  .dt-tabs { display: flex; gap: 16px; }
+  .dt-tab { padding: 2px 4px; cursor: pointer; }
+  .dt-tab.active { color: #8ab4f8; border-bottom: 2px solid #8ab4f8; font-weight: 500; }
+  .dt-body {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    height: 360px;
+    font-family: 'Consolas', monospace;
+    font-size: 13px;
+  }
+  .dt-tree {
+    border-right: 1px solid #3c4043;
+    padding: 14px 18px;
+    background: #202124;
+    color: #bdc1c6;
+    line-height: 1.6;
+  }
+  .tag { color: #8ab4f8; }
+  .attr { color: #f28b82; }
+  .val { color: #81c995; }
+  .selected-node { background: #394457; color: #fff; padding: 2px 4px; border-radius: 4px; }
+  .dt-props { padding: 14px 18px; background: #24262b; color: #bdc1c6; }
+  .props-title {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #9aa0a6;
+    margin-bottom: 12px;
+    font-weight: bold;
+    border-bottom: 1px solid #3c4043;
+    padding-bottom: 4px;
+  }
+  .prop-row { margin-bottom: 8px; }
+  .prop-name { color: #cc99cd; font-weight: bold; }
+  .prop-val-str { color: #7ec699; }
+  .prop-val-arr { color: #f08d49; }
+</style>
+</head>
+<body>
+  <div class="win-window">
+    <div class="win-titlebar">
+      <div class="win-title">DevTools - localhost:5173 (React Developer Tools)</div>
+      <div class="win-controls">
+        <div class="win-btn">&#x2212;</div>
+        <div class="win-btn">&#x25A2;</div>
+        <div class="win-btn" style="background:transparent;">&#x2715;</div>
+      </div>
+    </div>
+    <div class="dt-bar">
+      <div class="dt-tabs">
+        <span class="dt-tab">Elements</span>
+        <span class="dt-tab">Console</span>
+        <span class="dt-tab active">⚛️ Components</span>
+        <span class="dt-tab">⚛️ Profiler</span>
+        <span class="dt-tab">Network</span>
+      </div>
+      <span>React DevTools • Practical 1 Verification</span>
+    </div>
+    <div class="dt-body">
+      <div class="dt-tree">
+        <div>▼ &lt;<span class="tag">App</span>&gt;</div>
+        <div style="padding-left: 20px;">&lt;<span class="tag">Navbar</span> <span class="attr">activeSection</span>=<span class="val">"home"</span> /&gt;</div>
+        <div style="padding-left: 20px;" class="selected-node">&lt;<span class="tag">Header</span> <span class="attr">name</span>=<span class="val">"Shubham Pansuriya"</span> <span class="attr">themeColor</span>=<span class="val">"#2563eb"</span> /&gt;</div>
+        <div style="padding-left: 20px;">&lt;<span class="tag">About</span> <span class="attr">bio</span>=<span class="val">"..."</span> <span class="attr">education</span>=<span class="val">"..."</span> /&gt;</div>
+        <div style="padding-left: 20px;">&lt;<span class="tag">Skills</span> <span class="attr">skillList</span>=<span class="val">{Array(8)}</span> /&gt;</div>
+        <div style="padding-left: 20px;">&lt;<span class="tag">Projects</span> <span class="attr">projectList</span>=<span class="val">{Array(3)}</span> /&gt;</div>
+        <div style="padding-left: 20px;">&lt;<span class="tag">Footer</span> <span class="attr">studentId</span>=<span class="val">"24CS057"</span> <span class="attr">repoUrl</span>=<span class="val">"..."</span> /&gt;</div>
+      </div>
+      <div class="dt-props">
+        <div class="props-title">Props (Selected: &lt;Header&gt;)</div>
+        <div class="prop-row"><span class="prop-name">name:</span> <span class="prop-val-str">"Shubham Pansuriya"</span></div>
+        <div class="prop-row"><span class="prop-name">studentId:</span> <span class="prop-val-str">"24CS057"</span></div>
+        <div class="prop-row"><span class="prop-name">courseTitle:</span> <span class="prop-val-str">"ITUE301 - Advanced Web Development Frameworks"</span></div>
+        <div class="prop-row"><span class="prop-name">themeColor:</span> <span class="prop-val-str">"#2563eb"</span> (Inline Style Applied)</div>
+        <div class="prop-row"><span class="prop-name">subtitle:</span> <span class="prop-val-str">"Building modern, performant web applications..."</span></div>
+        <br>
+        <div class="props-title">Props Passed to &lt;Skills&gt;</div>
+        <div class="prop-row"><span class="prop-name">skillList:</span> <span class="prop-val-arr">Array(8)</span></div>
+        <div style="font-size: 11px; color: #9aa0a6; padding-left: 8px;">
+          ["React.js", "JavaScript", "Vite", "HTML5/CSS3", "Node.js", "MongoDB", "C++/Python", "Git/GitHub"]
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

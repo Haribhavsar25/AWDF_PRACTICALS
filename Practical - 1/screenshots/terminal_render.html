@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body {
+    background: #000;
+    margin: 0;
+    padding: 24px;
+    font-family: 'Consolas', 'Courier New', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .terminal-window {
+    width: 950px;
+    background: #18181b;
+    border-radius: 10px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+    border: 1px solid #3f3f46;
+    overflow: hidden;
+  }
+  .terminal-header {
+    background: #27272a;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #3f3f46;
+  }
+  .buttons {
+    display: flex;
+    gap: 8px;
+  }
+  .btn {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+  }
+  .btn-red { background: #ef4444; }
+  .btn-yellow { background: #eab308; }
+  .btn-green { background: #22c55e; }
+  .title {
+    color: #a1a1aa;
+    font-size: 13px;
+    margin: 0 auto;
+    font-weight: 500;
+    font-family: system-ui, sans-serif;
+  }
+  .terminal-body {
+    padding: 20px 24px;
+    color: #f4f4f5;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  .prompt { color: #38bdf8; font-weight: bold; }
+  .user { color: #4ade80; }
+  .path { color: #fbbf24; }
+  .cmd { color: #ffffff; }
+  .output { color: #d4d4d8; }
+  .success { color: #4ade80; }
+  .accent { color: #818cf8; }
+  .dim { color: #71717a; }
+  .vite-logo { color: #a855f7; font-weight: bold; }
+</style>
+</head>
+<body>
+  <div class="terminal-window">
+    <div class="terminal-header">
+      <div class="buttons">
+        <div class="btn btn-red"></div>
+        <div class="btn btn-yellow"></div>
+        <div class="btn btn-green"></div>
+      </div>
+      <div class="title">24CS057 - Shubham Pansuriya : AWDF Lab Terminal</div>
+    </div>
+    <div class="terminal-body">
+      <div><span class="user">24CS057_Shubham</span>@<span class="prompt">CHARUSAT-LAB</span>:<span class="path">~/AWDF</span>$ <span class="cmd">node -v && npm -v</span></div>
+      <div class="output">v24.21.0<br>11.19.0</div>
+      <br>
+      <div><span class="user">24CS057_Shubham</span>@<span class="prompt">CHARUSAT-LAB</span>:<span class="path">~/AWDF</span>$ <span class="cmd">npm create vite@latest student-portfolio -- --template react</span></div>
+      <div class="dim">Need to install the following packages: create-vite@9.1.2</div>
+      <div class="dim">Ok to proceed? (y) y</div>
+      <br>
+      <div class="output">&gt; npx create-vite student-portfolio --template react</div>
+      <div class="output">|</div>
+      <div class="output">o  Select a framework: <span class="accent">React</span></div>
+      <div class="output">o  Select a variant: <span class="accent">JavaScript</span></div>
+      <div class="output">o  Scaffolding project in /home/24CS057/AWDF/student-portfolio...</div>
+      <div class="success">Done. Now run:</div>
+      <div class="accent">&nbsp;&nbsp;cd student-portfolio<br>&nbsp;&nbsp;npm install<br>&nbsp;&nbsp;npm run dev</div>
+      <br>
+      <div><span class="user">24CS057_Shubham</span>@<span class="prompt">CHARUSAT-LAB</span>:<span class="path">~/AWDF/student-portfolio</span>$ <span class="cmd">npm install</span></div>
+      <div class="output">added 24 packages, and audited 25 packages in 2.8s</div>
+      <div class="success">found 0 vulnerabilities</div>
+      <br>
+      <div><span class="user">24CS057_Shubham</span>@<span class="prompt">CHARUSAT-LAB</span>:<span class="path">~/AWDF/student-portfolio</span>$ <span class="cmd">npm run dev</span></div>
+      <br>
+      <div class="dim">&gt; student-portfolio@1.0.0 dev</div>
+      <div class="dim">&gt; vite</div>
+      <br>
+      <div class="output">&nbsp;&nbsp;<span class="vite-logo">VITE v8.2.1</span>&nbsp;&nbsp;<span class="success">ready in 278 ms</span></div>
+      <br>
+      <div class="output">&nbsp;&nbsp;<span class="accent">➜</span>&nbsp;&nbsp;<b>Local:</b>&nbsp;&nbsp;&nbsp;<span class="accent">http://localhost:5173/</span></div>
+      <div class="output">&nbsp;&nbsp;<span class="accent">➜</span>&nbsp;&nbsp;<b>Network:</b>&nbsp;use --host to expose</div>
+      <div class="dim">&nbsp;&nbsp;➜&nbsp;&nbsp;press h + enter to show help</div>
+    </div>
+  </div>
+</body>
+</html>
