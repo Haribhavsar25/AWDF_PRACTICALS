@@ -1,0 +1,27 @@
+{
+  "name": "in-memory-caching-backend",
+  "version": "1.0.0",
+  "description": "ITUE301 Practical 9 - In-Memory Caching and Query Optimization with node-cache",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "express",
+    "node-cache",
+    "mongodb",
+    "mongoose",
+    "caching",
+    "performance"
+  ],
+  "author": "Shubham Pansuriya (24CS057)",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "mongoose": "^8.9.5",
+    "node-cache": "^5.1.2"
+  }
+}

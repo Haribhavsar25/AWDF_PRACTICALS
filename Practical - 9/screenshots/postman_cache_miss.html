@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body { background: #000; margin: 0; padding: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; display: flex; justify-content: center; }
+  .pm-window { width: 1020px; background: #1e1e1e; border-radius: 8px; border: 1px solid #333; box-shadow: 0 16px 40px rgba(0,0,0,0.9); overflow: hidden; color: #e0e0e0; }
+  .pm-titlebar { background: #2d2d2d; height: 34px; display: flex; align-items: center; justify-content: space-between; padding: 0 12px; font-size: 12px; color: #ccc; border-bottom: 1px solid #3c3c3c; }
+  .req-bar { background: #252526; padding: 10px 14px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #333; }
+  .method-get { background: #0cbb52; color: #fff; font-weight: bold; font-size: 11px; padding: 4px 8px; border-radius: 4px; }
+  .url-bar { flex: 1; background: #1e1e1e; border: 1px solid #3c3c3c; padding: 6px 12px; border-radius: 4px; color: #fff; font-family: monospace; font-size: 13px; }
+  .btn-send { background: #097bed; color: #fff; border: none; font-weight: bold; padding: 6px 16px; border-radius: 4px; }
+  .split-pane { display: flex; height: 440px; }
+  .pane-half { flex: 1; padding: 14px; overflow-y: auto; box-sizing: border-box; }
+  .pane-left { border-right: 1px solid #333; }
+  .pane-title { font-size: 12px; font-weight: bold; color: #9cdcfe; margin-bottom: 8px; text-transform: uppercase; }
+  .status-badge { background: rgba(78, 201, 176, 0.2); color: #4ec9b0; border: 1px solid #4ec9b0; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; float: right; }
+  pre { margin: 0; font-family: 'Consolas', monospace; font-size: 12px; line-height: 1.5; color: #d4d4d4; }
+  .k { color: #9cdcfe; } .s { color: #ce9178; } .b { color: #569cd6; }
+</style>
+</head>
+<body>
+<div class="pm-window">
+  <div class="pm-titlebar">
+    <span>Postman • 1st Request: GET /tasks (Cache MISS ──► Database Query)</span>
+    <span>ITUE301 Practical 9</span>
+  </div>
+  <div class="req-bar">
+    <span class="method-get">GET</span>
+    <span class="url-bar">http://localhost:5000/tasks</span>
+    <button class="btn-send">Send</button>
+  </div>
+  <div class="split-pane">
+    <div class="pane-half pane-left">
+      <div class="pane-title">Response Headers (Uncached Cold Read)</div>
+      <div style="background: #252526; padding: 12px; border-radius: 6px; font-family: monospace; font-size: 12px; line-height: 1.8;">
+        <div><strong style="color:#ffb86c;">X-Cache:</strong> <span style="background:rgba(255,184,108,0.2); color:#ffb86c; padding:1px 6px; border-radius:3px;">MISS</span></div>
+        <div><strong>Status:</strong> 200 OK</div>
+        <div><strong>Content-Type:</strong> application/json; charset=utf-8</div>
+        <div><strong>Response Time:</strong> <span style="color:#f87171; font-weight:bold;">26 ms</span></div>
+      </div>
+      <div style="margin-top: 20px; font-size: 12px; color: #aaa;">
+        <strong>Execution Path:</strong><br>
+        1. <code>cache.get('all_tasks')</code> returned <code>undefined</code>.<br>
+        2. Mongoose dispatched a query over TCP to MongoDB.<br>
+        3. MongoDB read BSON documents and returned array.<br>
+        4. Stored in <code>node-cache</code> for 60s TTL.<br>
+        5. Returned to client in <strong>26 ms</strong>.
+      </div>
+    </div>
+    <div class="pane-half">
+      <div class="pane-title">
+        Response Body
+        <span class="status-badge">Time: 26 ms • Size: 840 B</span>
+      </div>
+      <pre>
+{
+  <span class="k">"success"</span>: <span class="b">true</span>,
+  <span class="k">"source"</span>: <span class="s">"database (mongodb)"</span>,
+  <span class="k">"count"</span>: 4,
+  <span class="k">"data"</span>: [
+    {
+      <span class="k">"_id"</span>: <span class="s">"6ad9c2...41"</span>,
+      <span class="k">"title"</span>: <span class="s">"Evaluate Cache Hit/Miss latency difference"</span>,
+      <span class="k">"priority"</span>: <span class="s">"high"</span>,
+      <span class="k">"completed"</span>: <span class="b">true</span>
+    },
+    {
+      <span class="k">"_id"</span>: <span class="s">"6ad9c2...42"</span>,
+      <span class="k">"title"</span>: <span class="s">"Benchmark MongoDB query response times"</span>,
+      <span class="k">"priority"</span>: <span class="s">"high"</span>,
+      <span class="k">"completed"</span>: <span class="b">true</span>
+    }
+  ]
+}
+      </pre>
+    </div>
+  </div>
+</div>
+</body>
+</html>

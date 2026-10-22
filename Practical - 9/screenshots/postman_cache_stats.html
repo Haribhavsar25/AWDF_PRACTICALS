@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body { background: #000; margin: 0; padding: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; display: flex; justify-content: center; }
+  .pm-window { width: 1020px; background: #1e1e1e; border-radius: 8px; border: 1px solid #333; box-shadow: 0 16px 40px rgba(0,0,0,0.9); overflow: hidden; color: #e0e0e0; }
+  .pm-titlebar { background: #2d2d2d; height: 34px; display: flex; align-items: center; justify-content: space-between; padding: 0 12px; font-size: 12px; color: #ccc; border-bottom: 1px solid #3c3c3c; }
+  .req-bar { background: #252526; padding: 10px 14px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #333; }
+  .method-get { background: #0cbb52; color: #fff; font-weight: bold; font-size: 11px; padding: 4px 8px; border-radius: 4px; }
+  .url-bar { flex: 1; background: #1e1e1e; border: 1px solid #3c3c3c; padding: 6px 12px; border-radius: 4px; color: #fff; font-family: monospace; font-size: 13px; }
+  .btn-send { background: #097bed; color: #fff; border: none; font-weight: bold; padding: 6px 16px; border-radius: 4px; }
+  .split-pane { display: flex; height: 440px; }
+  .pane-half { flex: 1; padding: 14px; overflow-y: auto; box-sizing: border-box; }
+  .pane-left { border-right: 1px solid #333; }
+  .pane-title { font-size: 12px; font-weight: bold; color: #9cdcfe; margin-bottom: 8px; text-transform: uppercase; }
+  .status-badge { background: rgba(78, 201, 176, 0.2); color: #4ec9b0; border: 1px solid #4ec9b0; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; float: right; }
+  pre { margin: 0; font-family: 'Consolas', monospace; font-size: 12px; line-height: 1.5; color: #d4d4d4; }
+  .k { color: #9cdcfe; } .s { color: #ce9178; } .b { color: #569cd6; } .n { color: #b5cea8; }
+</style>
+</head>
+<body>
+<div class="pm-window">
+  <div class="pm-titlebar">
+    <span>Postman • GET /cache-stats (Supplementary Problem 2: Cache Telemetry & Hit/Miss Telemetry)</span>
+    <span>ITUE301 Practical 9</span>
+  </div>
+  <div class="req-bar">
+    <span class="method-get">GET</span>
+    <span class="url-bar">http://localhost:5000/cache-stats</span>
+    <button class="btn-send">Send</button>
+  </div>
+  <div class="split-pane">
+    <div class="pane-half pane-left">
+      <div class="pane-title">Telemetry Summary & Metrics Analysis</div>
+      <div style="background: #252526; padding: 14px; border-radius: 6px; font-size: 12px; line-height: 1.8;">
+        <div><strong>Total Evaluated Requests:</strong> 12</div>
+        <div><strong>Cache Hits:</strong> <span style="color:#50fa7b; font-weight:bold;">9 requests (75.0%)</span></div>
+        <div><strong>Cache Misses:</strong> <span style="color:#ffb86c; font-weight:bold;">3 requests (25.0%)</span></div>
+        <div><strong>Invalidation Events:</strong> <span style="color:#9cdcfe;">2 write triggers</span></div>
+        <div><strong>Configured TTL:</strong> 60 seconds (Sliding Window)</div>
+      </div>
+      <div style="margin-top: 16px; font-size: 12px; color: #aaa;">
+        <strong>Supplementary 2 Insight:</strong><br>
+        Telemetry counters expose real-time hit ratio health. High hit ratios (70%+) demonstrate successful offloading of read pressure from the primary MongoDB database instance.
+      </div>
+    </div>
+    <div class="pane-half">
+      <div class="pane-title">
+        Response Body
+        <span class="status-badge">Status: 200 OK • 1 ms</span>
+      </div>
+      <pre>
+{
+  <span class="k">"success"</span>: <span class="b">true</span>,
+  <span class="k">"stats"</span>: {
+    <span class="k">"hits"</span>: <span class="n">9</span>,
+    <span class="k">"misses"</span>: <span class="n">3</span>,
+    <span class="k">"invalidations"</span>: <span class="n">2</span>,
+    <span class="k">"totalRequests"</span>: <span class="n">12</span>,
+    <span class="k">"hitRatio"</span>: <span class="s">"75.0%"</span>,
+    <span class="k">"activeKeys"</span>: <span class="n">1</span>,
+    <span class="k">"stdTTL"</span>: <span class="s">"60 seconds"</span>
+  }
+}
+      </pre>
+    </div>
+  </div>
+</div>
+</body>
+</html>

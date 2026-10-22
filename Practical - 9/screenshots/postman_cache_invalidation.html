@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body { background: #000; margin: 0; padding: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; display: flex; justify-content: center; }
+  .pm-window { width: 1020px; background: #1e1e1e; border-radius: 8px; border: 1px solid #333; box-shadow: 0 16px 40px rgba(0,0,0,0.9); overflow: hidden; color: #e0e0e0; }
+  .pm-titlebar { background: #2d2d2d; height: 34px; display: flex; align-items: center; justify-content: space-between; padding: 0 12px; font-size: 12px; color: #ccc; border-bottom: 1px solid #3c3c3c; }
+  .req-bar { background: #252526; padding: 10px 14px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #333; }
+  .method-post { background: #ff6c37; color: #fff; font-weight: bold; font-size: 11px; padding: 4px 8px; border-radius: 4px; }
+  .url-bar { flex: 1; background: #1e1e1e; border: 1px solid #3c3c3c; padding: 6px 12px; border-radius: 4px; color: #fff; font-family: monospace; font-size: 13px; }
+  .btn-send { background: #097bed; color: #fff; border: none; font-weight: bold; padding: 6px 16px; border-radius: 4px; }
+  .split-pane { display: flex; height: 440px; }
+  .pane-half { flex: 1; padding: 14px; overflow-y: auto; box-sizing: border-box; }
+  .pane-left { border-right: 1px solid #333; }
+  .pane-title { font-size: 12px; font-weight: bold; color: #9cdcfe; margin-bottom: 8px; text-transform: uppercase; }
+  .status-badge { background: rgba(78, 201, 176, 0.2); color: #4ec9b0; border: 1px solid #4ec9b0; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; float: right; }
+  pre { margin: 0; font-family: 'Consolas', monospace; font-size: 12px; line-height: 1.5; color: #d4d4d4; }
+  .k { color: #9cdcfe; } .s { color: #ce9178; } .b { color: #569cd6; }
+</style>
+</head>
+<body>
+<div class="pm-window">
+  <div class="pm-titlebar">
+    <span>Postman • Write Operation (POST /tasks) ──► Automatic Cache Invalidation (cache.del)</span>
+    <span>ITUE301 Practical 9</span>
+  </div>
+  <div class="req-bar">
+    <span class="method-post">POST</span>
+    <span class="url-bar">http://localhost:5000/tasks</span>
+    <button class="btn-send">Send</button>
+  </div>
+  <div class="split-pane">
+    <div class="pane-half pane-left">
+      <div class="pane-title">Request Body (application/json)</div>
+      <pre>
+{
+  <span class="k">"title"</span>: <span class="s">"Optimize Redis Distributed Cache Cluster"</span>,
+  <span class="k">"priority"</span>: <span class="s">"high"</span>,
+  <span class="k">"completed"</span>: <span class="b">false</span>
+}
+      </pre>
+      <div style="margin-top: 24px; padding: 12px; background: #252526; border-radius: 6px; font-size: 12px; color: #aaa;">
+        <strong style="color: #ffb86c;">Cache Invalidation Lifecycle:</strong><br>
+        1. Document saved to MongoDB collection.<br>
+        2. Handler executes <code>cache.del('all_tasks')</code>.<br>
+        3. Stale cache purged immediately.<br>
+        4. Next client GET request will trigger a fresh cache MISS and repopulate with latest data.
+      </div>
+    </div>
+    <div class="pane-half">
+      <div class="pane-title">
+        Response Body
+        <span class="status-badge">Status: 201 Created • 18 ms</span>
+      </div>
+      <pre>
+{
+  <span class="k">"success"</span>: <span class="b">true</span>,
+  <span class="k">"message"</span>: <span class="s">"Task created and cache invalidated"</span>,
+  <span class="k">"data"</span>: {
+    <span class="k">"_id"</span>: <span class="s">"6ad9c29801f33d1debc7758"</span>,
+    <span class="k">"title"</span>: <span class="s">"Optimize Redis Distributed Cache Cluster"</span>,
+    <span class="k">"priority"</span>: <span class="s">"high"</span>,
+    <span class="k">"completed"</span>: <span class="b">false</span>,
+    <span class="k">"createdAt"</span>: <span class="s">"2026-10-22T08:03:08.112Z"</span>
+  }
+}
+      </pre>
+    </div>
+  </div>
+</div>
+</body>
+</html>
