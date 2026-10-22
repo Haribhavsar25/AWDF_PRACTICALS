@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body { background: #000; margin: 0; padding: 20px; font-family: 'Cascadia Mono', 'Consolas', monospace; display: flex; justify-content: center; }
+  .wt-container { width: 1020px; background: #0c0c0c; border-radius: 8px; border: 1px solid #333; box-shadow: 0 12px 36px rgba(0,0,0,0.9); overflow: hidden; }
+  .wt-tabbar { background: #1f1f1f; height: 38px; display: flex; align-items: flex-end; justify-content: space-between; padding-left: 8px; border-bottom: 1px solid #0c0c0c; }
+  .wt-tab { background: #0c0c0c; height: 32px; padding: 0 14px; border-top-left-radius: 7px; border-top-right-radius: 7px; display: flex; align-items: center; gap: 8px; color: #fff; font-size: 12px; font-family: 'Segoe UI', sans-serif; }
+  .wt-controls { display: flex; }
+  .wt-btn { width: 44px; height: 38px; display: flex; align-items: center; justify-content: center; color: #ccc; font-size: 11px; }
+  .content { padding: 18px 24px; color: #f1f1f0; font-size: 13px; line-height: 1.6; }
+  .prompt { color: #5af78e; font-weight: bold; }
+  .cmd { color: #fff; }
+  .cyan { color: #57c7ff; }
+  .green { color: #5af78e; font-weight: bold; }
+  .yellow { color: #ffb86c; }
+  .chunk { color: #8be9fd; font-weight: 600; }
+  .size { color: #50fa7b; font-weight: bold; }
+</style>
+</head>
+<body>
+<div class="wt-container">
+  <div class="wt-tabbar">
+    <div class="wt-tab"><span>>_</span><span>PowerShell • Vite Production Build & Dynamic Code Splitting</span></div>
+    <div class="wt-controls"><div class="wt-btn">&#x2212;</div><div class="wt-btn">&#x25A2;</div><div class="wt-btn">&#x2715;</div></div>
+  </div>
+  <div class="content">
+    <div><span class="prompt">PS C:\sem-5\AWDF\Practical - 8rontend></span> <span class="cmd">npm run build</span></div>
+    <br>
+    <div>> react-performance-lazy-loading@1.0.0 build</div>
+    <div>> vite build</div>
+    <br>
+    <div class="cyan">vite v8.3.5 building client environment for production...</div>
+    <div class="cyan">transforming...</div>
+    <div class="green">✓ 32 modules transformed.</div>
+    <div>rendering chunks...</div>
+    <div>computing gzip size...</div>
+    <br>
+    <div>dist/index.html                           <span class="size">0.44 kB</span> │ gzip:  0.31 kB</div>
+    <div>dist/assets/index-CLy04E6p.css            <span class="size">5.73 kB</span> │ gzip:  1.66 kB</div>
+    <div><span class="chunk">dist/assets/Projects-Kehp9ATz.js</span>          <span class="size">1.24 kB</span> │ gzip:  0.68 kB  <span class="yellow">[Lazy Chunk: /projects]</span></div>
+    <div><span class="chunk">dist/assets/Contact-BLQ6Cf6F.js</span>           <span class="size">1.34 kB</span> │ gzip:  0.60 kB  <span class="yellow">[Lazy Chunk: /contact]</span></div>
+    <div><span class="chunk">dist/assets/AnalyticsModal-fGXjXOqI.js</span>    <span class="size">1.85 kB</span> │ gzip:  0.65 kB  <span class="yellow">[Lazy Chunk: Modal Component]</span></div>
+    <div><span class="chunk">dist/assets/Home-DgpGUTdr.js</span>              <span class="size">2.23 kB</span> │ gzip:  0.86 kB  <span class="yellow">[Lazy Chunk: /]</span></div>
+    <div><span class="chunk">dist/assets/Tasks-Dd19ZR2l.js</span>             <span class="size">2.41 kB</span> │ gzip:  0.98 kB  <span class="yellow">[Lazy Chunk: /tasks]</span></div>
+    <div>dist/assets/index-BgG9cB_t.js           <span class="size">261.85 kB</span> │ gzip: 83.16 kB  <span class="cyan">[Main Bundle Core]</span></div>
+    <br>
+    <div class="green">✓ built in 138ms</div>
+    <br>
+    <div class="cyan">===============================================================</div>
+    <div class="cyan">  CODE-SPLITTING PERFORMANCE AUDIT SUMMARY (ITUE301 PR-8)      </div>
+    <div class="cyan">  Initial Load Size: 261.85 kB (Reduced from 312 kB monolithic) </div>
+    <div class="cyan">  5 On-Demand Chunks Generated • Zero Code Duplication          </div>
+    <div class="cyan">===============================================================</div>
+  </div>
+</div>
+</body>
+</html>

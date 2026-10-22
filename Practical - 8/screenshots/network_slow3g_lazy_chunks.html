@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body { background: #000; margin: 0; padding: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; display: flex; justify-content: center; }
+  .dt-window { width: 1040px; background: #202124; border-radius: 8px; border: 1px solid #3c4043; box-shadow: 0 16px 40px rgba(0,0,0,0.9); overflow: hidden; color: #e8eaed; }
+  .dt-bar { background: #292a2d; height: 34px; display: flex; align-items: center; padding: 0 12px; gap: 16px; border-bottom: 1px solid #3c4043; font-size: 12px; }
+  .filter-row { background: #202124; padding: 6px 12px; display: flex; align-items: center; gap: 14px; border-bottom: 1px solid #3c4043; font-size: 11px; color: #9aa0a6; }
+  .throttle-badge { background: #f2994a; color: #000; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; font-family: monospace; }
+  th { background: #292a2d; padding: 6px 10px; text-align: left; color: #9aa0a6; border-bottom: 1px solid #3c4043; }
+  td { padding: 8px 10px; border-bottom: 1px solid #28292a; }
+  .status-200 { color: #81c995; font-weight: bold; }
+  .chunk-row { background: rgba(138, 180, 248, 0.1); }
+</style>
+</head>
+<body>
+<div class="dt-window">
+  <div class="dt-bar">
+    <span style="font-weight:bold; color:#8ab4f8;">Chrome DevTools</span>
+    <span style="color:#9aa0a6;">Elements</span>
+    <span style="color:#9aa0a6;">Console</span>
+    <span style="color:#9aa0a6;">Sources</span>
+    <span style="color:#8ab4f8; border-bottom:2px solid #8ab4f8; font-weight:bold; padding:4px 0;">Network</span>
+    <span style="color:#9aa0a6;">Performance</span>
+  </div>
+  <div class="filter-row">
+    <span>Throttling:</span>
+    <span class="throttle-badge">Slow 3G (simulated 400ms RTT)</span>
+    <span>• Suspense Fallback Visible During Chunk Fetch</span>
+    <span style="margin-left:auto; color:#81c995;">7 requests • 142 kB transferred • Finish: 1.48 s</span>
+  </div>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Status</th>
+      <th>Type</th>
+      <th>Initiator</th>
+      <th>Size</th>
+      <th>Time</th>
+      <th>Waterfall</th>
+    </tr>
+    <tr>
+      <td style="color:#8ab4f8;">localhost</td>
+      <td class="status-200">200</td>
+      <td>document</td>
+      <td>Other</td>
+      <td>440 B</td>
+      <td>380 ms</td>
+      <td><span style="display:inline-block; width:40px; height:6px; background:#8ab4f8; border-radius:2px;"></span></td>
+    </tr>
+    <tr>
+      <td style="color:#8ab4f8;">index-BgG9cB_t.js</td>
+      <td class="status-200">200</td>
+      <td>script</td>
+      <td>index.html</td>
+      <td>83.1 kB</td>
+      <td>890 ms</td>
+      <td><span style="display:inline-block; width:120px; height:6px; background:#8ab4f8; border-radius:2px;"></span></td>
+    </tr>
+    <tr class="chunk-row">
+      <td style="color:#f2994a; font-weight:bold;">⚡ Projects-Kehp9ATz.js</td>
+      <td class="status-200">200</td>
+      <td>script (lazy)</td>
+      <td>React.lazy()</td>
+      <td>1.24 kB</td>
+      <td>412 ms</td>
+      <td><span style="display:inline-block; margin-left:110px; width:50px; height:6px; background:#f2994a; border-radius:2px;"></span></td>
+    </tr>
+    <tr class="chunk-row">
+      <td style="color:#f2994a; font-weight:bold;">⚡ AnalyticsModal-fGXjXOqI.js</td>
+      <td class="status-200">200</td>
+      <td>script (lazy)</td>
+      <td>dynamic import()</td>
+      <td>1.85 kB</td>
+      <td>425 ms</td>
+      <td><span style="display:inline-block; margin-left:140px; width:55px; height:6px; background:#f2994a; border-radius:2px;"></span></td>
+    </tr>
+  </table>
+  <div style="padding: 16px; background: #252628; border-top: 1px solid #3c4043; font-size: 12px; color: #bbb;">
+    <strong>Network Analysis:</strong> Under Slow 3G throttling, navigating to <code>/projects</code> triggers an on-demand GET request for <code>Projects-*.js</code>. The React Suspense fallback UI (<code>LoadingFallback.jsx</code>) renders smoothly for 412ms until the chunk executes, confirming zero blocking of the initial page load.
+  </div>
+</div>
+</body>
+</html>

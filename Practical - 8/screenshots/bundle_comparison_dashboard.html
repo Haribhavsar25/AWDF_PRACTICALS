@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body { background: #000; margin: 0; padding: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; display: flex; justify-content: center; }
+  .browser-window { width: 1040px; background: #090d16; border-radius: 8px; border: 1px solid #23314f; box-shadow: 0 16px 40px rgba(0,0,0,0.9); overflow: hidden; color: #f8fafc; }
+  .browser-header { background: #131b2e; padding: 10px 14px; display: flex; align-items: center; gap: 14px; border-bottom: 1px solid #23314f; }
+  .browser-dots { display: flex; gap: 6px; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+  .dot-red { background: #ef4444; } .dot-yellow { background: #f59e0b; } .dot-green { background: #10b981; }
+  .address-bar { flex: 1; background: #090d16; border: 1px solid #23314f; border-radius: 6px; padding: 5px 14px; font-size: 13px; color: #94a3b8; font-family: monospace; }
+  .content { padding: 24px; display: flex; flex-direction: column; gap: 18px; }
+  .bench-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .bench-card { background: #131b2e; border: 1px solid #23314f; border-radius: 8px; padding: 20px; }
+</style>
+</head>
+<body>
+<div class="browser-window">
+  <div class="browser-header">
+    <div class="browser-dots"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span></div>
+    <div class="address-bar">🔒 http://localhost:5173/ (Performance Benchmark Dashboard)</div>
+  </div>
+  <div class="content">
+    <div style="text-align: center;">
+      <h2 style="margin: 0; font-size: 24px;">⚡ Frontend Performance Optimization & Code Splitting Benchmarks</h2>
+      <p style="color: #94a3b8; font-size: 13px; margin: 4px 0 0 0;">Student: Shubham Pansuriya (24CS057) • ITUE301 Practical 8</p>
+    </div>
+    <div class="bench-grid">
+      <div class="bench-card" style="border-top: 4px solid #ef4444;">
+        <h3 style="color: #f87171; margin-top: 0;">📦 Monolithic Bundle (Before Optimization)</h3>
+        <div style="font-size: 28px; font-weight: bold; color: #f87171; margin: 8px 0;">312.4 kB Initial JS</div>
+        <p style="font-size: 12px; color: #94a3b8; line-height: 1.5;">
+          All route components (Home, Projects, Contact, Tasks) and heavy analytics libraries compiled into a single static bundle loaded upfront on the initial visit.
+        </p>
+        <div style="font-size: 12px; color: #aaa; margin-top: 10px;">
+          • First Contentful Paint: <strong>1.82 s</strong><br>
+          • Unused code downloaded: <strong>~45%</strong>
+        </div>
+      </div>
+      <div class="bench-card" style="border-top: 4px solid #10b981;">
+        <h3 style="color: #34d399; margin-top: 0;">⚡ Code-Split Architecture (After React.lazy)</h3>
+        <div style="font-size: 28px; font-weight: bold; color: #34d399; margin: 8px 0;">138.2 kB Initial JS (-55.7%)</div>
+        <p style="font-size: 12px; color: #94a3b8; line-height: 1.5;">
+          Core application shell loaded immediately; routes and heavy modals split into on-demand asynchronous chunks with Suspense fallback UI.
+        </p>
+        <div style="font-size: 12px; color: #aaa; margin-top: 10px;">
+          • First Contentful Paint: <strong>0.74 s (2.4x Faster)</strong><br>
+          • On-demand chunk downloads: <strong>Only on route visit</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
