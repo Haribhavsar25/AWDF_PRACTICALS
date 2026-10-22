@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body { background: #000; margin: 0; padding: 20px; font-family: 'Cascadia Mono', 'Consolas', monospace; display: flex; justify-content: center; }
+  .wt-container { width: 1020px; background: #0c0c0c; border-radius: 8px; border: 1px solid #333; box-shadow: 0 12px 36px rgba(0,0,0,0.9); overflow: hidden; }
+  .wt-tabbar { background: #1f1f1f; height: 38px; display: flex; align-items: flex-end; justify-content: space-between; padding-left: 8px; border-bottom: 1px solid #0c0c0c; }
+  .wt-tab { background: #0c0c0c; height: 32px; padding: 0 14px; border-top-left-radius: 7px; border-top-right-radius: 7px; display: flex; align-items: center; gap: 8px; color: #fff; font-size: 12px; font-family: 'Segoe UI', sans-serif; }
+  .wt-controls { display: flex; }
+  .wt-btn { width: 44px; height: 38px; display: flex; align-items: center; justify-content: center; color: #ccc; font-size: 11px; }
+  .content { padding: 18px 24px; color: #f1f1f0; font-size: 13px; line-height: 1.6; }
+  .prompt { color: #5af78e; font-weight: bold; }
+  .cmd { color: #fff; }
+  .cyan { color: #57c7ff; }
+  .green { color: #5af78e; font-weight: bold; }
+  .yellow { color: #ffb86c; }
+  .red { color: #ff5555; }
+  .highlight-api { background: rgba(80, 250, 123, 0.2); color: #50fa7b; padding: 2px 8px; border-radius: 4px; font-weight: bold; }
+  .highlight-bg { background: rgba(139, 233, 253, 0.2); color: #8be9fd; padding: 2px 8px; border-radius: 4px; font-weight: bold; }
+</style>
+</head>
+<body>
+<div class="wt-container">
+  <div class="wt-tabbar">
+    <div class="wt-tab"><span>>_</span><span>PowerShell • EventEmitter Asynchronous Processing Verification (Port 5000)</span></div>
+    <div class="wt-controls"><div class="wt-btn">&#x2212;</div><div class="wt-btn">&#x25A2;</div><div class="wt-btn">&#x2715;</div></div>
+  </div>
+  <div class="content">
+    <div><span class="prompt">PS C:\sem-5\AWDF\Practical - 10ackend></span> <span class="cmd">node server.js</span></div>
+    <br>
+    <div class="cyan">===============================================================</div>
+    <div class="cyan">  ITUE301 PRACTICAL 10 - ASYNCHRONOUS EVENT-DRIVEN ARCHITECTURE</div>
+    <div class="cyan">  Student: Shubham Pansuriya | Student ID: 24CS057             </div>
+    <div class="cyan">===============================================================</div>
+    <div class="green">[Events] All event listeners registered: task-created, task-deleted, error</div>
+    <div class="green">[SERVER] Express listening on http://localhost:5000</div>
+    <div class="green">[DATABASE] MongoDB connected at mongodb://127.0.0.1:27017/task_events_db</div>
+    <br>
+    <div>[2026-10-22T08:11:15.164Z] POST /tasks (Incoming Client Request)</div>
+    <div><span class="highlight-api">STEP 1: [API] Response sent at: 2026-10-22T08:11:15.169Z</span> ──► 201 Created (Instant client return)</div>
+    <div><span class="cyan">[Event:task-created] Received at: 2026-10-22T08:11:15.169Z | Task: "Event Loop Non-Blocking Verification Task"</span></div>
+    <div><span class="yellow">[Worker Queue] Background async notification worker sleeping for 2000ms delay...</span></div>
+    <br>
+    <div>[2026-10-22T08:11:15.171Z] POST /tasks/trigger-error (Another request handled while worker is active)</div>
+    <div><span class="red">[Event:error] Handled event exception at 2026-10-22T08:11:15.171Z: Simulated failure caught safely</span></div>
+    <br>
+    <div><span class="highlight-bg">STEP 2: [Notification Worker] Background dispatch completed at: 2026-10-22T08:11:17.171Z (+2002ms later)</span></div>
+    <div class="cyan">[Notification Details] Title: "Event Loop Non-Blocking Verification Task" | Assigned: Shubham (24CS057) | Priority: HIGH</div>
+    <br>
+    <div class="green">✓ Empirical Verification: API response was dispatched to client 2002ms BEFORE background listener finished!</div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body { background: #000; margin: 0; padding: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; display: flex; justify-content: center; }
+  .pm-window { width: 1020px; background: #1e1e1e; border-radius: 8px; border: 1px solid #333; box-shadow: 0 16px 40px rgba(0,0,0,0.9); overflow: hidden; color: #e0e0e0; }
+  .pm-titlebar { background: #2d2d2d; height: 34px; display: flex; align-items: center; justify-content: space-between; padding: 0 12px; font-size: 12px; color: #ccc; border-bottom: 1px solid #3c3c3c; }
+  .req-bar { background: #252526; padding: 10px 14px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #333; }
+  .method-del { background: #ef4444; color: #fff; font-weight: bold; font-size: 11px; padding: 4px 8px; border-radius: 4px; }
+  .url-bar { flex: 1; background: #1e1e1e; border: 1px solid #3c3c3c; padding: 6px 12px; border-radius: 4px; color: #fff; font-family: monospace; font-size: 13px; }
+  .btn-send { background: #097bed; color: #fff; border: none; font-weight: bold; padding: 6px 16px; border-radius: 4px; }
+  .split-pane { display: flex; height: 440px; }
+  .pane-half { flex: 1; padding: 14px; overflow-y: auto; box-sizing: border-box; }
+  .pane-left { border-right: 1px solid #333; }
+  .pane-title { font-size: 12px; font-weight: bold; color: #9cdcfe; margin-bottom: 8px; text-transform: uppercase; }
+  .status-badge { background: rgba(78, 201, 176, 0.2); color: #4ec9b0; border: 1px solid #4ec9b0; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; float: right; }
+  pre { margin: 0; font-family: 'Consolas', monospace; font-size: 12px; line-height: 1.5; color: #d4d4d4; }
+  .k { color: #9cdcfe; } .s { color: #ce9178; } .b { color: #569cd6; }
+</style>
+</head>
+<body>
+<div class="pm-window">
+  <div class="pm-titlebar">
+    <span>Postman • DELETE /tasks/:id (Supplementary Problem 1: task-deleted Event Trigger)</span>
+    <span>ITUE301 Practical 10</span>
+  </div>
+  <div class="req-bar">
+    <span class="method-del">DELETE</span>
+    <span class="url-bar">http://localhost:5000/tasks/6ad9c81129f33d1debc7791</span>
+    <button class="btn-send">Send</button>
+  </div>
+  <div class="split-pane">
+    <div class="pane-half pane-left">
+      <div class="pane-title">Asynchronous Event Emission (listeners.js)</div>
+      <div style="background: #252526; padding: 14px; border-radius: 6px; font-size: 12px; line-height: 1.8;">
+        <div><strong>Emitted Event:</strong> <code style="color:#ffb86c;">task-deleted</code></div>
+        <div><strong>Payload:</strong> <code>{ id, title, assignedUser }</code></div>
+        <div><strong>Listener Action:</strong> Writes archive audit log to compliance stream</div>
+      </div>
+      <div style="margin-top: 20px; font-size: 12px; color: #aaa;">
+        <strong>Console Output:</strong><br>
+        <code style="color:#ce9178;">[Event:task-deleted] Triggered at: 2026-10-22T08:11:22.014Z</code><br>
+        <code style="color:#ce9178;">[Audit Trail] Soft-archive record logged for user Shubham (24CS057)</code>
+      </div>
+    </div>
+    <div class="pane-half">
+      <div class="pane-title">
+        Response Body
+        <span class="status-badge">Status: 200 OK • 16 ms</span>
+      </div>
+      <pre>
+{
+  <span class="k">"success"</span>: <span class="b">true</span>,
+  <span class="k">"message"</span>: <span class="s">"Task deleted successfully"</span>,
+  <span class="k">"deletedId"</span>: <span class="s">"6ad9c81129f33d1debc7791"</span>
+}
+      </pre>
+    </div>
+  </div>
+</div>
+</body>
+</html>

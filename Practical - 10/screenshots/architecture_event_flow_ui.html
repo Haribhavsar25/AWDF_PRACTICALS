@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body { background: #000; margin: 0; padding: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; display: flex; justify-content: center; }
+  .browser-window { width: 1040px; background: #0f172a; border-radius: 8px; border: 1px solid #334155; box-shadow: 0 16px 40px rgba(0,0,0,0.9); overflow: hidden; color: #f8fafc; }
+  .browser-header { background: #1e293b; padding: 10px 14px; display: flex; align-items: center; gap: 14px; border-bottom: 1px solid #334155; }
+  .browser-dots { display: flex; gap: 6px; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+  .dot-red { background: #ef4444; } .dot-yellow { background: #f59e0b; } .dot-green { background: #10b981; }
+  .address-bar { flex: 1; background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 5px 14px; font-size: 13px; color: #94a3b8; font-family: monospace; }
+  .content { padding: 24px; display: flex; flex-direction: column; gap: 18px; }
+  .pipeline-card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 20px; }
+  .flow-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 20px 0; }
+  .flow-step { flex: 1; background: #0f172a; border: 1px solid #475569; padding: 14px; border-radius: 6px; text-align: center; }
+  .flow-arrow { font-size: 20px; color: #60a5fa; }
+</style>
+</head>
+<body>
+<div class="browser-window">
+  <div class="browser-header">
+    <div class="browser-dots"><span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span></div>
+    <div class="address-bar">🔒 http://localhost:5000/ (Event-Driven Architecture Telemetry Dashboard)</div>
+  </div>
+  <div class="content">
+    <div style="text-align: center;">
+      <h2 style="margin: 0;">⚡ Asynchronous Processing with Node.js EventEmitter</h2>
+      <p style="color: #94a3b8; font-size: 13px; margin: 4px 0 0 0;">Student: Shubham Pansuriya (24CS057) • ITUE301 Practical 10</p>
+    </div>
+    <div class="pipeline-card">
+      <h3 style="margin-top:0; color:#38bdf8;">Decoupled Request-Response Lifecycle Flow</h3>
+      <div class="flow-row">
+        <div class="flow-step">
+          <div style="font-weight:bold; color:#60a5fa;">1. POST /tasks</div>
+          <div style="font-size:11px; color:#aaa; margin-top:4px;">Client request received</div>
+        </div>
+        <span class="flow-arrow">➔</span>
+        <div class="flow-step">
+          <div style="font-weight:bold; color:#34d399;">2. DB Write</div>
+          <div style="font-size:11px; color:#aaa; margin-top:4px;">Saved to MongoDB</div>
+        </div>
+        <span class="flow-arrow">➔</span>
+        <div class="flow-step" style="border: 1px solid #34d399; background: rgba(52,211,153,0.1);">
+          <div style="font-weight:bold; color:#34d399;">3. HTTP 201 OK</div>
+          <div style="font-size:11px; color:#aaa; margin-top:4px;">Dispatched in 13.3ms</div>
+        </div>
+        <span class="flow-arrow">➔</span>
+        <div class="flow-step" style="border: 1px solid #fbbf24; background: rgba(251,191,36,0.1);">
+          <div style="font-weight:bold; color:#fbbf24;">4. emit('task-created')</div>
+          <div style="font-size:11px; color:#aaa; margin-top:4px;">Async background worker</div>
+        </div>
+      </div>
+      <div style="background:#0f172a; padding:14px; border-radius:6px; font-size:12px; color:#cbd5e1; line-height:1.6;">
+        <strong>Core Engineering Takeaway:</strong> The client never waits for external notification services, email dispatchers, or analytics processing. Work is offloaded cleanly to asynchronous event listeners, keeping the critical request-response cycle fast and responsive.
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

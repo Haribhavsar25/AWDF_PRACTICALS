@@ -1,0 +1,26 @@
+{
+  "name": "event-driven-architecture-backend",
+  "version": "1.0.0",
+  "description": "ITUE301 Practical 10 - Asynchronous Processing with Node.js EventEmitter",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "express",
+    "event-emitter",
+    "event-driven",
+    "asynchronous",
+    "background-processing",
+    "mongodb"
+  ],
+  "author": "Shubham Pansuriya (24CS057)",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "mongoose": "^8.9.5"
+  }
+}
