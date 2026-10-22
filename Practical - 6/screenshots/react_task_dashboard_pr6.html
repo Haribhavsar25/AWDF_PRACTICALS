@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body {
+    background: #000;
+    margin: 0;
+    padding: 20px;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    display: flex;
+    justify-content: center;
+  }
+  .browser-window {
+    width: 1040px;
+    background: #0b1120;
+    border-radius: 8px;
+    border: 1px solid #334155;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.9);
+    overflow: hidden;
+    color: #f8fafc;
+  }
+  .browser-header {
+    background: #1e293b;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border-bottom: 1px solid #334155;
+  }
+  .browser-dots {
+    display: flex;
+    gap: 6px;
+  }
+  .dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+  .dot-red { background: #ef4444; }
+  .dot-yellow { background: #f59e0b; }
+  .dot-green { background: #10b981; }
+  .address-bar {
+    flex: 1;
+    background: #0b1120;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    padding: 5px 14px;
+    font-size: 13px;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Consolas', monospace;
+  }
+  .lock-icon { color: #10b981; font-size: 12px; }
+  .navbar-mock {
+    background: #1e293b;
+    border-bottom: 1px solid #334155;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-brand-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #f8fafc;
+  }
+  .nav-pill {
+    background: #1e3a8a;
+    color: #60a5fa;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 12px;
+    margin-left: 8px;
+  }
+  .nav-links {
+    display: flex;
+    gap: 18px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .nav-links span { color: #94a3b8; }
+  .nav-links .active-tab {
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.12);
+    padding: 4px 10px;
+    border-radius: 6px;
+  }
+  .badge-tag {
+    background: #2563eb;
+    color: #fff;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 12px;
+  }
+  .content-area {
+    padding: 24px;
+    background: #0b1120;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .dash-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .dash-h1 {
+    font-size: 22px;
+    font-weight: 800;
+    margin: 0;
+    color: #f8fafc;
+  }
+  .dash-p {
+    font-size: 12px;
+    color: #94a3b8;
+    margin: 4px 0 0 0;
+  }
+  .btn-seed {
+    background: #334155;
+    border: 1px solid #475569;
+    color: #f8fafc;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 6px;
+  }
+  .metrics-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  .metric-box {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .m-icon { font-size: 24px; }
+  .m-val { font-size: 20px; font-weight: 800; line-height: 1.1; }
+  .m-lbl { font-size: 11px; color: #94a3b8; text-transform: uppercase; font-weight: 600; }
+  .task-form-box {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .form-title { font-size: 14px; font-weight: 700; color: #f8fafc; }
+  .form-inputs-row {
+    display: flex;
+    gap: 12px;
+  }
+  .input-field {
+    flex: 2;
+    background: #0b1120;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 13px;
+    color: #f8fafc;
+  }
+  .select-field {
+    flex: 1;
+    background: #0b1120;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 13px;
+    color: #f8fafc;
+  }
+  .btn-submit {
+    background: #2563eb;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: none;
+    align-self: flex-end;
+  }
+  .task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .t-card {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .t-check {
+    margin-top: 4px;
+    width: 16px;
+    height: 16px;
+    accent-color: #2563eb;
+  }
+  .t-info { flex: 1; }
+  .t-top { display: flex; justify-content: space-between; align-items: center; }
+  .t-title { font-size: 14px; font-weight: 700; margin: 0; color: #f8fafc; }
+  .t-completed { text-decoration: line-through; color: #64748b; }
+  .priority-pill {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 10px;
+    letter-spacing: 0.05em;
+  }
+  .p-high { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid #ef4444; }
+  .p-med { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid #f59e0b; }
+  .t-desc { font-size: 12px; color: #94a3b8; margin: 4px 0 0 0; }
+  .t-meta {
+    font-size: 11px;
+    color: #64748b;
+    margin-top: 6px;
+    display: flex;
+    gap: 16px;
+    font-family: 'Consolas', monospace;
+  }
+  .btn-del {
+    background: transparent;
+    border: 1px solid #dc2626;
+    color: #f87171;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+</style>
+</head>
+<body>
+
+<div class="browser-window">
+  <div class="browser-header">
+    <div class="browser-dots">
+      <span class="dot dot-red"></span>
+      <span class="dot dot-yellow"></span>
+      <span class="dot dot-green"></span>
+    </div>
+    <div class="address-bar">
+      <span class="lock-icon">🔒</span>
+      <span>http://localhost:5173/tasks</span>
+    </div>
+  </div>
+
+  <div class="navbar-mock">
+    <div>
+      <span class="nav-brand-title">Shubham Pansuriya</span>
+      <span class="nav-pill">24CS057</span>
+    </div>
+    <div class="nav-links">
+      <span>Home</span>
+      <span class="active-tab">Tasks (Full Stack CRUD)</span>
+      <span>Contact</span>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <span class="badge-tag">ITUE301 | PR-6</span>
+    </div>
+  </div>
+
+  <div class="content-area">
+    <div class="dash-top">
+      <div>
+        <h1 class="dash-h1">Full Stack Task Management Dashboard</h1>
+        <p class="dash-p">Connected to Express API (http://localhost:5000) & MongoDB Database (task_manager_db)</p>
+      </div>
+      <div>
+        <button class="btn-seed">↻ Refresh Database</button>
+      </div>
+    </div>
+
+    <!-- METRICS BAR -->
+    <div class="metrics-row">
+      <div class="metric-box">
+        <span class="m-icon">📋</span>
+        <div><div class="m-val" style="color:#60a5fa;">4</div><div class="m-lbl">Total Tasks</div></div>
+      </div>
+      <div class="metric-box">
+        <span class="m-icon">✅</span>
+        <div><div class="m-val" style="color:#34d399;">2</div><div class="m-lbl">Completed</div></div>
+      </div>
+      <div class="metric-box">
+        <span class="m-icon">⏳</span>
+        <div><div class="m-val" style="color:#fbbf24;">2</div><div class="m-lbl">Pending</div></div>
+      </div>
+      <div class="metric-box">
+        <span class="m-icon">📊</span>
+        <div><div class="m-val" style="color:#a78bfa;">50%</div><div class="m-lbl">Completion Rate</div></div>
+      </div>
+    </div>
+
+    <!-- TASK CREATION FORM -->
+    <div class="task-form-box">
+      <div class="form-title">➕ Create New Task (MongoDB Write)</div>
+      <div class="form-inputs-row">
+        <input class="input-field" type="text" placeholder="e.g. Implement JWT Authentication with Refresh Tokens" value="Implement Task Management REST API with CORS">
+        <select class="select-field">
+          <option>🔴 High Priority</option>
+          <option selected>🟡 Medium Priority</option>
+          <option>🟢 Low Priority</option>
+        </select>
+        <button class="btn-submit">Save Task to Database</button>
+      </div>
+    </div>
+
+    <!-- TASK LIST -->
+    <div class="task-list">
+      <div class="t-card">
+        <input class="t-check" type="checkbox">
+        <div class="t-info">
+          <div class="t-top">
+            <h4 class="t-title">Add Toast Notifications and Delete Confirmation Modal</h4>
+            <span class="priority-pill p-med">MEDIUM</span>
+          </div>
+          <p class="t-desc">Implement supplementary requirements 2 and 3 for enhanced user experience and safety.</p>
+          <div class="t-meta">
+            <span>ID: 6ad8dd1a47e4ecf28403f3de</span>
+            <span>Created: 21/10/2026, 21:11:14</span>
+          </div>
+        </div>
+        <button class="btn-del">🗑️ Delete</button>
+      </div>
+
+      <div class="t-card">
+        <input class="t-check" type="checkbox" checked>
+        <div class="t-info">
+          <div class="t-top">
+            <h4 class="t-title t-completed">Implement React Frontend with Centralized API</h4>
+            <span class="priority-pill p-high">HIGH</span>
+          </div>
+          <p class="t-desc">Built api.js with base backend URL and centralized fetch calls for all CRUD routes.</p>
+          <div class="t-meta">
+            <span>ID: 6ad8dd1a47e4ecf28403f3dc</span>
+            <span>Created: 21/10/2026, 21:11:14</span>
+          </div>
+        </div>
+        <button class="btn-del">🗑️ Delete</button>
+      </div>
+
+      <div class="t-card">
+        <input class="t-check" type="checkbox">
+        <div class="t-info">
+          <div class="t-top">
+            <h4 class="t-title">Connect React State to MongoDB CRUD Operations</h4>
+            <span class="priority-pill p-high">HIGH</span>
+          </div>
+          <p class="t-desc">Wire create, read, update, delete actions with state re-fetching and error boundaries.</p>
+          <div class="t-meta">
+            <span>ID: 6ad8dd1a47e4ecf28403f3dd</span>
+            <span>Created: 21/10/2026, 21:11:14</span>
+          </div>
+        </div>
+        <button class="btn-del">🗑️ Delete</button>
+      </div>
+
+      <div class="t-card">
+        <input class="t-check" type="checkbox" checked>
+        <div class="t-info">
+          <div class="t-top">
+            <h4 class="t-title t-completed">Review Course Material for ITUE301</h4>
+            <span class="priority-pill p-high">HIGH</span>
+          </div>
+          <p class="t-desc">Study IBM Node.js & MongoDB Developing Back-end Database Applications Module 3.</p>
+          <div class="t-meta">
+            <span>ID: 6ad8dd1a47e4ecf28403f3db</span>
+            <span>Created: 21/10/2026, 21:11:14</span>
+          </div>
+        </div>
+        <button class="btn-del">🗑️ Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

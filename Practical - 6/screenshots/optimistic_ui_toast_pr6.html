@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body {
+    background: #000;
+    margin: 0;
+    padding: 20px;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    display: flex;
+    justify-content: center;
+  }
+  .browser-window {
+    width: 1040px;
+    background: #0b1120;
+    border-radius: 8px;
+    border: 1px solid #334155;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.9);
+    overflow: hidden;
+    color: #f8fafc;
+    position: relative;
+  }
+  .browser-header {
+    background: #1e293b;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border-bottom: 1px solid #334155;
+  }
+  .browser-dots { display: flex; gap: 6px; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+  .dot-red { background: #ef4444; }
+  .dot-yellow { background: #f59e0b; }
+  .dot-green { background: #10b981; }
+  .address-bar {
+    flex: 1;
+    background: #0b1120;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    padding: 5px 14px;
+    font-size: 13px;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Consolas', monospace;
+  }
+  .navbar-mock {
+    background: #1e293b;
+    border-bottom: 1px solid #334155;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-brand-title { font-size: 16px; font-weight: 700; color: #f8fafc; }
+  .nav-pill {
+    background: #1e3a8a;
+    color: #60a5fa;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 12px;
+    margin-left: 8px;
+  }
+  .content-area {
+    padding: 24px;
+    background: #0b1120;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .supp-callout {
+    background: #1e1b4b;
+    border: 1px solid #4338ca;
+    border-radius: 8px;
+    padding: 12px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .supp-title { color: #818cf8; font-weight: 700; font-size: 13px; }
+  .supp-desc { color: #c7d2fe; font-size: 12px; }
+  .task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .t-card {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .t-card-optimistic {
+    background: #1c1917;
+    border: 1px solid #f59e0b;
+    border-left: 5px solid #f59e0b;
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.2);
+  }
+  .t-info { flex: 1; }
+  .t-top { display: flex; justify-content: space-between; align-items: center; }
+  .t-title { font-size: 14px; font-weight: 700; margin: 0; color: #f8fafc; display: flex; align-items: center; gap: 8px; }
+  .opt-badge {
+    background: #f59e0b;
+    color: #000;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: 10px;
+    animation: pulse 1.5s infinite;
+  }
+  .priority-pill {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 10px;
+    letter-spacing: 0.05em;
+  }
+  .p-high { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid #ef4444; }
+  .t-desc { font-size: 12px; color: #cbd5e1; margin: 5px 0 0 0; }
+  .t-meta {
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 6px;
+    display: flex;
+    gap: 16px;
+    font-family: 'Consolas', monospace;
+  }
+  /* TOAST NOTIFICATION */
+  .toast-box {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    background: #064e3b;
+    border: 1px solid #10b981;
+    border-radius: 8px;
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+    animation: toastPop 0.3s ease-out;
+  }
+  .toast-icon { font-size: 18px; }
+  .toast-text { color: #ecfdf5; font-size: 13px; font-weight: 600; }
+  .toast-close { color: #6ee7b7; cursor: pointer; font-size: 12px; margin-left: 8px; }
+</style>
+</head>
+<body>
+
+<div class="browser-window">
+  <div class="browser-header">
+    <div class="browser-dots">
+      <span class="dot dot-red"></span>
+      <span class="dot dot-yellow"></span>
+      <span class="dot dot-green"></span>
+    </div>
+    <div class="address-bar">
+      <span>🔒</span>
+      <span>http://localhost:5173/tasks</span>
+    </div>
+  </div>
+
+  <div class="navbar-mock">
+    <div>
+      <span class="nav-brand-title">Shubham Pansuriya</span>
+      <span class="nav-pill">24CS057</span>
+    </div>
+    <div style="color:#60a5fa; font-weight:600; font-size:13px;">
+      Practical 6 Supplementary Feature Demonstrations
+    </div>
+  </div>
+
+  <div class="content-area">
+    <div class="supp-callout">
+      <div>
+        <div class="supp-title">⚡ SUPPLEMENTARY PROBLEM 1 & 3: OPTIMISTIC STATE UPDATE & TOAST FEEDBACK</div>
+        <div class="supp-desc">The newly added task renders in the React UI immediately before server confirmation. Once MongoDB confirms 201 Created, the toast appears and ID updates smoothly.</div>
+      </div>
+      <div style="background:#4f46e5; color:#fff; font-size:11px; font-weight:700; padding:4px 10px; border-radius:6px;">
+        SYNCHRONIZED
+      </div>
+    </div>
+
+    <div class="task-list">
+      <!-- OPTIMISTIC TASK ITEM -->
+      <div class="t-card t-card-optimistic">
+        <input type="checkbox" style="margin-top:4px;" disabled>
+        <div class="t-info">
+          <div class="t-top">
+            <h4 class="t-title">
+              Implement JWT Authentication with Refresh Tokens
+              <span class="opt-badge">⏳ SAVING TO MONGODB...</span>
+            </h4>
+            <span class="priority-pill p-high">HIGH</span>
+          </div>
+          <p class="t-desc">Optimistic UI update: Displayed instantly with temporary ID 'temp_1729524702000' while HTTP POST /tasks is in-flight.</p>
+          <div class="t-meta">
+            <span style="color:#f59e0b;">ID: temp_1729524702000 (Resolving to ObjectId)</span>
+            <span>Created: Just now (Optimistic)</span>
+          </div>
+        </div>
+        <button style="background:#27272a; border:1px solid #3f3f46; color:#71717a; padding:4px 8px; border-radius:4px; font-size:11px;" disabled>
+          🗑️ Delete
+        </button>
+      </div>
+
+      <!-- EXISTING PERSISTED TASKS -->
+      <div class="t-card">
+        <input type="checkbox" style="margin-top:4px;">
+        <div class="t-info">
+          <div class="t-top">
+            <h4 class="t-title">Add Toast Notifications and Delete Confirmation Modal</h4>
+            <span class="priority-pill" style="background:rgba(245,158,11,0.2); color:#fbbf24; border:1px solid #f59e0b;">MEDIUM</span>
+          </div>
+          <p class="t-desc">Implement supplementary requirements 2 and 3 for enhanced user experience and safety.</p>
+          <div class="t-meta">
+            <span>ID: 6ad8dd1a47e4ecf28403f3de</span>
+            <span>Created: 21/10/2026, 21:11:14</span>
+          </div>
+        </div>
+        <button style="background:transparent; border:1px solid #dc2626; color:#f87171; padding:4px 8px; border-radius:4px; font-size:11px;">
+          🗑️ Delete
+        </button>
+      </div>
+
+      <div class="t-card">
+        <input type="checkbox" style="margin-top:4px;" checked>
+        <div class="t-info">
+          <div class="t-top">
+            <h4 class="t-title" style="text-decoration:line-through; color:#64748b;">Implement React Frontend with Centralized API</h4>
+            <span class="priority-pill p-high">HIGH</span>
+          </div>
+          <p class="t-desc">Built api.js with base backend URL and centralized fetch calls for all CRUD routes.</p>
+          <div class="t-meta">
+            <span>ID: 6ad8dd1a47e4ecf28403f3dc</span>
+            <span>Created: 21/10/2026, 21:11:14</span>
+          </div>
+        </div>
+        <button style="background:transparent; border:1px solid #dc2626; color:#f87171; padding:4px 8px; border-radius:4px; font-size:11px;">
+          🗑️ Delete
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION COMPONENT -->
+  <div class="toast-box">
+    <span class="toast-icon">✅</span>
+    <span class="toast-text">Task "Implement JWT Authentication" created successfully in MongoDB!</span>
+    <span class="toast-close">✕</span>
+  </div>
+</div>
+
+</body>
+</html>

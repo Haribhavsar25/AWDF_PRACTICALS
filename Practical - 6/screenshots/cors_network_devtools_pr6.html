@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body {
+    background: #000;
+    margin: 0;
+    padding: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    display: flex;
+    justify-content: center;
+  }
+  .devtools-window {
+    width: 1040px;
+    background: #202124;
+    border-radius: 8px;
+    border: 1px solid #3c4043;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.9);
+    overflow: hidden;
+    color: #e8eaed;
+  }
+  .devtools-topbar {
+    background: #292a2d;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #3c4043;
+    padding: 0 10px;
+    gap: 16px;
+    font-size: 12px;
+  }
+  .dt-tabs { display: flex; gap: 12px; }
+  .dt-tab { color: #9aa0a6; padding: 4px 6px; }
+  .dt-tab.active {
+    color: #8ab4f8;
+    border-bottom: 2px solid #8ab4f8;
+    font-weight: 600;
+  }
+  .network-filterbar {
+    background: #202124;
+    border-bottom: 1px solid #3c4043;
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    color: #9aa0a6;
+  }
+  .filter-pill {
+    background: #292a2d;
+    padding: 2px 8px;
+    border-radius: 4px;
+    border: 1px solid #3c4043;
+  }
+  .filter-pill.active {
+    background: #394457;
+    color: #8ab4f8;
+    border-color: #8ab4f8;
+  }
+  .network-split {
+    display: flex;
+    height: 480px;
+  }
+  .req-list {
+    width: 320px;
+    border-right: 1px solid #3c4043;
+    background: #202124;
+    font-size: 12px;
+    overflow-y: auto;
+  }
+  .req-header {
+    background: #292a2d;
+    padding: 6px 10px;
+    font-weight: 600;
+    color: #9aa0a6;
+    display: grid;
+    grid-template-columns: 140px 60px 50px 1fr;
+    border-bottom: 1px solid #3c4043;
+  }
+  .req-row {
+    padding: 6px 10px;
+    display: grid;
+    grid-template-columns: 140px 60px 50px 1fr;
+    border-bottom: 1px solid #292a2d;
+    cursor: pointer;
+  }
+  .req-row.selected {
+    background: #0d3880;
+    color: #fff;
+  }
+  .status-200 { color: #81c995; font-weight: 600; }
+  .status-201 { color: #81c995; font-weight: 600; }
+  .req-details {
+    flex: 1;
+    background: #202124;
+    display: flex;
+    flex-direction: column;
+  }
+  .detail-tabs {
+    background: #292a2d;
+    display: flex;
+    border-bottom: 1px solid #3c4043;
+    padding-left: 10px;
+    font-size: 12px;
+  }
+  .d-tab { padding: 6px 12px; color: #9aa0a6; }
+  .d-tab.active { color: #8ab4f8; border-bottom: 2px solid #8ab4f8; font-weight: 600; }
+  .detail-content {
+    padding: 14px;
+    overflow-y: auto;
+    font-size: 12px;
+    line-height: 1.6;
+    font-family: 'Consolas', monospace;
+  }
+  .section-h {
+    font-size: 13px;
+    font-weight: bold;
+    color: #e8eaed;
+    margin: 10px 0 4px 0;
+    border-bottom: 1px solid #3c4043;
+    padding-bottom: 3px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  .h-key { color: #8ab4f8; }
+  .h-val { color: #e8eaed; }
+  .h-highlight {
+    background: rgba(129, 201, 149, 0.15);
+    border-left: 3px solid #81c995;
+    padding-left: 6px;
+    color: #81c995;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<div class="devtools-window">
+  <div class="devtools-topbar">
+    <span style="font-weight:bold; color:#8ab4f8;">Chrome DevTools</span>
+    <div class="dt-tabs">
+      <span class="dt-tab">Elements</span>
+      <span class="dt-tab">Console</span>
+      <span class="dt-tab">Sources</span>
+      <span class="dt-tab active">Network</span>
+      <span class="dt-tab">Performance</span>
+      <span class="dt-tab">Application</span>
+    </div>
+  </div>
+
+  <div class="network-filterbar">
+    <span>Filter:</span>
+    <span class="filter-pill">All</span>
+    <span class="filter-pill active">Fetch/XHR</span>
+    <span class="filter-pill">JS</span>
+    <span class="filter-pill">CSS</span>
+    <span class="filter-pill">Doc</span>
+    <span style="margin-left:auto; color:#81c995;">● 5 requests | 1.8 kB transferred</span>
+  </div>
+
+  <div class="network-split">
+    <!-- LEFT: REQUEST LIST -->
+    <div class="req-list">
+      <div class="req-header">
+        <span>Name</span>
+        <span>Status</span>
+        <span>Type</span>
+        <span>Time</span>
+      </div>
+      <div class="req-row selected">
+        <span style="color:#8ab4f8;">tasks</span>
+        <span class="status-200">200 OK</span>
+        <span>fetch</span>
+        <span>18 ms</span>
+      </div>
+      <div class="req-row">
+        <span style="color:#8ab4f8;">tasks (POST)</span>
+        <span class="status-201">201 OK</span>
+        <span>fetch</span>
+        <span>26 ms</span>
+      </div>
+      <div class="req-row">
+        <span style="color:#8ab4f8;">tasks/6ad8...</span>
+        <span class="status-200">200 OK</span>
+        <span>fetch</span>
+        <span>14 ms</span>
+      </div>
+      <div class="req-row">
+        <span style="color:#9aa0a6;">@vite/client</span>
+        <span class="status-200">200</span>
+        <span>script</span>
+        <span>4 ms</span>
+      </div>
+    </div>
+
+    <!-- RIGHT: HEADERS & CORS INSPECTION -->
+    <div class="req-details">
+      <div class="detail-tabs">
+        <span class="d-tab active">Headers</span>
+        <span class="d-tab">Payload</span>
+        <span class="d-tab">Preview</span>
+        <span class="d-tab">Response</span>
+        <span class="d-tab">Initiator</span>
+      </div>
+
+      <div class="detail-content">
+        <div class="section-h">General</div>
+        <div><span class="h-key">Request URL:</span> <span class="h-val">http://localhost:5000/tasks</span></div>
+        <div><span class="h-key">Request Method:</span> <span class="h-val">GET</span></div>
+        <div><span class="h-key">Status Code:</span> <span class="status-200">200 OK</span></div>
+        <div><span class="h-key">Remote Address:</span> <span class="h-val">127.0.0.1:5000</span></div>
+        <div><span class="h-key">Referrer Policy:</span> <span class="h-val">strict-origin-when-cross-origin</span></div>
+
+        <div class="section-h">Response Headers (CORS Configured via Express Middleware)</div>
+        <div class="h-highlight"><span class="h-key" style="color:#81c995;">Access-Control-Allow-Origin:</span> *</div>
+        <div class="h-highlight"><span class="h-key" style="color:#81c995;">Access-Control-Allow-Methods:</span> GET, POST, PUT, DELETE</div>
+        <div class="h-highlight"><span class="h-key" style="color:#81c995;">Access-Control-Allow-Headers:</span> Content-Type, Authorization</div>
+        <div><span class="h-key">Content-Type:</span> <span class="h-val">application/json; charset=utf-8</span></div>
+        <div><span class="h-key">Content-Length:</span> <span class="h-val">1042</span></div>
+        <div><span class="h-key">ETag:</span> <span class="h-val">W/"412-g1nN"</span></div>
+        <div><span class="h-key">Date:</span> <span class="h-val">Wed, 21 Oct 2026 21:11:35 GMT</span></div>
+
+        <div class="section-h">Request Headers (Originated from React UI on localhost:5173)</div>
+        <div><span class="h-key">Host:</span> <span class="h-val">localhost:5000</span></div>
+        <div><span class="h-key">Origin:</span> <span class="h-val" style="color:#fdba74;">http://localhost:5173</span></div>
+        <div><span class="h-key">Referer:</span> <span class="h-val">http://localhost:5173/tasks</span></div>
+        <div><span class="h-key">Sec-Fetch-Mode:</span> <span class="h-val">cors</span></div>
+        <div><span class="h-key">Sec-Fetch-Site:</span> <span class="h-val">same-site</span></div>
+        <div><span class="h-key">User-Agent:</span> <span class="h-val">Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/129.0.0.0</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

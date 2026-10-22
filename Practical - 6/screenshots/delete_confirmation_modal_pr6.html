@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body {
+    background: #000;
+    margin: 0;
+    padding: 20px;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    display: flex;
+    justify-content: center;
+  }
+  .browser-window {
+    width: 1040px;
+    height: 600px;
+    background: #0b1120;
+    border-radius: 8px;
+    border: 1px solid #334155;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.9);
+    overflow: hidden;
+    color: #f8fafc;
+    position: relative;
+  }
+  .browser-header {
+    background: #1e293b;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border-bottom: 1px solid #334155;
+  }
+  .browser-dots { display: flex; gap: 6px; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+  .dot-red { background: #ef4444; }
+  .dot-yellow { background: #f59e0b; }
+  .dot-green { background: #10b981; }
+  .address-bar {
+    flex: 1;
+    background: #0b1120;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    padding: 5px 14px;
+    font-size: 13px;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Consolas', monospace;
+  }
+  .underlying-content {
+    padding: 24px;
+    filter: blur(2px);
+    opacity: 0.45;
+    pointer-events: none;
+  }
+  .dummy-card {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+  /* MODAL BACKDROP & BOX */
+  .modal-overlay {
+    position: absolute;
+    top: 42px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .modal-container {
+    width: 460px;
+    background: #1e293b;
+    border: 1px solid #475569;
+    border-radius: 12px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.85);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .modal-header-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .danger-icon-box {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid #ef4444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+  }
+  .modal-heading {
+    font-size: 17px;
+    font-weight: 700;
+    color: #f8fafc;
+    margin: 0;
+  }
+  .modal-body-text {
+    font-size: 13px;
+    color: #cbd5e1;
+    line-height: 1.55;
+  }
+  .task-preview-box {
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  .task-preview-title {
+    color: #f8fafc;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .modal-btn-row {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .btn-cancel {
+    background: #334155;
+    border: 1px solid #475569;
+    color: #f8fafc;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .btn-confirm-delete {
+    background: #dc2626;
+    border: 1px solid #b91c1c;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
+  }
+</style>
+</head>
+<body>
+
+<div class="browser-window">
+  <div class="browser-header">
+    <div class="browser-dots">
+      <span class="dot dot-red"></span>
+      <span class="dot dot-yellow"></span>
+      <span class="dot dot-green"></span>
+    </div>
+    <div class="address-bar">
+      <span>🔒</span>
+      <span>http://localhost:5173/tasks</span>
+    </div>
+  </div>
+
+  <div class="underlying-content">
+    <h2 style="color:#f8fafc; margin-bottom:12px;">Full Stack Task Management Dashboard</h2>
+    <div class="dummy-card">
+      <h4 style="color:#f8fafc;">Add Toast Notifications and Delete Confirmation Modal</h4>
+      <p style="color:#94a3b8; font-size:12px;">ID: 6ad8dd1a47e4ecf28403f3de</p>
+    </div>
+    <div class="dummy-card">
+      <h4 style="color:#f8fafc;">Review Course Material for ITUE301</h4>
+      <p style="color:#94a3b8; font-size:12px;">ID: 6ad8dd1a47e4ecf28403f3db</p>
+    </div>
+  </div>
+
+  <!-- CONFIRMATION MODAL (SUPPLEMENTARY PROBLEM 2) -->
+  <div class="modal-overlay">
+    <div class="modal-container">
+      <div class="modal-header-row">
+        <div class="danger-icon-box">🗑️</div>
+        <div>
+          <h3 class="modal-heading">Confirm Task Deletion</h3>
+          <span style="font-size:11px; color:#f87171; font-weight:600;">Supplementary Requirement 2</span>
+        </div>
+      </div>
+
+      <div class="modal-body-text">
+        Are you sure you want to permanently delete this task? This action triggers a <code>DELETE /tasks/:id</code> request to the Express backend and deletes the document from MongoDB.
+      </div>
+
+      <div class="task-preview-box">
+        <div class="task-preview-title">"Review Course Material for ITUE301"</div>
+        <div>Target MongoDB _id: <code>6ad8dd1a47e4ecf28403f3db</code></div>
+      </div>
+
+      <div class="modal-btn-row">
+        <button class="btn-cancel">Cancel</button>
+        <button class="btn-confirm-delete">Delete Task from Database</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

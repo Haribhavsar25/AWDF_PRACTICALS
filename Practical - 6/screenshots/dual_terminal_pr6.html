@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body {
+    background: #000;
+    margin: 0;
+    padding: 20px;
+    font-family: 'Cascadia Mono', 'Consolas', monospace;
+    display: flex;
+    justify-content: center;
+  }
+  .wt-container {
+    width: 1020px;
+    background: #0c0c0c;
+    border-radius: 8px;
+    border: 1px solid #333333;
+    box-shadow: 0 12px 36px rgba(0,0,0,0.9);
+    overflow: hidden;
+  }
+  .wt-tabbar {
+    background: #1f1f1f;
+    height: 38px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-left: 8px;
+    border-bottom: 1px solid #0c0c0c;
+  }
+  .wt-tabs-left {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    gap: 4px;
+  }
+  .wt-tab {
+    background: #0c0c0c;
+    height: 32px;
+    padding: 0 14px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ffffff;
+    font-size: 12px;
+    font-family: 'Segoe UI', sans-serif;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .wt-tab.inactive {
+    background: #181818;
+    color: #888888;
+    border-top: none;
+  }
+  .cmd-icon {
+    width: 14px;
+    height: 11px;
+    background: #000;
+    border: 1px solid #888;
+    border-radius: 1px;
+    position: relative;
+    display: inline-block;
+  }
+  .cmd-icon::after {
+    content: ">_";
+    position: absolute;
+    top: -2px;
+    left: 1px;
+    font-size: 7px;
+    color: #0f0;
+  }
+  .wt-controls {
+    display: flex;
+    height: 100%;
+  }
+  .wt-btn {
+    width: 44px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #cccccc;
+    font-size: 11px;
+    font-family: 'Segoe UI Symbol', sans-serif;
+  }
+  .split-pane-wrapper {
+    display: flex;
+    min-height: 480px;
+    background: #0c0c0c;
+  }
+  .pane {
+    flex: 1;
+    padding: 16px;
+    font-size: 13px;
+    line-height: 1.5;
+    box-sizing: border-box;
+  }
+  .pane-left {
+    border-right: 1px solid #2a2a2a;
+  }
+  .pane-header {
+    background: #181d24;
+    border: 1px solid #2b3a4a;
+    color: #58a6ff;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 14px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .prompt { color: #5af78e; font-weight: bold; }
+  .path { color: #57c7ff; }
+  .cmd { color: #f1f1f0; }
+  .log-time { color: #6272a4; }
+  .log-green { color: #5af78e; }
+  .log-cyan { color: #9aedfe; }
+  .log-yellow { color: #ffb86c; }
+  .log-magenta { color: #ff79c6; }
+  .status-badge {
+    background: #10b981;
+    color: #000;
+    font-weight: bold;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 10px;
+  }
+</style>
+</head>
+<body>
+
+<div class="wt-container">
+  <div class="wt-tabbar">
+    <div class="wt-tabs-left">
+      <div class="wt-tab">
+        <span class="cmd-icon"></span>
+        <span>Dual Terminal • Full-Stack Services (Node 5000 + Vite 5173)</span>
+      </div>
+      <div class="wt-tab inactive">
+        <span class="cmd-icon"></span>
+        <span>mongod.exe</span>
+      </div>
+    </div>
+    <div class="wt-controls">
+      <div class="wt-btn">&#x2212;</div>
+      <div class="wt-btn">&#x25A2;</div>
+      <div class="wt-btn">&#x2715;</div>
+    </div>
+  </div>
+
+  <div class="split-pane-wrapper">
+    <!-- PANE 1: EXPRESS BACKEND -->
+    <div class="pane pane-left">
+      <div class="pane-header">
+        <span>⚡ TERMINAL 1: EXPRESS BACKEND (PORT 5000)</span>
+        <span class="status-badge">ONLINE</span>
+      </div>
+      <div><span class="prompt">PS C:\sem-5\AWDF\Practical - 6\backend></span> <span class="cmd">node server.js</span></div>
+      <br>
+      <div class="log-cyan">====================================================</div>
+      <div class="log-cyan">  ITUE301 PRACTICAL 6 - FULL STACK EXPRESS BACKEND  </div>
+      <div class="log-cyan">  Student: Shubham Pansuriya | ID: 24CS057        </div>
+      <div class="log-cyan">====================================================</div>
+      <div class="log-green">[CORS] Middleware registered: Access-Control-Allow-Origin: *</div>
+      <div class="log-green">[JSON] Body parser initialized (limit: 10mb)</div>
+      <div class="log-green">[SERVER] Express REST API listening on port: 5000</div>
+      <div class="log-green">[MONGODB] Mongoose 8.9.5 connected successfully</div>
+      <div class="log-cyan">[DATABASE] mongodb://127.0.0.1:27017/task_manager_db</div>
+      <br>
+      <div class="log-time">[2026-10-21T21:11:06Z] GET / - 200 OK (Health Check)</div>
+      <div class="log-time">[2026-10-21T21:11:14Z] POST /tasks/seed - 201 Created (4 sample tasks)</div>
+      <div class="log-time">[2026-10-21T21:11:19Z] GET /tasks - 200 OK (count: 4, sort: -createdAt)</div>
+      <div class="log-time">[2026-10-21T21:11:35Z] GET /tasks - 200 OK (React UI initial fetch)</div>
+      <div class="log-time">[2026-10-21T21:11:42Z] POST /tasks - 201 Created (Title: JWT Auth, Priority: high)</div>
+      <div class="log-time">[2026-10-21T21:11:50Z] PUT /tasks/6ad8dd... - 200 OK (completed: true)</div>
+      <br>
+      <div><span class="log-green">●</span> <span class="cmd">Listening for incoming HTTP requests from React UI...</span></div>
+    </div>
+
+    <!-- PANE 2: VITE REACT FRONTEND -->
+    <div class="pane">
+      <div class="pane-header">
+        <span>⚛️ TERMINAL 2: REACT 18 + VITE (PORT 5173)</span>
+        <span class="status-badge" style="background:#60a5fa;">DEV SERVER</span>
+      </div>
+      <div><span class="prompt">PS C:\sem-5\AWDF\Practical - 6\frontend></span> <span class="cmd">npm run dev</span></div>
+      <br>
+      <div class="cmd">> task-manager-frontend@1.0.0 dev</div>
+      <div class="cmd">> vite</div>
+      <br>
+      <div class="log-green" style="font-weight:bold;">  VITE v8.3.5  ready in 265 ms</div>
+      <br>
+      <div>  <span class="log-green">➜</span>  <span class="cmd" style="font-weight:bold;">Local:</span>   <span class="log-cyan">http://localhost:5173/</span></div>
+      <div>  <span class="log-green">➜</span>  <span class="cmd" style="font-weight:bold;">Network:</span> <span class="log-time">use --host to expose</span></div>
+      <br>
+      <div class="log-time">  press <span class="cmd">h + enter</span> to show help</div>
+      <br>
+      <div class="log-cyan">[vite] connecting React 18 client...</div>
+      <div class="log-green">[vite] connected to client dev server</div>
+      <div class="log-time">[api.js] Base backend URL set to: http://localhost:5000</div>
+      <div class="log-green">[api.js] GET http://localhost:5000/tasks → 200 OK (4 items populated)</div>
+      <div class="log-green">[api.js] POST http://localhost:5000/tasks → 201 Created (Optimistic sync OK)</div>
+      <div class="log-green">[api.js] PUT http://localhost:5000/tasks/6ad8dd... → 200 OK (Updated)</div>
+      <br>
+      <div><span class="log-green">●</span> <span class="cmd">Vite HMR active on [localhost:5173]</span></div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
