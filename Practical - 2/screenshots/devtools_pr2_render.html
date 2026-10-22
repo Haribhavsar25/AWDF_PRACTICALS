@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body {
+    background: #000;
+    margin: 0;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+  }
+  .win-window {
+    width: 960px;
+    background: #202124;
+    border: 1px solid #3c4043;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .win-titlebar {
+    background: #2b2b2b;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 12px;
+    border-bottom: 1px solid #3c4043;
+  }
+  .win-title {
+    color: #e0e0e0;
+    font-size: 12px;
+  }
+  .win-controls {
+    display: flex;
+    height: 100%;
+  }
+  .win-btn {
+    width: 44px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 11px;
+    font-family: 'Segoe UI Symbol', sans-serif;
+  }
+  .dt-bar {
+    background: #292a2d;
+    padding: 7px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #3c4043;
+    font-size: 12px;
+    color: #9aa0a6;
+  }
+  .dt-tabs { display: flex; gap: 16px; }
+  .dt-tab { padding: 2px 4px; }
+  .dt-tab.active { color: #8ab4f8; border-bottom: 2px solid #8ab4f8; font-weight: 500; }
+  .dt-body {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    height: 380px;
+    font-family: 'Consolas', monospace;
+    font-size: 13px;
+  }
+  .dt-tree {
+    border-right: 1px solid #3c4043;
+    padding: 14px 18px;
+    background: #202124;
+    color: #bdc1c6;
+    line-height: 1.6;
+  }
+  .tag { color: #8ab4f8; }
+  .attr { color: #f28b82; }
+  .val { color: #81c995; }
+  .selected-node { background: #394457; color: #fff; padding: 2px 4px; border-radius: 4px; }
+  .dt-props { padding: 14px 18px; background: #24262b; color: #bdc1c6; overflow-y: auto; }
+  .props-title {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #9aa0a6;
+    margin-bottom: 12px;
+    font-weight: bold;
+    border-bottom: 1px solid #3c4043;
+    padding-bottom: 4px;
+  }
+  .prop-row { margin-bottom: 7px; }
+  .prop-name { color: #cc99cd; font-weight: bold; }
+  .prop-val-str { color: #7ec699; }
+  .prop-val-bool { color: #f08d49; font-weight: bold; }
+</style>
+</head>
+<body>
+  <div class="win-window">
+    <div class="win-titlebar">
+      <div class="win-title">DevTools - localhost:5173/contact (React Developer Tools: State Inspection)</div>
+      <div class="win-controls">
+        <div class="win-btn">&#x2212;</div>
+        <div class="win-btn">&#x25A2;</div>
+        <div class="win-btn" style="background:transparent;">&#x2715;</div>
+      </div>
+    </div>
+    <div class="dt-bar">
+      <div class="dt-tabs">
+        <span class="dt-tab">Elements</span>
+        <span class="dt-tab">Console</span>
+        <span class="dt-tab active">⚛️ Components</span>
+        <span class="dt-tab">⚛️ Profiler</span>
+        <span class="dt-tab">Network</span>
+      </div>
+      <span>React DevTools • Practical 2 Routing & State</span>
+    </div>
+    <div class="dt-body">
+      <div class="dt-tree">
+        <div>▼ &lt;<span class="tag">BrowserRouter</span>&gt;</div>
+        <div style="padding-left: 15px;">▼ &lt;<span class="tag">App</span>&gt;</div>
+        <div style="padding-left: 30px;">&lt;<span class="tag">NavBar</span> <span class="attr">darkMode</span>=<span class="val">{false}</span> /&gt;</div>
+        <div style="padding-left: 30px;">▼ &lt;<span class="tag">Routes</span>&gt;</div>
+        <div style="padding-left: 45px;" class="selected-node">&lt;<span class="tag">Route</span> <span class="attr">path</span>=<span class="val">"/contact"</span> <span class="attr">element</span>=&lt;<span class="tag">Contact</span> /&gt;&gt;</div>
+        <div style="padding-left: 60px;">&lt;<span class="tag">Contact</span> <span class="attr">studentEmail</span>=<span class="val">"..."</span> /&gt;</div>
+        <div style="padding-left: 45px;">&lt;<span class="tag">Route</span> <span class="attr">path</span>=<span class="val">"/"</span> /&gt;</div>
+        <div style="padding-left: 45px;">&lt;<span class="tag">Route</span> <span class="attr">path</span>=<span class="val">"/projects"</span> /&gt;</div>
+        <div style="padding-left: 45px;">&lt;<span class="tag">Route</span> <span class="attr">path</span>=<span class="val">"*"</span> /&gt;</div>
+        <div style="padding-left: 30px;">&lt;<span class="tag">Footer</span> /&gt;</div>
+      </div>
+      <div class="dt-props">
+        <div class="props-title">Hooks State in &lt;Contact&gt; (useState)</div>
+        <div class="prop-row"><span class="prop-name">State [1] (name):</span> <span class="prop-val-str">"Shubham Pansuriya"</span></div>
+        <div class="prop-row"><span class="prop-name">State [2] (email):</span> <span class="prop-val-str">"24cs057@charusat.edu.in"</span></div>
+        <div class="prop-row"><span class="prop-name">State [3] (message):</span> <span class="prop-val-str">"Testing controlled input and live character count..."</span></div>
+        <div class="prop-row"><span class="prop-name">State [4] (showTooltip):</span> <span class="prop-val-bool">true</span> (UI Element Visibility)</div>
+        <div class="prop-row"><span class="prop-name">State [5] (submitted):</span> <span class="prop-val-bool">true</span></div>
+        <br>
+        <div class="props-title">Hooks State in &lt;App&gt; (Root State)</div>
+        <div class="prop-row"><span class="prop-name">State (darkMode):</span> <span class="prop-val-bool">false</span> (Toggle Theme Mode)</div>
+        <div class="prop-row"><span class="prop-name">State (themeColor):</span> <span class="prop-val-str">"#2563eb"</span></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

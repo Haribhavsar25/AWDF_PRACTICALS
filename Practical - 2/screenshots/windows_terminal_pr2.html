@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body {
+    background: #000;
+    margin: 0;
+    padding: 20px;
+    font-family: 'Cascadia Mono', 'Consolas', monospace;
+    display: flex;
+    justify-content: center;
+  }
+  .wt-container {
+    width: 960px;
+    background: #0c0c0c;
+    border-radius: 8px;
+    border: 1px solid #333333;
+    box-shadow: 0 12px 36px rgba(0,0,0,0.9);
+    overflow: hidden;
+  }
+  .wt-tabbar {
+    background: #1f1f1f;
+    height: 38px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-left: 8px;
+    border-bottom: 1px solid #0c0c0c;
+  }
+  .wt-tabs-left {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  .wt-tab {
+    background: #0c0c0c;
+    height: 32px;
+    padding: 0 12px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ffffff;
+    font-size: 12px;
+    font-family: 'Segoe UI', sans-serif;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .cmd-icon {
+    width: 14px;
+    height: 11px;
+    background: #000;
+    border: 1px solid #888;
+    border-radius: 1px;
+    position: relative;
+    display: inline-block;
+  }
+  .cmd-icon::after {
+    content: ">_";
+    position: absolute;
+    top: -2px;
+    left: 1px;
+    font-size: 8px;
+    color: #fff;
+    font-family: monospace;
+    font-weight: bold;
+    transform: scale(0.85);
+  }
+  .tab-title {
+    max-width: 170px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: 400;
+  }
+  .tab-close {
+    font-size: 11px;
+    color: #a0a0a0;
+    margin-left: 6px;
+  }
+  .wt-tab-actions {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin-left: 6px;
+    margin-bottom: 4px;
+  }
+  .wt-icon-btn {
+    width: 28px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #cccccc;
+    font-size: 13px;
+    border-radius: 4px;
+  }
+  .wt-controls {
+    display: flex;
+    height: 38px;
+  }
+  .win-btn {
+    width: 46px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e0e0e0;
+    font-size: 10px;
+    font-family: 'Segoe UI Symbol', 'Segoe UI', sans-serif;
+  }
+  .win-btn-close:hover {
+    background: #e81123 !important;
+  }
+  .wt-body {
+    background: #0c0c0c;
+    padding: 16px 20px 24px 20px;
+    color: #cccccc;
+    font-size: 13.5px;
+    line-height: 1.5;
+    font-family: 'Cascadia Mono', 'Consolas', monospace;
+  }
+</style>
+</head>
+<body>
+  <div class="wt-container">
+    <div class="wt-tabbar">
+      <div class="wt-tabs-left">
+        <div class="wt-tab">
+          <span class="cmd-icon"></span>
+          <span class="tab-title">C:\Windows\System32\cmd.e</span>
+          <span class="tab-close">&#x2715;</span>
+        </div>
+        <div class="wt-tab-actions">
+          <div class="wt-icon-btn">&#x2b;</div>
+          <div class="wt-icon-btn" style="font-size: 10px;">&#x2304;</div>
+        </div>
+      </div>
+      <div class="wt-controls">
+        <div class="win-btn">&#x2212;</div>
+        <div class="win-btn">&#x25A2;</div>
+        <div class="win-btn win-btn-close">&#x2715;</div>
+      </div>
+    </div>
+    <div class="wt-body">
+      <div>Microsoft Windows [Version 10.0.26300.9457]</div>
+      <div>(c) Microsoft Corporation. All rights reserved.</div>
+      <br>
+      <div>C:\Users\Shubham\OneDrive\Desktop\sem-5\AWDF\Practical - 2&gt;node -v</div>
+      <div>v24.21.0</div>
+      <br>
+      <div>C:\Users\Shubham\OneDrive\Desktop\sem-5\AWDF\Practical - 2&gt;npm install react-router-dom</div>
+      <div>added 26 packages, and audited 27 packages in 1.4s</div>
+      <div>found 0 vulnerabilities</div>
+      <br>
+      <div>C:\Users\Shubham\OneDrive\Desktop\sem-5\AWDF\Practical - 2&gt;npm run dev</div>
+      <br>
+      <div>&gt; student-portfolio@1.0.0 dev</div>
+      <div>&gt; vite</div>
+      <br>
+      <div>  VITE v8.3.5  ready in 184 ms</div>
+      <br>
+      <div>  ➜  Local:   http://localhost:5173/</div>
+      <div>  ➜  Network: use --host to expose</div>
+      <div>  ➜  press h + enter to show help</div>
+    </div>
+  </div>
+</body>
+</html>
