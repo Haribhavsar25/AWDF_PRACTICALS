@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body {
+    background: #000;
+    margin: 0;
+    padding: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+  }
+  .pm-window {
+    width: 980px;
+    background: #1e1e1e;
+    border-radius: 8px;
+    border: 1px solid #333333;
+    box-shadow: 0 12px 36px rgba(0,0,0,0.9);
+    overflow: hidden;
+    color: #e0e0e0;
+  }
+  .pm-titlebar {
+    background: #252526;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    border-bottom: 1px solid #333333;
+    font-size: 12px;
+  }
+  .pm-controls { display: flex; }
+  .pm-btn { width: 38px; height: 34px; display: flex; align-items: center; justify-content: center; font-size: 11px; }
+  .pm-toolbar {
+    background: #2d2d2d;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #3c3c3c;
+  }
+  .pm-method {
+    background: #0e639c;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 6px 14px;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+  .pm-method.get { background: #0c7c59; }
+  .pm-url-input {
+    flex: 1;
+    background: #1e1e1e;
+    border: 1px solid #3c3c3c;
+    color: #ffffff;
+    padding: 7px 12px;
+    border-radius: 4px;
+    font-family: 'Consolas', monospace;
+    font-size: 13px;
+  }
+  .pm-send-btn {
+    background: #007acc;
+    color: #ffffff;
+    border: none;
+    font-weight: 600;
+    padding: 7px 20px;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer;
+  }
+  .pm-content-split {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    height: 480px;
+  }
+  .pm-sidebar {
+    background: #252526;
+    border-right: 1px solid #333333;
+    padding: 12px;
+    font-size: 12px;
+  }
+  .pm-sidebar-title {
+    font-weight: 600;
+    color: #9d9d9d;
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+  }
+  .pm-coll-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border-radius: 4px;
+    margin-bottom: 4px;
+    font-size: 12px;
+    color: #cccccc;
+  }
+  .pm-coll-item.active {
+    background: #37373d;
+    color: #ffffff;
+    font-weight: 600;
+  }
+  .pm-badge-get { color: #4ec9b0; font-weight: bold; font-size: 10px; }
+  .pm-badge-post { color: #ce9178; font-weight: bold; font-size: 10px; }
+  .pm-badge-put { color: #dcdcaa; font-weight: bold; font-size: 10px; }
+  .pm-badge-del { color: #f48771; font-weight: bold; font-size: 10px; }
+  .pm-resp-panel {
+    background: #1e1e1e;
+    display: flex;
+    flex-direction: column;
+  }
+  .pm-resp-header {
+    background: #252526;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #333333;
+    font-size: 12px;
+  }
+  .pm-status-badge {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10b981;
+    border: 1px solid #10b981;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+  }
+  .pm-meta { color: #888888; font-size: 11.5px; margin-left: 14px; }
+  .pm-json-body {
+    flex: 1;
+    padding: 16px;
+    font-family: 'Consolas', monospace;
+    font-size: 12.5px;
+    line-height: 1.5;
+    overflow-y: auto;
+    background: #1e1e1e;
+    color: #9cdcfe;
+    white-space: pre-wrap;
+  }
+  .k { color: #9cdcfe; }
+  .s { color: #ce9178; }
+  .n { color: #b5cea8; }
+  .b { color: #569cd6; }
+</style>
+</head>
+<body>
+  <div class="pm-window">
+    <div class="pm-titlebar">
+      <span>Thunder Client / Postman REST API Test Suite - ITUE301 Practical 4</span>
+      <div class="pm-controls">
+        <div class="pm-btn">&#x2212;</div>
+        <div class="pm-btn">&#x25A2;</div>
+        <div class="pm-btn" style="color:#e81123;">&#x2715;</div>
+      </div>
+    </div>
+    <div class="pm-toolbar">
+      <div class="pm-method get">GET</div>
+      <input type="text" class="pm-url-input" value="http://localhost:5000/tasks" readonly>
+      <button class="pm-send-btn">Send</button>
+    </div>
+    <div class="pm-content-split">
+      <div class="pm-sidebar">
+        <div class="pm-sidebar-title">Task Manager API Collection</div>
+        <div class="pm-coll-item active"><span class="pm-badge-get">GET</span> All Tasks (/tasks)</div>
+        <div class="pm-coll-item"><span class="pm-badge-post">POST</span> Create Task (/tasks)</div>
+        <div class="pm-coll-item"><span class="pm-badge-put">PUT</span> Update Task (/tasks/:id)</div>
+        <div class="pm-coll-item"><span class="pm-badge-del">DEL</span> Delete Task (/tasks/:id)</div>
+        <div class="pm-coll-item"><span class="pm-badge-get">GET</span> By ID (/tasks/2)</div>
+        <div class="pm-coll-item"><span class="pm-badge-get">GET</span> Error Test (/simulate-error)</div>
+      </div>
+      <div class="pm-resp-panel">
+        <div class="pm-resp-header">
+          <div>
+            Response: <span class="pm-status-badge">200 OK</span>
+            <span class="pm-meta">Time: 12 ms</span>
+            <span class="pm-meta">Size: 1.15 kB</span>
+          </div>
+          <div>JSON (application/json)</div>
+        </div>
+        <div class="pm-json-body">
+{
+  <span class="k">"success"</span>: <span class="b">true</span>,
+  <span class="k">"count"</span>: <span class="n">4</span>,
+  <span class="k">"data"</span>: [
+    {
+      <span class="k">"id"</span>: <span class="n">1</span>,
+      <span class="k">"title"</span>: <span class="s">"Complete Practical 1 - React Portfolio App"</span>,
+      <span class="k">"completed"</span>: <span class="b">true</span>,
+      <span class="k">"createdAt"</span>: <span class="s">"2026-10-18T10:00:00.000Z"</span>
+    },
+    {
+      <span class="k">"id"</span>: <span class="n">2</span>,
+      <span class="k">"title"</span>: <span class="s">"Complete Practical 2 - React Router & State Management"</span>,
+      <span class="k">"completed"</span>: <span class="b">true</span>,
+      <span class="k">"createdAt"</span>: <span class="s">"2026-10-19T14:30:00.000Z"</span>
+    },
+    {
+      <span class="k">"id"</span>: <span class="n">3</span>,
+      <span class="k">"title"</span>: <span class="s">"Complete Practical 3 - GitHub REST API Integration"</span>,
+      <span class="k">"completed"</span>: <span class="b">true</span>,
+      <span class="k">"createdAt"</span>: <span class="s">"2026-10-21T09:15:00.000Z"</span>
+    },
+    {
+      <span class="k">"id"</span>: <span class="n">4</span>,
+      <span class="k">"title"</span>: <span class="s">"Complete Practical 4 - Express REST API & Middleware"</span>,
+      <span class="k">"completed"</span>: <span class="b">false</span>,
+      <span class="k">"createdAt"</span>: <span class="s">"2026-10-21T18:00:00.000Z"</span>
+    }
+  ]
+}
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
