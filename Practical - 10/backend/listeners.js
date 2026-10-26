@@ -1,8 +1,7 @@
 /**
  * Practical 10: Asynchronous Event Listeners
  * Course: ITUE301 - Advanced Web Development Frameworks
- * Student ID: 24CS057 | Name: Shubham Pansuriya
- */
+ * Student ID: 24CS009 | Name: Hari Bhavsar */
 
 const taskEvents = require('./events');
 
@@ -27,7 +26,7 @@ taskEvents.on('task-created', (task) => {
 taskEvents.on('task-deleted', (data) => {
   const timestamp = new Date().toISOString();
   console.log(`[Event:task-deleted] Triggered at: ${timestamp} | Task ID: ${data.id} ("${data.title}")`);
-  console.log(`[Audit Trail] Soft-archive record logged for user ${data.assignedUser || 'Shubham (24CS057)'}`);
+  console.log(`[Audit Trail] Soft-archive record logged for user ${data.assignedUser || 'Hari Bhavsar (24CS009)'}`);
 });
 
 // 3. Supplementary Problem 2: Error Event Listener

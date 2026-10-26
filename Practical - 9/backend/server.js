@@ -1,8 +1,7 @@
 /**
  * Practical 9: In-Memory Caching & Query Optimization (node-cache)
  * Course: ITUE301 - Advanced Web Development Frameworks
- * Student ID: 24CS057 | Name: Shubham Pansuriya
- */
+ * Student ID: 24CS009 | Name: Hari Bhavsar */
 
 const express = require('express');
 const mongoose = require('mongoose');
@@ -45,7 +44,7 @@ mongoose
 app.get('/', (req, res) => {
   res.status(200).json({
     message: 'ITUE301 Practical 9: In-Memory Caching & Query Optimization',
-    student: 'Shubham Pansuriya (24CS057)',
+    student: 'Hari Bhavsar (24CS009)',
     status: mongoose.connection.readyState === 1 ? 'Connected' : 'Disconnected',
     cacheStatus: 'Active (node-cache)',
     ttlSeconds: process.env.CACHE_TTL || 60

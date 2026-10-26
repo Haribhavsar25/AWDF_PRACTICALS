@@ -2,9 +2,8 @@
 
 **Course:** ITUE301 - Advanced Web Development Frameworks (AWDF)  
 **Academic Year:** 2026-27 (5th Semester)  
-**Student ID:** 24CS057  
-**Student Name:** Shubham Pansuriya  
-**GitHub Repository:** [https://github.com/24cs057shubham/AWDF-Practicals/tree/main/Practical%20-%205.git](https://github.com/24cs057shubham/AWDF-Practicals/tree/main/Practical%20-%205.git)
+**Student ID:** 24CS009  
+**Student Name:** Hari Bhavsar **GitHub Repository:** [https://github.com/Haribhavsar25/AWDF_PRACTICALS/tree/main/Practical%20-%205.git](https://github.com/Haribhavsar25/AWDF_PRACTICALS/tree/main/Practical%20-%205.git)
 
 ---
 
@@ -66,7 +65,7 @@ Request JSON ──► Pre-save Hook (Trim title) ──► Schema Validators (R
 ### Installation & Configuration
 ```bash
 # Clone the repository
-git clone https://github.com/24cs057shubham/AWDF-Practicals/tree/main/Practical%20-%205.git
+git clone https://github.com/Haribhavsar25/AWDF_PRACTICALS/tree/main/Practical%20-%205.git
 cd AWDF-PR-5
 
 # Install dependencies

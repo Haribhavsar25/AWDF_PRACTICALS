@@ -26,7 +26,7 @@ function Header({ name, studentId, courseTitle, subtitle, themeColor }) {
           Explore Portfolio
         </a>
         <a 
-          href="https://github.com/24cs057shubham/AWDF-Practicals/tree/main/Practical%20-%201.git" 
+          href="https://github.com/Haribhavsar25/AWDF_PRACTICALS/tree/main/Practical%20-%201.git" 
           target="_blank" 
           rel="noopener noreferrer" 
           className="btn btn-secondary"

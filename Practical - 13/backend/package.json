@@ -16,7 +16,7 @@
     "rate-limiting",
     "mongodb"
   ],
-  "author": "Shubham Pansuriya (24CS057)",
+  "author": "Hari Bhavsar (24CS009)",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",

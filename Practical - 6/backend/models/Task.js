@@ -1,8 +1,7 @@
 /**
  * Practical 6: Task Model (MongoDB & Mongoose Schema)
  * Course: ITUE301 - Advanced Web Development Frameworks
- * Student ID: 24CS057 | Name: Shubham Pansuriya
- */
+ * Student ID: 24CS009 | Name: Hari Bhavsar */
 
 const mongoose = require('mongoose');
 

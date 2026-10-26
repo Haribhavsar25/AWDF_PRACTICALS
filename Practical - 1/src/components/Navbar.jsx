@@ -26,8 +26,8 @@ function Navbar({ activeSection, onNavigate }) {
       <div className="nav-brand">
         <span className="brand-logo">SP</span>
         <div className="brand-text">
-          <span className="brand-name">Shubham Pansuriya</span>
-          <span className="brand-id">ID: 24CS057</span>
+          <span className="brand-name">Hari Bhavsar</span>
+          <span className="brand-id">ID: 24CS009</span>
         </div>
       </div>
       <ul className="nav-links">

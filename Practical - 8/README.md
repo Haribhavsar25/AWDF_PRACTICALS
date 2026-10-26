@@ -2,9 +2,8 @@
 
 **Course:** ITUE301 - Advanced Web Development Frameworks (AWDF)  
 **Academic Year:** 2026-27 (5th Semester)  
-**Student ID:** 24CS057  
-**Student Name:** Shubham Pansuriya  
-**GitHub Repository:** [https://github.com/24cs057shubham/AWDF-Practicals/tree/main/Practical%20-%208.git](https://github.com/24cs057shubham/AWDF-Practicals/tree/main/Practical%20-%208.git)
+**Student ID:** 24CS009  
+**Student Name:** Hari Bhavsar **GitHub Repository:** [https://github.com/Haribhavsar25/AWDF_PRACTICALS/tree/main/Practical%20-%208.git](https://github.com/Haribhavsar25/AWDF_PRACTICALS/tree/main/Practical%20-%208.git)
 
 ---
 
@@ -76,7 +75,7 @@ npm run dev
 3. `pr8_lazy_loaded_analytics_modal.png`: Browser view showing lazy-loaded heavy Analytics visualization modal.
 4. `pr8_react_devtools_profiler.png`: React DevTools Profiler panel verifying that `TaskItem` memoization prevents unnecessary re-renders.
 5. `pr8_bundle_comparison_dashboard.png`: Browser benchmark comparison panel displaying Monolithic (312 kB) vs Code-Split (138 kB) metrics.
-6. `pr8_github_repo.png`: GitHub repository deliverable evidence for `24cs057shubham/AWDF-PR-8`.
+6. `pr8_github_repo.png`: GitHub repository deliverable evidence for `Haribhavsar25/AWDF-PR-8`.
 
 ---
 

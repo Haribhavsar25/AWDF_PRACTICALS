@@ -16,7 +16,7 @@ function Home() {
             Launch Task Manager (CRUD) 🚀
           </Link>
           <a
-            href="https://github.com/24cs057shubham/AWDF-Practicals/tree/main/Practical%20-%206.git"
+            href="https://github.com/Haribhavsar25/AWDF_PRACTICALS/tree/main/Practical%20-%206.git"
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-outline btn-large"

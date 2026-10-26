@@ -1,8 +1,7 @@
 /**
  * Practical 10: Centralized Event Emitter Module
  * Course: ITUE301 - Advanced Web Development Frameworks
- * Student ID: 24CS057 | Name: Shubham Pansuriya
- */
+ * Student ID: 24CS009 | Name: Hari Bhavsar */
 
 const EventEmitter = require('events');
 

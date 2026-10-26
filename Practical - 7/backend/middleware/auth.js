@@ -1,8 +1,7 @@
 /**
  * Practical 7: JWT Authentication Middleware
  * Course: ITUE301 - Advanced Web Development Frameworks
- * Student ID: 24CS057 | Name: Shubham Pansuriya
- */
+ * Student ID: 24CS009 | Name: Hari Bhavsar */
 
 const jwt = require('jsonwebtoken');
 
@@ -19,7 +18,7 @@ const auth = (req, res, next) => {
   const token = authHeader.split(' ')[1];
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET || 'supersecretjwtkey_24cs057_itue301_charusat');
+    const decoded = jwt.verify(token, process.env.JWT_SECRET || 'supersecretjwtkey_24cs009_itue301_charusat');
     req.user = decoded; // { id: user._id, email: user.email, iat, exp }
     next();
   } catch (err) {

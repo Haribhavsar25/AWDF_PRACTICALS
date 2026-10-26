@@ -2,9 +2,8 @@
 
 **Course:** ITUE301 - Advanced Web Development Frameworks (AWDF)  
 **Academic Year:** 2026-27 (5th Semester)  
-**Student ID:** 24CS057  
-**Student Name:** Shubham Pansuriya  
-**GitHub Repository:** [https://github.com/24cs057shubham/AWDF-Practicals/tree/main/Practical%20-%203.git](https://github.com/24cs057shubham/AWDF-Practicals/tree/main/Practical%20-%203.git)
+**Student ID:** 24CS009  
+**Student Name:** Hari Bhavsar **GitHub Repository:** [https://github.com/Haribhavsar25/AWDF_PRACTICALS/tree/main/Practical%20-%203.git](https://github.com/Haribhavsar25/AWDF_PRACTICALS/tree/main/Practical%20-%203.git)
 
 ---
 
@@ -66,7 +65,7 @@ const fetchRepos = (triggerError = false) => {
 
   const url = triggerError
     ? 'https://api.github.com/users/invalid-nonexistent-user-404/repos'
-    : 'https://api.github.com/users/24cs057shubham/repos';
+    : 'https://api.github.com/users/Haribhavsar25/repos';
 
   fetch(url)
     .then((res) => {
@@ -90,7 +89,7 @@ const fetchRepos = (triggerError = false) => {
 ### Installation
 ```bash
 # Clone the repository
-git clone https://github.com/24cs057shubham/AWDF-Practicals/tree/main/Practical%20-%203.git
+git clone https://github.com/Haribhavsar25/AWDF_PRACTICALS/tree/main/Practical%20-%203.git
 cd AWDF-PR-3
 
 # Install dependencies
@@ -121,4 +120,4 @@ npm run build
 - [x] Search filter verifying real-time dynamic filtering.
 - [x] Error state verification showing `<ErrorMessage />` and working retry trigger.
 - [x] DevTools Network tab showing HTTP 200 GET request and JSON payload.
-- [x] Official lab document generated: `24CS057_AWDF_Practical_3.pdf`.
+- [x] Official lab document generated: `24CS009_AWDF_Practical_3.pdf`.

@@ -7,14 +7,14 @@
 ---
 
 ### Student Information
-- **Student Name:** Shubham Pansuriya
-- **Student ID:** 24CS057
+- **Student Name:** Hari Bhavsar
+- **Student ID:** 24CS009
 - **Course Code:** ITUE301
 - **Course Name:** Advanced Web Development Frameworks
 - **Practical:** 1 (Introduction to React and Component Architecture)
 - **Academic Year:** 2026-27
 - **Semester:** 5th Semester
-- **GitHub Repository:** [https://github.com/24cs057shubham/AWDF-Practicals/tree/main/Practical%20-%201.git](https://github.com/24cs057shubham/AWDF-Practicals/tree/main/Practical%20-%201.git)
+- **GitHub Repository:** [https://github.com/Haribhavsar25/AWDF_PRACTICALS/tree/main/Practical%20-%201.git](https://github.com/Haribhavsar25/AWDF_PRACTICALS/tree/main/Practical%20-%201.git)
 
 ---
 
@@ -57,7 +57,7 @@ App.jsx (Root Layout & State Management)
 ### Installation & Run
 ```bash
 # Clone the repository
-git clone https://github.com/24cs057shubham/AWDF-Practicals/tree/main/Practical%20-%201.git
+git clone https://github.com/Haribhavsar25/AWDF_PRACTICALS/tree/main/Practical%20-%201.git
 
 # Navigate into the project directory
 cd AWDF-PR-1
@@ -75,5 +75,5 @@ Visit `http://localhost:5173/` in your browser.
 
 ## Practical Report Document
 The completed practical report with all institutional headers, tables, problem definitions, source code, screenshots, and viva analysis answers is included in this repository:
-- **PDF Report:** [`24CS057_AWDF_Practical_1.pdf`](./24CS057_AWDF_Practical_1.pdf)
-- **Word Document:** [`24CS057_AWDF_Practical_1.docx`](./24CS057_AWDF_Practical_1.docx)
+- **PDF Report:** [`24CS009_AWDF_Practical_1.pdf`](./24CS009_AWDF_Practical_1.pdf)
+- **Word Document:** [`24CS009_AWDF_Practical_1.docx`](./24CS009_AWDF_Practical_1.docx)

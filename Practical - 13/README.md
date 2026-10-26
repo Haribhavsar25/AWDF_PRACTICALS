@@ -2,9 +2,8 @@
 
 **Course:** ITUE301 - Advanced Web Development Frameworks (AWDF)  
 **Academic Year:** 2026-27 (5th Semester)  
-**Student ID:** 24CS057  
-**Student Name:** Shubham Pansuriya  
-**GitHub Repository:** [https://github.com/24cs057shubham/AWDF-Practicals/tree/main/Practical%20-%2013.git](https://github.com/24cs057shubham/AWDF-Practicals/tree/main/Practical%20-%2013.git)
+**Student ID:** 24CS009  
+**Student Name:** Hari Bhavsar **GitHub Repository:** [https://github.com/Haribhavsar25/AWDF_PRACTICALS/tree/main/Practical%20-%2013.git](https://github.com/Haribhavsar25/AWDF_PRACTICALS/tree/main/Practical%20-%2013.git)
 
 ---
 
@@ -93,7 +92,7 @@ node server.js
 3. `pr13_postman_ai_endpoint_success.png`: Postman testing `/api/ai/generate-description` returning HTTP 200 OK with full AI suggestion payload.
 4. `pr13_postman_graceful_fallback.png`: Demonstration of Graceful Degradation: Simulating provider outage where backend returns smart contextual fallback without crashing.
 5. `pr13_rate_limiting_429_inspection.png`: Supplementary Problem 2: Demonstration of rate limiting middleware returning HTTP 429 Too Many Requests.
-6. `pr13_github_repo.png`: GitHub repository deliverable evidence for `24cs057shubham/AWDF-PR-13`.
+6. `pr13_github_repo.png`: GitHub repository deliverable evidence for `Haribhavsar25/AWDF-PR-13`.
 
 ---
 

@@ -20,8 +20,8 @@ function Contact() {
         <div className="student-profile-badge">
           <div className="profile-avatar">SP</div>
           <div>
-            <h3>Shubham Pansuriya</h3>
-            <p>B.Tech Computer Science & Engineering | ID: <strong>24CS057</strong></p>
+            <h3>Hari Bhavsar</h3>
+            <p>B.Tech Computer Science & Engineering | ID: <strong>24CS009</strong></p>
             <p>Faculty of Technology and Engineering, CHARUSAT</p>
           </div>
         </div>

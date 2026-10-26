@@ -2,9 +2,8 @@
 
 **Course:** ITUE301 - Advanced Web Development Frameworks (AWDF)  
 **Academic Year:** 2026-27 (5th Semester)  
-**Student ID:** 24CS057  
-**Student Name:** Shubham Pansuriya  
-**GitHub Repository:** [https://github.com/24cs057shubham/AWDF-Practicals/tree/main/Practical%20-%2010.git](https://github.com/24cs057shubham/AWDF-Practicals/tree/main/Practical%20-%2010.git)
+**Student ID:** 24CS009  
+**Student Name:** Hari Bhavsar **GitHub Repository:** [https://github.com/Haribhavsar25/AWDF_PRACTICALS/tree/main/Practical%20-%2010.git](https://github.com/Haribhavsar25/AWDF_PRACTICALS/tree/main/Practical%20-%2010.git)
 
 ---
 
@@ -104,7 +103,7 @@ node server.js
 3. `pr10_event_task_deleted_listener.png`: Terminal & Postman demonstration of `DELETE /tasks/:id` triggering the custom `task-deleted` event listener.
 4. `pr10_event_error_handling_listener.png`: Demonstration of the error boundary listener catching unhandled errors safely without crashing the server.
 5. `pr10_architecture_event_flow_ui.png`: Fullstack React dashboard visualizing real-time asynchronous background event logs and latency metrics.
-6. `pr10_github_repo.png`: GitHub repository deliverable evidence for `24cs057shubham/AWDF-PR-10`.
+6. `pr10_github_repo.png`: GitHub repository deliverable evidence for `Haribhavsar25/AWDF-PR-10`.
 
 ---
 

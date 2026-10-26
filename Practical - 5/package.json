@@ -1,5 +1,5 @@
 {
-  "name": "task-manager-api-mongoose-24cs057",
+  "name": "task-manager-api-mongoose-24cs009",
   "version": "1.0.0",
   "description": "Practical 5: MongoDB Integration and Schema Design with Mongoose - ITUE301 Advanced Web Development Frameworks",
   "main": "server.js",
@@ -16,7 +16,7 @@
     "awdf",
     "itue301"
   ],
-  "author": "Shubham Pansuriya (24CS057)",
+  "author": "Hari Bhavsar (24CS009)",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^3.0.3",

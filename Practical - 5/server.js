@@ -1,8 +1,7 @@
 /**
  * Practical 5: MongoDB Integration and Schema Design with Mongoose
  * Course: ITUE301 - Advanced Web Development Frameworks
- * Student ID: 24CS057 | Name: Shubham Pansuriya
- * Academic Year: 2026-27 | Semester: 5th
+ * Student ID: 24CS009 | Name: Hari Bhavsar * Academic Year: 2026-27 | Semester: 5th
  */
 
 const express = require('express');
@@ -48,7 +47,7 @@ mongoose
 app.get('/', (req, res) => {
   res.status(200).json({
     message: 'Welcome to Task Manager API with MongoDB & Mongoose (Practical 5)',
-    student: 'Shubham Pansuriya (24CS057)',
+    student: 'Hari Bhavsar (24CS009)',
     database: 'MongoDB (Mongoose ODM)',
     status: mongoose.connection.readyState === 1 ? 'Connected' : 'Connecting/Disconnected',
     endpoints: {

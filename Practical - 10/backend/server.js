@@ -1,8 +1,7 @@
 /**
  * Practical 10: Express Server with Event-Driven Architecture
  * Course: ITUE301 - Advanced Web Development Frameworks
- * Student ID: 24CS057 | Name: Shubham Pansuriya
- */
+ * Student ID: 24CS009 | Name: Hari Bhavsar */
 
 const express = require('express');
 const mongoose = require('mongoose');
@@ -43,7 +42,7 @@ mongoose
 app.get('/', (req, res) => {
   res.status(200).json({
     message: 'ITUE301 Practical 10: Asynchronous Processing with Event-Driven Architecture',
-    student: 'Shubham Pansuriya (24CS057)',
+    student: 'Hari Bhavsar (24CS009)',
     status: mongoose.connection.readyState === 1 ? 'Connected' : 'Disconnected',
     registeredEvents: ['task-created', 'task-deleted', 'error']
   });
@@ -73,7 +72,7 @@ app.post('/tasks', async (req, res, next) => {
       title,
       description,
       priority,
-      assignedUser: assignedUser || 'Shubham Pansuriya (24CS057)'
+      assignedUser: assignedUser || 'Hari Bhavsar (24CS009)'
     });
 
     // 2. Respond immediately to the client (Critical Non-Blocking Requirement)
@@ -134,8 +133,8 @@ app.post('/tasks/seed', async (req, res, next) => {
   try {
     await Task.deleteMany({});
     const sample = [
-      { title: 'Evaluate EventEmitter timestamp ordering', priority: 'high', assignedUser: 'Shubham Pansuriya' },
-      { title: 'Simulate background notification worker delay', priority: 'medium', assignedUser: 'Shubham Pansuriya' }
+      { title: 'Evaluate EventEmitter timestamp ordering', priority: 'high', assignedUser: 'Hari Bhavsar' },
+      { title: 'Simulate background notification worker delay', priority: 'medium', assignedUser: 'Hari Bhavsar' }
     ];
     const tasks = await Task.insertMany(sample);
     res.status(201).json({ success: true, count: tasks.length });

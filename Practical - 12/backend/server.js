@@ -1,8 +1,7 @@
 /**
  * Practical 12: CI/CD Pipeline with GitHub Actions
  * Course: ITUE301 - Advanced Web Development Frameworks
- * Student ID: 24CS057 | Name: Shubham Pansuriya
- */
+ * Student ID: 24CS009 | Name: Hari Bhavsar */
 
 const express = require('express');
 const mongoose = require('mongoose');
@@ -56,7 +55,7 @@ let inMemoryTasks = [
 app.get('/', (req, res) => {
   res.status(200).json({
     message: 'ITUE301 Practical 12: CI/CD Pipeline with GitHub Actions',
-    student: 'Shubham Pansuriya (24CS057)',
+    student: 'Hari Bhavsar (24CS009)',
     status: mongoose.connection.readyState === 1 ? 'Connected' : 'In-Memory / CI Mode',
     pipeline: 'GitHub Actions Automated Testing'
   });

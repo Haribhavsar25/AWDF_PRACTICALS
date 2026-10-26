@@ -17,11 +17,11 @@ function Contact() {
           <form onSubmit={(e) => { e.preventDefault(); setSent(true); }} className="contact-form">
             <div className="form-group">
               <label>Name</label>
-              <input type="text" className="form-input" placeholder="Shubham Pansuriya" required />
+              <input type="text" className="form-input" placeholder="Hari Bhavsar" required />
             </div>
             <div className="form-group">
               <label>Email</label>
-              <input type="email" className="form-input" placeholder="shubham@charusat.edu.in" required />
+              <input type="email" className="form-input" placeholder="24cs009@charusat.edu.in" required />
             </div>
             <div className="form-group">
               <label>Message</label>

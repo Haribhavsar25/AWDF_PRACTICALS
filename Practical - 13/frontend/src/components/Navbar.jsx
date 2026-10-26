@@ -6,8 +6,8 @@ function Navbar({ onOpenAnalytics }) {
     <nav className="navbar">
       <div className="nav-container">
         <div className="nav-brand">
-          <span className="brand-name">Shubham Pansuriya</span>
-          <span className="brand-id">24CS057</span>
+          <span className="brand-name">Hari Bhavsar</span>
+          <span className="brand-id">24CS009</span>
         </div>
 
         <ul className="nav-links">

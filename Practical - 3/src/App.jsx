@@ -13,16 +13,16 @@ function App() {
   const [themeColor, setThemeColor] = useState('#2563eb');
 
   const studentData = {
-    name: "Shubham Pansuriya",
-    studentId: "24CS057",
+    name: "Hari Bhavsar",
+    studentId: "24CS009",
     courseCode: "ITUE301",
     courseTitle: "Advanced Web Development Frameworks",
     academicYear: "2026-27",
     semester: "5th Semester",
     institution: "Charotar University of Science and Technology (CHARUSAT)",
     department: "Department of Computer Science & Engineering, CSPIT",
-    email: "24cs057@charusat.edu.in",
-    githubRepo: "https://github.com/24cs057shubham/AWDF-Practicals/tree/main/Practical%20-%203.git",
+    email: "24cs009@charusat.edu.in",
+    githubRepo: "https://github.com/Haribhavsar25/AWDF_PRACTICALS/tree/main/Practical%20-%203.git",
     bio: "Passionate Computer Science engineering undergraduate at CHARUSAT with deep enthusiasm for modern frontend web technologies, component-based architectures, and REST API integration.",
     education: "B.Tech in Computer Science & Engineering (Pursuing, CGPA: 7.3)"
   };

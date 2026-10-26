@@ -1,8 +1,7 @@
 /**
  * Practical 13: AI API Integration into a Web Application
  * Course: ITUE301 - Advanced Web Development Frameworks
- * Student ID: 24CS057 | Name: Shubham Pansuriya
- */
+ * Student ID: 24CS009 | Name: Hari Bhavsar */
 
 const express = require('express');
 const mongoose = require('mongoose');
@@ -211,7 +210,7 @@ function serveGracefulFallback(res, title, startTime, reason) {
 app.get('/', (req, res) => {
   res.status(200).json({
     message: 'ITUE301 Practical 13: AI API Integration into a Web Application',
-    student: 'Shubham Pansuriya (24CS057)',
+    student: 'Hari Bhavsar (24CS009)',
     aiService: 'OpenAI / Gemini Server-Side Integration',
     rateLimiting: 'Active (Max 5 req/min per client)',
     security: 'API Key stored in .env (never exposed to client)'

@@ -1,7 +1,7 @@
 import React from 'react';
 
-function Footer({ studentName = 'Shubham Pansuriya', studentId = '24CS057' }) {
-  const repoUrl = 'https://github.com/24cs057shubham/AWDF-Practicals/tree/main/Practical%20-%206.git';
+function Footer({ studentName = 'Hari Bhavsar', studentId = '24CS009' }) {
+  const repoUrl = 'https://github.com/Haribhavsar25/AWDF_PRACTICALS/tree/main/Practical%20-%206.git';
 
   return (
     <footer className="portfolio-footer">

@@ -1,8 +1,7 @@
 /**
  * Practical 7: Express REST API with JWT Auth & Middleware Pipeline
  * Course: ITUE301 - Advanced Web Development Frameworks
- * Student ID: 24CS057 | Name: Shubham Pansuriya
- */
+ * Student ID: 24CS009 | Name: Hari Bhavsar */
 
 const express = require('express');
 const mongoose = require('mongoose');
@@ -19,7 +18,7 @@ const { validateTask, validateAuth } = require('./middleware/validate');
 const app = express();
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/task_auth_db';
-const JWT_SECRET = process.env.JWT_SECRET || 'supersecretjwtkey_24cs057_itue301_charusat';
+const JWT_SECRET = process.env.JWT_SECRET || 'supersecretjwtkey_24cs009_itue301_charusat';
 
 // Middlewares
 app.use(cors());
@@ -47,7 +46,7 @@ mongoose
 app.get('/', (req, res) => {
   res.status(200).json({
     message: 'ITUE301 Practical 7: JWT Authentication & Middleware Pipeline',
-    student: 'Shubham Pansuriya (24CS057)',
+    student: 'Hari Bhavsar (24CS009)',
     status: mongoose.connection.readyState === 1 ? 'Connected' : 'Disconnected',
     endpoints: {
       register: 'POST /register',

@@ -37,7 +37,7 @@ function App() {
           </Routes>
         </main>
 
-        <Footer studentName="Shubham Pansuriya" studentId="24CS057" />
+        <Footer studentName="Hari Bhavsar" studentId="24CS009" />
       </div>
     </BrowserRouter>
   );

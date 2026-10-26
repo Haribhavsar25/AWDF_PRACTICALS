@@ -2,9 +2,8 @@
 
 **Course:** ITUE301 - Advanced Web Development Frameworks (AWDF)  
 **Academic Year:** 2026-27 (5th Semester)  
-**Student ID:** 24CS057  
-**Student Name:** Shubham Pansuriya  
-**GitHub Repository:** [https://github.com/24cs057shubham/AWDF-Practicals/tree/main/Practical%20-%2011.git](https://github.com/24cs057shubham/AWDF-Practicals/tree/main/Practical%20-%2011.git)
+**Student ID:** 24CS009  
+**Student Name:** Hari Bhavsar **GitHub Repository:** [https://github.com/Haribhavsar25/AWDF_PRACTICALS/tree/main/Practical%20-%2011.git](https://github.com/Haribhavsar25/AWDF_PRACTICALS/tree/main/Practical%20-%2011.git)
 
 ---
 
@@ -84,7 +83,7 @@ docker-compose down
 3. `pr11_browser_fullstack_containerized.png`: Web browser loaded at `http://localhost:5173` verifying end-to-end fullstack communication between containerized React frontend, Express API, and MongoDB.
 4. `pr11_docker_compose_yaml_inspection.png`: Source code inspection of `docker-compose.yml` detailing service configs, bridge network definition, and persistent volume declaration.
 5. `pr11_docker_volume_persistence_proof.png`: Verification of Supplementary Problem 3 demonstrating database persistence after full `docker-compose down` and `docker-compose up`.
-6. `pr11_github_repo.png`: GitHub repository deliverable evidence for `24cs057shubham/AWDF-PR-11`.
+6. `pr11_github_repo.png`: GitHub repository deliverable evidence for `Haribhavsar25/AWDF-PR-11`.
 
 ---
 

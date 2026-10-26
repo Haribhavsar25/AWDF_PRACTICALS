@@ -14,16 +14,16 @@ function App() {
 
   // Student Profile Data
   const studentData = {
-    name: "Shubham Pansuriya",
-    studentId: "24CS057",
+    name: "Hari Bhavsar",
+    studentId: "24CS009",
     courseCode: "ITUE301",
     courseTitle: "Advanced Web Development Frameworks",
     academicYear: "2026-27",
     semester: "5th Semester",
     institution: "Charotar University of Science and Technology (CHARUSAT)",
     department: "Department of Computer Science & Engineering, CSPIT",
-    email: "24cs057@charusat.edu.in",
-    githubRepo: "https://github.com/24cs057shubham/AWDF-Practicals/tree/main/Practical%20-%201.git",
+    email: "24cs009@charusat.edu.in",
+    githubRepo: "https://github.com/Haribhavsar25/AWDF_PRACTICALS/tree/main/Practical%20-%201.git",
     bio: "Passionate Computer Science engineering undergraduate at CHARUSAT with deep enthusiasm for modern frontend web technologies, component-based architectures, and scalable full-stack software development.",
     education: "B.Tech in Computer Science & Engineering (Pursuing, CGPA: 7.3)"
   };
@@ -48,7 +48,7 @@ function App() {
       category: "Full Stack Web App",
       description: "A comprehensive digital governance platform enabling citizens to voice local infrastructure complaints, track resolution workflows, and engage with municipal bodies.",
       tech: ["React", "Node.js", "Express", "MongoDB", "TailwindCSS"],
-      link: "https://github.com/ShubhamPansuriya23"
+      link: "https://github.com/Haribhavsar25"
     },
     {
       id: 2,
@@ -56,7 +56,7 @@ function App() {
       category: "React & Vite Scaffolding",
       description: "Modular, component-driven portfolio engineered for AWDF Practical 1 demonstrating functional components, dynamic props rendering, and responsive UI architecture.",
       tech: ["React 19", "Vite", "Modern CSS", "Component Architecture"],
-      link: "https://github.com/24cs057shubham/AWDF-Practicals/tree/main/Practical%20-%201.git"
+      link: "https://github.com/Haribhavsar25/AWDF_PRACTICALS/tree/main/Practical%20-%201.git"
     },
     {
       id: 3,
@@ -64,7 +64,7 @@ function App() {
       category: "Hackathon Project",
       description: "Innovative enterprise workflow automation prototype built during the 2025 Odoo Hackathon in Gandhinagar, tackling optimized resource distribution and real-time alerts.",
       tech: ["Python", "JavaScript", "REST APIs", "PostgreSQL"],
-      link: "https://github.com/ShubhamPansuriya23"
+      link: "https://github.com/Haribhavsar25"
     }
   ];
 

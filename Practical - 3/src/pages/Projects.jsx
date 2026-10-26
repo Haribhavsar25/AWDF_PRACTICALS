@@ -12,7 +12,7 @@ function Projects() {
   const [searchTerm, setSearchTerm] = useState('');
 
   // 3. GitHub Username
-  const username = '24cs057shubham';
+  const username = 'Haribhavsar25';
 
   // Function to fetch repositories
   const fetchRepos = (triggerError = false) => {

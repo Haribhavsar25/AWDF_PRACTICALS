@@ -1,5 +1,5 @@
 {
-  "name": "task-manager-api-24cs057",
+  "name": "task-manager-api-24cs009",
   "version": "1.0.0",
   "description": "Practical 4: Building a RESTful API with Node.js and Express - ITUE301 Advanced Web Development Frameworks",
   "main": "server.js",
@@ -15,7 +15,7 @@
     "awdf",
     "itue301"
   ],
-  "author": "Shubham Pansuriya (24CS057)",
+  "author": "Hari Bhavsar (24CS009)",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",

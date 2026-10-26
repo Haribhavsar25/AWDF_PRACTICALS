@@ -1,8 +1,7 @@
 /**
  * Practical 4: Building a RESTful API with Node.js and Express
  * Course: ITUE301 - Advanced Web Development Frameworks
- * Student ID: 24CS057 | Name: Shubham Pansuriya
- * Academic Year: 2026-27 | Semester: 5th
+ * Student ID: 24CS009 | Name: Hari Bhavsar * Academic Year: 2026-27 | Semester: 5th
  */
 
 const express = require('express');
@@ -74,7 +73,7 @@ let tasks = [
 app.get('/', (req, res) => {
   res.status(200).json({
     message: 'Welcome to Task Manager RESTful API (ITUE301 - Practical 4)',
-    student: 'Shubham Pansuriya (24CS057)',
+    student: 'Hari Bhavsar (24CS009)',
     version: '1.0.0',
     endpoints: {
       getAllTasks: 'GET /tasks',

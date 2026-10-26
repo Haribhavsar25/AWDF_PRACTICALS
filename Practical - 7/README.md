@@ -2,9 +2,8 @@
 
 **Course:** ITUE301 - Advanced Web Development Frameworks (AWDF)  
 **Academic Year:** 2026-27 (5th Semester)  
-**Student ID:** 24CS057  
-**Student Name:** Shubham Pansuriya  
-**GitHub Repository:** [https://github.com/24cs057shubham/AWDF-Practicals/tree/main/Practical%20-%207.git](https://github.com/24cs057shubham/AWDF-Practicals/tree/main/Practical%20-%207.git)
+**Student ID:** 24CS009  
+**Student Name:** Hari Bhavsar **GitHub Repository:** [https://github.com/Haribhavsar25/AWDF_PRACTICALS/tree/main/Practical%20-%207.git](https://github.com/Haribhavsar25/AWDF_PRACTICALS/tree/main/Practical%20-%207.git)
 
 ---
 
@@ -84,7 +83,7 @@ npm run dev
 3. `pr7_postman_protected_tasks.png`: Postman testing `GET /me` and `/tasks` with `Authorization: Bearer <token>` header.
 4. `pr7_postman_401_unauthorized.png`: Postman verifying middleware security rejections (`401 Unauthorized` without token, `400 Bad Request` on validation failure).
 5. `pr7_react_auth_dashboard.png`: React Single Page Application showing authenticated dashboard, user profile, and token expiry simulation.
-6. `pr7_github_repo.png`: GitHub repository deliverable view for `24cs057shubham/AWDF-PR-7`.
+6. `pr7_github_repo.png`: GitHub repository deliverable view for `Haribhavsar25/AWDF-PR-7`.
 
 ---
 

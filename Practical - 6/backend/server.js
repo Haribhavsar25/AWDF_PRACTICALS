@@ -1,8 +1,7 @@
 /**
  * Practical 6: Express Backend Server with MongoDB Integration & CORS
  * Course: ITUE301 - Advanced Web Development Frameworks
- * Student ID: 24CS057 | Name: Shubham Pansuriya
- */
+ * Student ID: 24CS009 | Name: Hari Bhavsar */
 
 const express = require('express');
 const mongoose = require('mongoose');
@@ -51,7 +50,7 @@ mongoose
 app.get('/', (req, res) => {
   res.status(200).json({
     message: 'Task Manager Backend API (Practical 6 - Full Stack Integration)',
-    student: 'Shubham Pansuriya (24CS057)',
+    student: 'Hari Bhavsar (24CS009)',
     database: 'MongoDB (Mongoose ODM)',
     status: mongoose.connection.readyState === 1 ? 'Connected' : 'Connecting/Disconnected',
     endpoints: {

@@ -51,7 +51,7 @@ function Login({ setUser }) {
               className="form-input"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="shubham@charusat.edu.in"
+              placeholder="24cs009@charusat.edu.in"
               required
             />
           </div>

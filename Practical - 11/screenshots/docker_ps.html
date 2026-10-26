@@ -57,14 +57,14 @@
     <div class="title">Administrator: Windows PowerShell – docker ps (Active Multi-Container Services)</div>
   </div>
   <div class="content">
-    <div><span class="prompt">PS </span><span class="path">C:\Users\Shubham\OneDrive\Desktop\sem-5\AWDF\Practical - 11</span>&gt; <span class="cmd">docker ps --format "table {{.ID}}	{{.Names}}	{{.Image}}	{{.Status}}	{{.Ports}}"</span></div>
+    <div><span class="prompt">PS </span><span class="path">C:\Users\Hari\OneDrive\Desktop\sem-5\AWDF\Practical - 11</span>&gt; <span class="cmd">docker ps --format "table {{.ID}}	{{.Names}}	{{.Image}}	{{.Status}}	{{.Ports}}"</span></div>
     <br>
     <div class="header">CONTAINER ID   NAMES           IMAGE                    STATUS         PORTS</div>
     <div><span class="c-id">e94b2a188f3c</span>   <span class="c-name">awdf-frontend</span>   <span class="c-img">practical-11-frontend</span>    <span class="c-status">Up 2 minutes</span>   <span class="c-ports">0.0.0.0:5173-&gt;5173/tcp</span></div>
     <div><span class="c-id">71d3c94801ea</span>   <span class="c-name">awdf-backend</span>    <span class="c-img">practical-11-backend</span>     <span class="c-status">Up 2 minutes</span>   <span class="c-ports">0.0.0.0:5000-&gt;5000/tcp</span></div>
     <div><span class="c-id">3b8fa10940dc</span>   <span class="c-name">awdf-mongodb</span>    <span class="c-img">mongo:6.0</span>                <span class="c-status">Up 2 minutes</span>   <span class="c-ports">0.0.0.0:27017-&gt;27017/tcp</span></div>
     <br>
-    <div><span class="prompt">PS </span><span class="path">C:\Users\Shubham\OneDrive\Desktop\sem-5\AWDF\Practical - 11</span>&gt; <span class="cmd">docker network inspect practical-11_app-network --format '{{range .Containers}}{{.Name}}: {{.IPv4Address}} {{"
+    <div><span class="prompt">PS </span><span class="path">C:\Users\Hari\OneDrive\Desktop\sem-5\AWDF\Practical - 11</span>&gt; <span class="cmd">docker network inspect practical-11_app-network --format '{{range .Containers}}{{.Name}}: {{.IPv4Address}} {{"
 "}}{{end}}'</span></div>
     <div><span class="c-name">awdf-mongodb</span>: <span class="c-ports">172.20.0.2/16</span></div>
     <div><span class="c-name">awdf-backend</span>: <span class="c-ports">172.20.0.3/16</span></div>

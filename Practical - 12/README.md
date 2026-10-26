@@ -1,14 +1,13 @@
 # Practical 12: CI/CD Pipeline with GitHub Actions
 
-[![CI/CD Pipeline](https://github.com/24cs057shubham/AWDF-Practicals/tree/main/Practical%20-%2012/actions/workflows/ci.yml/badge.svg)](https://github.com/24cs057shubham/AWDF-Practicals/tree/main/Practical%20-%2012/actions/workflows/ci.yml)
-[![Tests Passed](https://img.shields.io/badge/Tests-5%20Passed-brightgreen.svg)](https://github.com/24cs057shubham/AWDF-Practicals/tree/main/Practical%20-%2012/actions)
+[![CI/CD Pipeline](https://github.com/Haribhavsar25/AWDF_PRACTICALS/tree/main/Practical%20-%2012/actions/workflows/ci.yml/badge.svg)](https://github.com/Haribhavsar25/AWDF_PRACTICALS/tree/main/Practical%20-%2012/actions/workflows/ci.yml)
+[![Tests Passed](https://img.shields.io/badge/Tests-5%20Passed-brightgreen.svg)](https://github.com/Haribhavsar25/AWDF_PRACTICALS/tree/main/Practical%20-%2012/actions)
 [![Node Version](https://img.shields.io/badge/Node-v18.x-blue.svg)](https://nodejs.org/)
 
 **Course:** ITUE301 - Advanced Web Development Frameworks (AWDF)  
 **Academic Year:** 2026-27 (5th Semester)  
-**Student ID:** 24CS057  
-**Student Name:** Shubham Pansuriya  
-**GitHub Repository:** [https://github.com/24cs057shubham/AWDF-Practicals/tree/main/Practical%20-%2012.git](https://github.com/24cs057shubham/AWDF-Practicals/tree/main/Practical%20-%2012.git)
+**Student ID:** 24CS009  
+**Student Name:** Hari Bhavsar **GitHub Repository:** [https://github.com/Haribhavsar25/AWDF_PRACTICALS/tree/main/Practical%20-%2012.git](https://github.com/Haribhavsar25/AWDF_PRACTICALS/tree/main/Practical%20-%2012.git)
 
 ---
 
@@ -98,7 +97,7 @@ git push origin main
 3. `pr12_terminal_jest_tests_pass.png`: Local PowerShell terminal running `npm test` verifying all 5 automated test cases passing in under 1 second.
 4. `pr12_workflow_yaml_editor.png`: Visual Studio Code editor displaying `.github/workflows/ci.yml` multi-job configuration.
 5. `pr12_readme_status_badge.png`: GitHub repository homepage displaying the live passing CI status badge.
-6. `pr12_github_repo.png`: GitHub repository deliverable evidence for `24cs057shubham/AWDF-PR-12`.
+6. `pr12_github_repo.png`: GitHub repository deliverable evidence for `Haribhavsar25/AWDF-PR-12`.
 
 ---
 
